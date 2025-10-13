@@ -3,19 +3,46 @@
   "subtitle": "At SNQ, we make the law a stronghold and justice a noble path. We provide our clients with comprehensive legal services that meet the needs of individuals, companies, and investors, combining experience and reliability, precision, and professionalism.",
   "service1": {
     "title": "Corporate Law",
-    "description": "\"We build the entity from its inception, restructure it when needed, and safeguard its rights through every stage.\""
+    "description": "\"We build the entity from its inception, restructure it when needed, and safeguard its rights through every stage.\"",
+    "items": [
+      "Establishing legal entities and drafting partnership agreements",
+      "Company restructuring and implementing governance principles",
+      "Managing mergers and acquisitions",
+      "Representation before judicial authorities",
+      "Liquidation of companies in various legal forms",
+      "Providing legal consultations to companies and their boards of directors"
+    ]
   },
   "service2": {
     "title": "Foreign Investment",
-    "description": "\"We open the doors to the Saudi market with secure investment solutions and sound legal insights.\""
+    "description": "\"We open the doors to the Saudi market with secure investment solutions and sound legal insights.\"",
+    "items": [
+      "Specialized legal consultations",
+      "Establishing foreign companies of all types",
+      "Representation before competent authorities and relevant investment parties",
+      "Obtaining necessary documents for companies"
+    ]
   },
   "service3": {
     "title": "Contracts & Commercial Transactions",
-    "description": "\"Drafting contracts with clarity, and ensuring business dealings with confidence.\""
+    "description": "\"Drafting contracts with clarity, and ensuring business dealings with confidence.\"",
+    "items": [
+      "Drafting and reviewing commercial agencies",
+      "Franchise agreements",
+      "E-commerce contracts",
+      "Construction contracts",
+      "Supply contracts",
+      "Providing specialized legal consultations"
+    ]
   },
   "service4": {
     "title": "Compliance & Governance",
-    "description": "\"We align your path with transparency and elevate your standards of integrity and compliance.\""
+    "description": "\"We align your path with transparency and elevate your standards of integrity and compliance.\"",
+    "items": [
+      "Reviewing companies' regulatory compliance",
+      "Preparing internal policies and regulatory frameworks for establishments",
+      "Anti-money laundering and counter-terrorism financing services"
+    ]
   },
   "service5": {
     "title": "Sports Law",
@@ -23,19 +50,38 @@
   },
   "service6": {
     "title": "Premium Residency",
-    "description": "\"Residency granted with distinction, supported by seamless legal assistance.\""
+    "description": "\"Residency granted with distinction, supported by seamless legal assistance.\"",
+    "items": [
+      "Assessing eligibility based on premium residency requirements",
+      "Preparing and submitting documents to competent authorities",
+      "Assistance in renewing premium residency",
+      "Providing legal support in appealing residency status when needed",
+      "Providing specialized consultations on legal compliance with relevant regulations"
+    ]
   },
   "service7": {
     "title": "Media Cases & Influencer Support",
-    "description": "\"We protect influencers’ rights and strengthen their presence across media and advertising platforms.\""
+    "description": "\"We protect influencers' rights and strengthen their presence across media and advertising platforms.\""
   },
   "service8": {
     "title": "Criminal Cases",
-    "description": "\"We protect individual rights and ensure justice in criminal cases through defense and legal pursuit.\""
+    "description": "\"We protect individual rights and ensure justice in criminal cases through defense and legal pursuit.\"",
+    "items": [
+      "Pleading and representation before judicial authorities at all levels",
+      "Representation and defense before investigation and prosecution authorities",
+      "Handling financial crimes and cybercrimes cases",
+      "Providing legal consultations on criminal aspects related to commercial transactions"
+    ]
   },
   "service9": {
     "title": "Intellectual Property",
-    "description": "\"We protect your innovation and preserve your ideas so your creations remain secure.\""
+    "description": "\"We protect your innovation and preserve your ideas so your creations remain secure.\"",
+    "items": [
+      "Registering trademarks, patents, and copyrights",
+      "Protecting works from imitation, piracy, and counterfeiting",
+      "Representing clients in judicial disputes related to intellectual property rights",
+      "Providing strategic legal consultations on protecting and developing intellectual assets"
+    ]
   },
   "service10": {
     "title": "Banking & Finance Law",
@@ -43,22 +89,61 @@
   },
   "service11": {
     "title": "Real Estate Contracts & Transactions",
-    "description": "\"We organize property rights and resolve disputes to ensure trust and stability in real estate.\""
+    "description": "\"We organize property rights and resolve disputes to ensure trust and stability in real estate.\"",
+    "items": [
+      "Purchase and sale contracts for raw land and real estate",
+      "Handling real estate situations and common property units",
+      "Managing real estate disputes and handling title deeds",
+      "Expropriation for public benefit",
+      "Off-plan sale contracts",
+      "Providing legal consultations on white land fees and various real estate disputes"
+    ]
   },
   "service12": {
     "title": "Bankruptcy Services",
-    "description": "\"We stand by the creditor in reclaiming rights and guide the debtor through hardship, in line with bankruptcy laws — upholding justice and preserving assets.\""
+    "description": "\"We stand by the creditor in reclaiming rights and guide the debtor through hardship, in line with bankruptcy laws — upholding justice and preserving assets.\"",
+    "items": [
+      "Preventive settlement procedures",
+      "Financial reorganization",
+      "Liquidation of all types",
+      "Representation before competent authorities",
+      "Providing specialized legal consultations to companies and individuals"
+    ]
   },
   "service13": {
     "title": "Inheritance, Endowments & Wills",
-    "description": "\"We safeguard rightful inheritances and preserve family values with wise legal counsel.\""
+    "description": "\"We safeguard rightful inheritances and preserve family values with wise legal counsel.\"",
+    "items": [
+      "Estate settlement: Inventorying estates of all types, organizing them, and distributing legal shares to heirs",
+      "Endowments: Registering endowments and drafting their deeds, structuring their supervision, and legal oversight of their management",
+      "Wills: Drafting and executing wills, registering them, and overseeing their administration and authorities",
+      "Legal supervision: Managing private charitable institutions and financial evaluation of estate components through certified experts",
+      "Legal representation: Defending heirs' interests before courts, claiming estate rights from third parties, and representing them in meetings with other parties",
+      "Drafting and documentation: Preparing special powers of attorney, drafting contracts and memoranda of understanding related to estates and endowments"
+    ]
   },
   "service14": {
     "title": "Comprehensive Labor Dispute Services",
-    "description": "\"We create balance and preserve rights within workplace environments.\""
+    "description": "\"We create balance and preserve rights within workplace environments.\"",
+    "items": [
+      "Pleading and legal representation for individuals and companies before judicial authorities",
+      "Drafting and reviewing employment contracts and companies' internal regulations",
+      "Handling cases of unfair dismissal, financial claims, and work injury compensation",
+      "Representation in labor negotiations and amicable dispute resolution",
+      "Providing legal consultations related to labor law and social insurance system"
+    ]
   },
   "service15": {
     "title": "Judgment Enforcement & Debt Collection",
-    "description": "\"We secure rights and collect debts through legal solutions that combine firmness with professional courtesy.\""
+    "description": "\"We secure rights and collect debts through legal solutions that combine firmness with professional courtesy.\"",
+    "items": [
+      "Enforcing civil, commercial, and administrative judgments before competent courts",
+      "Following up on financial claims amicably or judicially",
+      "Analyzing debt portfolios and updating all their data",
+      "Tracking smuggled assets and funds",
+      "Innovative and facilitated solutions for paying off companies' and individuals' debts",
+      "Telephone collection through calls and text messages",
+      "Providing legal consultations on collection mechanisms"
+    ]
   }
 }

@@ -20,6 +20,8 @@ type CarouselProps = {
   plugins?: CarouselPlugin
   orientation?: "horizontal" | "vertical"
   setApi?: (api: CarouselApi) => void
+  autoplay?: boolean
+  autoplayDelay?: number
 }
 
 type CarouselContextProps = {
@@ -43,7 +45,7 @@ function useCarousel() {
   return context
 }
 
-function Carousel({ orientation = "horizontal", opts, setApi, plugins, className, children, ...props}: React.ComponentProps<"div"> & CarouselProps) {
+function Carousel({ orientation = "horizontal", opts, setApi, plugins, className, children, autoplay = false, autoplayDelay = 3000, ...props}: React.ComponentProps<"div"> & CarouselProps) {
   
   const [carouselRef, api] = useEmblaCarousel(
     {
@@ -54,6 +56,7 @@ function Carousel({ orientation = "horizontal", opts, setApi, plugins, className
   )
   const [canScrollPrev, setCanScrollPrev] = React.useState(false)
   const [canScrollNext, setCanScrollNext] = React.useState(false)
+  const [isAutoPlaying, setIsAutoPlaying] = React.useState(autoplay)
 
   const onSelect = React.useCallback((api: CarouselApi) => {
     if (!api) return
@@ -97,6 +100,40 @@ function Carousel({ orientation = "horizontal", opts, setApi, plugins, className
       api?.off("select", onSelect)
     }
   }, [api, onSelect])
+
+  // Auto-play functionality
+  React.useEffect(() => {
+    if (!api || !isAutoPlaying) return
+
+    const interval = setInterval(() => {
+      if (api.canScrollNext()) {
+        api.scrollNext()
+      } else {
+        // Loop back to the first slide
+        api.scrollTo(0)
+      }
+    }, autoplayDelay)
+
+    return () => {
+      clearInterval(interval)
+    }
+  }, [api, isAutoPlaying, autoplayDelay])
+
+  // Pause auto-play on user interaction
+  React.useEffect(() => {
+    if (!api || !autoplay) return
+
+    const handlePointerDown = () => setIsAutoPlaying(false)
+    const handlePointerUp = () => setIsAutoPlaying(true)
+
+    api.on("pointerDown", handlePointerDown)
+    api.on("pointerUp", handlePointerUp)
+
+    return () => {
+      api.off("pointerDown", handlePointerDown)
+      api.off("pointerUp", handlePointerUp)
+    }
+  }, [api, autoplay])
 
   return (
     <CarouselContext.Provider

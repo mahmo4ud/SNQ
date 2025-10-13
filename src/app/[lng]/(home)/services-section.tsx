@@ -1,9 +1,11 @@
 "use client"
 
 import Image from "next/image"
+import { useState } from "react"
 import { useT } from "@/app/i18n/client"
 import OpeningBracket from "@/components/opening-bracket"
 import ClosingBracket from "@/components/closing-bracket"
+import MobileLogo from "@/../public/mobile-logo.png"
 
 // Import service card icons
 import Icon1 from "@/../public/services-card-icons/1.png"
@@ -23,25 +25,27 @@ import Icon14 from "@/../public/services-card-icons/14.png"
 import Icon15 from "@/../public/services-card-icons/15.png"
 
 const services = [
-  { id: 1, icon: Icon1, titleKey: "service1.title", descKey: "service1.description" },
-  { id: 2, icon: Icon2, titleKey: "service2.title", descKey: "service2.description" },
-  { id: 3, icon: Icon3, titleKey: "service3.title", descKey: "service3.description" },
-  { id: 4, icon: Icon4, titleKey: "service4.title", descKey: "service4.description" },
-  { id: 5, icon: Icon5, titleKey: "service5.title", descKey: "service5.description" },
-  { id: 6, icon: Icon6, titleKey: "service6.title", descKey: "service6.description" },
-  { id: 7, icon: Icon7, titleKey: "service7.title", descKey: "service7.description" },
-  { id: 8, icon: Icon8, titleKey: "service8.title", descKey: "service8.description" },
-  { id: 9, icon: Icon9, titleKey: "service9.title", descKey: "service9.description" },
-  { id: 10, icon: Icon10, titleKey: "service10.title", descKey: "service10.description" },
-  { id: 11, icon: Icon11, titleKey: "service11.title", descKey: "service11.description" },
-  { id: 12, icon: Icon12, titleKey: "service12.title", descKey: "service12.description" },
-  { id: 13, icon: Icon13, titleKey: "service13.title", descKey: "service13.description" },
-  { id: 14, icon: Icon14, titleKey: "service14.title", descKey: "service14.description" },
-  { id: 15, icon: Icon15, titleKey: "service15.title", descKey: "service15.description" },
+  { id: 1, icon: Icon1, titleKey: "service1.title", descKey: "service1.description", itemsKey: "service1.items" },
+  { id: 2, icon: Icon2, titleKey: "service2.title", descKey: "service2.description", itemsKey: "service2.items" },
+  { id: 3, icon: Icon3, titleKey: "service3.title", descKey: "service3.description", itemsKey: "service3.items" },
+  { id: 4, icon: Icon4, titleKey: "service4.title", descKey: "service4.description", itemsKey: "service4.items" },
+  { id: 5, icon: Icon5, titleKey: "service5.title", descKey: "service5.description", itemsKey: "service5.items" },
+  { id: 6, icon: Icon6, titleKey: "service6.title", descKey: "service6.description", itemsKey: "service6.items" },
+  { id: 7, icon: Icon7, titleKey: "service7.title", descKey: "service7.description", itemsKey: "service7.items" },
+  { id: 8, icon: Icon8, titleKey: "service8.title", descKey: "service8.description", itemsKey: "service8.items" },
+  { id: 9, icon: Icon9, titleKey: "service9.title", descKey: "service9.description", itemsKey: "service9.items" },
+  { id: 10, icon: Icon10, titleKey: "service10.title", descKey: "service10.description", itemsKey: "service10.items" },
+  { id: 11, icon: Icon11, titleKey: "service11.title", descKey: "service11.description", itemsKey: "service11.items" },
+  { id: 12, icon: Icon12, titleKey: "service12.title", descKey: "service12.description", itemsKey: "service12.items" },
+  { id: 13, icon: Icon13, titleKey: "service13.title", descKey: "service13.description", itemsKey: "service13.items" },
+  { id: 14, icon: Icon14, titleKey: "service14.title", descKey: "service14.description", itemsKey: "service14.items" },
+  { id: 15, icon: Icon15, titleKey: "service15.title", descKey: "service15.description", itemsKey: "service15.items" },
 ]
 
 export default function ServicesSection() {
-  const { t } = useT("services")
+  const { t, i18n } = useT("services")
+  const [hoveredCard, setHoveredCard] = useState<number | null>(null)
+  const direction = i18n.language === "ar" ? "rtl" : "ltr"
 
   // Split services into three columns
   const column1 = services.filter((_, index) => index % 3 === 0)
@@ -49,51 +53,71 @@ export default function ServicesSection() {
   const column3 = services.filter((_, index) => index % 3 === 2)
 
   const renderServiceCard = (service: typeof services[0]) => {
+    const isHovered = hoveredCard === service.id
+    const items = t(service.itemsKey, { returnObjects: true }) as string[]
+    const hasItems = Array.isArray(items) && items.length > 0
+
     return (
       <div
         key={service.id}
-        className="h-fit bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl flex flex-col group hover:scale-105 transition-all duration-300"
-        
+        className="h-fit bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl flex flex-col group relative overflow-hidden"
+        onMouseEnter={() => hasItems && setHoveredCard(service.id)}
+        onMouseLeave={() => hasItems && setHoveredCard(null)}
       >
-        {/* Icon */}
-        <div className="flex justify-start mb-4">
-          <div className="p-4 rounded-full bg-gold/10 group-hover:bg-gold/20 transition-colors">
-            <Image 
-              src={service.icon} 
-              alt={t(service.titleKey)}
-              width={40}
-              height={40}
-              className="w-10 h-10 object-contain"
-            />
+        {/* Default Content */}
+        <div className={`transition-opacity duration-300`}>
+          {/* Icon */}
+          <div className="flex justify-start mb-4">
+            <div className="p-4 rounded-full bg-gold/10 group-hover:bg-gold/20 transition-colors">
+              <Image 
+                src={service.icon} 
+                alt={t(service.titleKey)}
+                width={40}
+                height={40}
+                className="w-10 h-10 object-contain"
+              />
+            </div>
+          </div>
+          
+          {/* Title */}
+          <h3 className="text-lg md:text-[1.5rem] font-bold text-gold mb-3">
+            {t(service.titleKey)}
+          </h3>
+          
+          {/* Description */}
+          <p className={`text-gray-600 font-medium leading-relaxed text-[1.125rem] transition-all duration-500`}>
+            {t(service.descKey)}
+          </p>
+
+          
+          <div className={`overflow-hidden transition-all duration-1000 ease-in-out ${isHovered ? 'max-h-[500px] opacity-100' : 'max-h-0 opacity-0'}`}>
+            <ul className="font-medium list-disc list-inside space-y-2 text-gray-400 text-sm md:text-base leading-relaxed pt-2">
+              {Array.isArray(items) && items.map((item, index) => (
+                <li key={index} style={{ direction: direction }}>
+                  {item}
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
-        
-        {/* Title */}
-        <h3 className="text-lg md:text-[1.5rem] font-bold text-gold mb-3">
-          {t(service.titleKey)}
-        </h3>
-        
-        {/* Description */}
-        <p className="text-gray-600 leading-relaxed text-[1.125rem]">
-          {t(service.descKey)}
-        </p>
       </div>
     )
   }
 
   return (
-    <section className="w-full py-16 md:py-24 bg-primary">
-      <div className="container mx-auto px-4 md:px-8 lg:px-16">
+    <section className="relative w-full py-16 md:py-24 bg-primary">
+      <Image src={MobileLogo} alt="Mobile Logo" className="w-[35rem] absolute top-20 left-1/2 -translate-x-1/2 z-1 opacity-5" />
+      <div className="relative container mx-auto px-4 md:px-8 lg:px-16 z-10">
         {/* Section Header */}
         <div className="text-center mb-12 md:mb-16">
-          <div className="flex items-center justify-center gap-4 mb-4">
+          <div className="flex items-center justify-center gap-4 mb-8 mt-12">
             <OpeningBracket className="w-6 h-6 md:w-8 md:h-8" />
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white">
+            <h2 className="text-3xl md:text-4xl lg:text-[2.25rem] font-bold text-white">
               {t("title")}
             </h2>
             <ClosingBracket className="w-6 h-6 md:w-8 md:h-8" />
           </div>
-          <p className="text-lite-primary text-lg md:text-xl max-w-3xl mx-auto leading-relaxed">
+          <p className="text-lite-primary text-lg md:text-[1.38rem] max-w-3xl mx-auto leading-relaxed">
             {t("subtitle")}
           </p>
         </div>

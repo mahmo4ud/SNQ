@@ -36,7 +36,7 @@ export default function HeroCarousel() {
 
   return (
     <section className="w-full">
-      <Carousel opts={{ align: "start", loop: true, direction: direction }} className="w-full h-full">
+      <Carousel opts={{ align: "start", loop: true, direction: direction }} autoplay={true} autoplayDelay={5000} className="w-full h-full">
         <CarouselContent className="h-[calc(100vh-70px)] relative z-2 ml-0">
           {slides.map((slide) => (
             <CarouselItem 
@@ -96,10 +96,10 @@ export default function HeroCarousel() {
         
         {/* Navigation Buttons */}
         <CarouselPrevious 
-          className="w-12 h-12 left-4 text-lite-primary md:left-8 bg-[#181818]/5 hover:bg-white border-none shadow-lg z-2"
+          className="hidden md:flex w-12 h-12 left-4 text-lite-primary md:left-8 bg-[#181818]/5 hover:bg-white border-none shadow-lg z-2"
         />
         <CarouselNext 
-          className="w-12 h-12 right-4 text-lite-primary md:right-8 bg-[#181818]/5 hover:bg-white border-none shadow-lg z-2"
+          className="hidden md:flex w-12 h-12 right-4 text-lite-primary md:right-8 bg-[#181818]/5 hover:bg-white border-none shadow-lg z-2"
         />
         
         {/* Pagination Dots */}

@@ -42,7 +42,7 @@ export default function Page() {
       {/* Commitment Section */}
       <section className="w-full h-screen flex justify-center items-center py-16 md:py-24 bg-transparent">
         <article className="w-5/6 flex flex-col items-center gap-16 mx-auto px-4 md:px-8 lg:px-16">
-          <div className="flex items-center justify-center gap-4 mb-6">
+          <div className="flex items-center justify-center gap-4 mb-6 text-center">
             <OpeningBracket className="w-6 h-6 md:w-8 md:h-8" />
             <h2 className="text-3xl md:text-4xl lg:text-3xl font-bold text-primary">{t("commitment.title")}</h2>
             <ClosingBracket className="w-6 h-6 md:w-8 md:h-8" />
@@ -56,7 +56,7 @@ export default function Page() {
       {/* Partners Section */}
       <section className="w-full flex justify-center items-center py-16 md:py-32 bg-transparent">
         <article className="w-5/6 flex flex-col items-center gap-16 mx-auto px-4 md:px-8 lg:px-6">
-          <div className="flex items-center justify-center gap-4 mb-6">
+          <div className="flex items-center justify-center gap-4 mb-6 text-center">
             <OpeningBracket className="w-6 h-6 md:w-8 md:h-8" />
             <h2 className="text-3xl md:text-4xl lg:text-3xl font-bold text-primary">{t("partners.title")}</h2>
             <ClosingBracket className="w-6 h-6 md:w-8 md:h-8" />
@@ -65,26 +65,8 @@ export default function Page() {
           <div className="w-full flex flex-wrap items-center justify-center gap-8 md:gap-10 lg:gap-15">
             <div className="flex items-center justify-center w-32 h-32 mx-10 md:mx-0 md:w-40 md:h-40">
               <Image 
-                src={MyTrustLogo} 
-                alt="My Trust" 
-                width={160}
-                height={160}
-                className="object-contain w-full h-full"
-              />
-            </div>
-            <div className="flex items-center justify-center w-32 h-32 mx-10 md:mx-0 md:w-40 md:h-40">
-              <Image 
-                src={GulfITLogo} 
-                alt="Gulf IT" 
-                width={160}
-                height={160}
-                className="object-contain w-full h-full"
-              />
-            </div>
-            <div className="flex items-center justify-center w-32 h-32 mx-10 md:mx-0 md:w-40 md:h-40">
-              <Image 
-                src={GreenCircleLogo} 
-                alt="Green Circle" 
+                src={AntCeilingLogo} 
+                alt="Ant Ceiling" 
                 width={160}
                 height={160}
                 className="object-contain w-full h-full"
@@ -101,8 +83,26 @@ export default function Page() {
             </div>
             <div className="flex items-center justify-center w-32 h-32 mx-10 md:mx-0 md:w-40 md:h-40">
               <Image 
-                src={AntCeilingLogo} 
-                alt="Ant Ceiling" 
+                src={GreenCircleLogo} 
+                alt="Green Circle" 
+                width={160}
+                height={160}
+                className="object-contain w-full h-full"
+              />
+            </div>
+            <div className="flex items-center justify-center w-32 h-32 mx-10 md:mx-0 md:w-40 md:h-40">
+              <Image 
+                src={GulfITLogo} 
+                alt="Gulf IT" 
+                width={160}
+                height={160}
+                className="object-contain w-full h-full"
+              />
+            </div>
+            <div className="flex items-center justify-center w-32 h-32 mx-10 md:mx-0 md:w-40 md:h-40">
+              <Image 
+                src={MyTrustLogo} 
+                alt="My Trust" 
                 width={160}
                 height={160}
                 className="object-contain w-full h-full"
@@ -124,8 +124,8 @@ export default function Page() {
           <div className="w-full flex flex-wrap items-center justify-center gap-8 md:gap-10 lg:gap-15">
             <div className="flex items-center justify-center w-32 h-32 mx-10 md:w-40 md:h-40">
               <Image 
-                src={AccreditationOne} 
-                alt="Accreditation One" 
+                src={AccreditationThree} 
+                alt="Accreditation Three" 
                 width={160}
                 height={160}
                 className="object-contain w-full h-full"
@@ -142,8 +142,8 @@ export default function Page() {
             </div>
             <div className="flex items-center justify-center w-32 h-32 mx-10 md:w-40 md:h-40">
               <Image 
-                src={AccreditationThree} 
-                alt="Accreditation Three" 
+                src={AccreditationOne} 
+                alt="Accreditation One" 
                 width={160}
                 height={160}
                 className="object-contain w-full h-full"
