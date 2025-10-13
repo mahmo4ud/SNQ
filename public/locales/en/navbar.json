@@ -1,0 +1,23 @@
+{
+  "home": "Home",
+  "aboutUs": {
+    "title": "About Us",
+    "ourMessage": "Our Message",
+    "ourVision": "Our Vision",
+    "ourValues": "Our Values"
+  },
+  "advantages": {
+    "title": "Our Advantages",
+    "professionalApproach": "Our Professional Approach",
+    "accreditations": "Accreditations"
+  },
+  "services": "Our Services",
+  "legalConsultations": "Legal Consultations",
+  "news": {
+    "title": "News & Articles",
+    "newsAndEvents": "News & Events",
+    "articles": "Articles"
+  },
+  "joinUs": "Join Us",
+  "contactUs": "Contact Us"
+}

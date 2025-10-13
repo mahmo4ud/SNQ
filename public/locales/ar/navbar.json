@@ -1,0 +1,23 @@
+{
+  "home": "الرئيسية",
+  "aboutUs": {
+    "title": "من نحن",
+    "ourMessage": "رسالتنا",
+    "ourVision": "رؤيتنا",
+    "ourValues": "قيمتنا"
+  },
+  "advantages": {
+    "title": "ما يميزنا",
+    "professionalApproach": "منهجنا المهني",
+    "accreditations": "الاعتمادات"
+  },
+  "services": "خدماتنا",
+  "legalConsultations": "الاستشارات القانونية",
+  "news": {
+    "title": "الأخبار والمقالات",
+    "newsAndEvents": "الأخبار و الفعاليات",
+    "articles": "المقالات"
+  },
+  "joinUs": "انضم إلينا",
+  "contactUs": "اتصل بنا"
+}

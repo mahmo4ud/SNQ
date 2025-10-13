@@ -1,0 +1,29 @@
+{
+  "quickLinks": {
+    "title": "Quick Links",
+    "news": "News",
+    "articles": "Articles",
+    "joinTeam": "Join Us",
+    "startConsultations": "Start Your Legal Consultations",
+    "contactUs": "Contact Us"
+  },
+  "about": {
+    "title": "About Saeed bin Nasser bin Farad",
+    "services": "Services",
+    "accreditations": "Accreditations",
+    "professionalApproach": "Our Professional Approach",
+    "ourMessage": "Our Message",
+    "ourVision": "Our Vision",
+    "ourValues": "Our Values"
+  },
+  "contact": {
+    "title": "Contact Information",
+    "location": "Kingdom of Saudi Arabia, Riyadh"
+  },
+  "bottomBar": {
+    "privacyPolicy": "Privacy Policy",
+    "terms": "Terms & Conditions",
+    "tradeMarkPolicy": "Trade Mark Policy",
+    "copyright": "Saeed bin Farad. All Rights Reserved 2025"
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "quickLinks": {
+    "title": "روابط سريعة",
+    "news": "الأخبار",
+    "articles": "المقالات",
+    "joinTeam": "انضم إلينا",
+    "startConsultations": "ابدأ استشاراتك القانونية",
+    "contactUs": "اتصل بنا"
+  },
+  "about": {
+    "title": "عن سعيد بن ناصر بن فراد",
+    "services": "الخدمات",
+    "accreditations": "الاعتمادات",
+    "professionalApproach": "منهجنا المهني",
+    "ourMessage": "رسالتنا",
+    "ourVision": "رؤيتنا",
+    "ourValues": "قيمنا"
+  },
+  "contact": {
+    "title": "معلومات الاتصال",
+    "location": "المملكة العربية السعودية الرياض"
+  },
+  "bottomBar": {
+    "privacyPolicy": "سياسة الخصوصية",
+    "terms": "الشروط والأحكام",
+    "tradeMarkPolicy": "سياسة العلامة التجارية",
+    "copyright": "2025 سعيد بن فراد. جميع الحقوق محفوظة"
+  }
+}

@@ -6,6 +6,8 @@ import Logo from "@/../public/logo.png";
 import { useState } from "react";
 import { usePathname } from "next/navigation";
 import { ChevronDownIcon, XMarkIcon } from "@heroicons/react/24/outline";
+import LanguageButton from "./Language-button";
+import { useT } from "@/app/i18n/client";
 
 interface SideMenuProps {
   isOpen: boolean;
@@ -13,8 +15,12 @@ interface SideMenuProps {
 }
 
 export default function SideMenu({ isOpen, onClose }: SideMenuProps) {
+  const { t, i18n } = useT("navbar");
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
   const pathname = usePathname();
+  
+  // Extract current language from pathname
+  const currentLang = pathname.match(/^\/(en|ar)/)?.[1] || i18n.language || "ar";
 
   const toggleDropdown = (dropdown: string) => {
     setOpenDropdown(openDropdown === dropdown ? null : dropdown);
@@ -32,13 +38,13 @@ export default function SideMenu({ isOpen, onClose }: SideMenuProps) {
 
       {/* Sidebar Menu */}
       <div
-        className={`fixed top-0 right-0 h-full w-[280px] bg-primary text-nav-text z-[70] transform transition-transform duration-300 ease-in-out lg:hidden overflow-y-auto ${
+        className={`fixed top-0 right-0 h-full w-[280px] bg-primary text-lite-primary z-[70] transform transition-transform duration-300 ease-in-out lg:hidden overflow-y-auto ${
           isOpen ? 'translate-x-0' : 'translate-x-full'
         }`}
         dir="rtl"
       >
         {/* Sidebar Header */}
-        <div className="flex justify-between items-center p-4 border-b border-nav-text/30">
+        <div className="flex justify-between items-center p-4 border-b border-lite-primary/30">
           <Image src={Logo} alt="Logo" width={150} />
           <button
             onClick={onClose}
@@ -51,11 +57,11 @@ export default function SideMenu({ isOpen, onClose }: SideMenuProps) {
         {/* Sidebar Links */}
         <div className="flex flex-col p-4 space-y-4 font-medium">
           <Link
-            href="/"
-            className={`hover:text-white transition-colors ${pathname === '/' && 'text-white'}`}
+            href={`/${currentLang}`}
+            className={`hover:text-white transition-colors ${pathname === `/${currentLang}` && 'text-white'}`}
             onClick={onClose}
           >
-            الرئيسية
+            {t("home")}
           </Link>
 
           {/* من نحن - قائمة منسدلة */}
@@ -66,41 +72,47 @@ export default function SideMenu({ isOpen, onClose }: SideMenuProps) {
                 pathname.startsWith('/about-us') && 'text-white'
               }`}
             >
-              من نحن
+              {t("aboutUs.title")}
               <ChevronDownIcon
                 className={`w-4 h-4 ${openDropdown === 'about' && 'rotate-180'} transition-all duration-200`}
               />
             </button>
             {openDropdown === 'about' && (
-              <div className="pr-4 mt-2 space-y-2">
-                <Link
-                  href="/about-us/our-message"
-                  className={`block py-1 hover:text-white transition-colors ${
-                    pathname === '/about-us/our-message' && 'text-white'
-                  }`}
-                  onClick={onClose}
-                >
-                  رسالتنا
-                </Link>
-                <Link
-                  href="/about-us/our-vision"
-                  className={`block py-1 hover:text-white transition-colors ${
-                    pathname === '/about-us/our-vision' && 'text-white'
-                  }`}
-                  onClick={onClose}
-                >
-                  رؤيتنا
-                </Link>
-                <Link
-                  href="/about-us/our-values"
-                  className={`block py-1 hover:text-white transition-colors ${
-                    pathname === '/about-us/our-values' && 'text-white'
-                  }`}
-                  onClick={onClose}
-                >
-                  قيمتنا
-                </Link>
-              </div>
+              <ul className="pr-4 mt-2 space-y-2">
+                <li>
+                  <Link
+                    href={`/${currentLang}/our-message`}
+                    className={`block py-1 hover:text-white transition-colors ${
+                      pathname === `/${currentLang}/our-message` && 'text-white'
+                    }`}
+                    onClick={onClose}
+                  >
+                    {t("aboutUs.ourMessage")}
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href={`/${currentLang}/our-vision`}
+                    className={`block py-1 hover:text-white transition-colors ${
+                      pathname === `/${currentLang}/our-vision` && 'text-white'
+                    }`}
+                    onClick={onClose}
+                  >
+                    {t("aboutUs.ourVision")}
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href={`/${currentLang}/our-values`}
+                    className={`block py-1 hover:text-white transition-colors ${
+                      pathname === `/${currentLang}/our-values` && 'text-white'
+                    }`}
+                    onClick={onClose}
+                  >
+                    {t("aboutUs.ourValues")}
+                  </Link>
+                </li>
+              </ul>
             )}
           </div>
 
@@ -112,49 +124,53 @@ export default function SideMenu({ isOpen, onClose }: SideMenuProps) {
                 pathname.startsWith('/advantages') && 'text-white'
               }`}
             >
-              ما يميزنا
+              {t("advantages.title")}
               <ChevronDownIcon
                 className={`w-4 h-4 ${openDropdown === 'advantages' && 'rotate-180'} transition-all duration-200`}
               />
             </button>
             {openDropdown === 'advantages' && (
-              <div className="pr-4 mt-2 space-y-2">
-                <Link
-                  href="/advantages/professional-approach"
-                  className={`block py-1 hover:text-white transition-colors ${
-                    pathname === '/advantages/professional-approach' && 'text-white'
-                  }`}
-                  onClick={onClose}
-                >
-                  منهجنا المهني
-                </Link>
-                <Link
-                  href="/advantages/accreditations"
-                  className={`block py-1 hover:text-white transition-colors ${
-                    pathname === '/advantages/accreditations' && 'text-white'
-                  }`}
-                  onClick={onClose}
-                >
-                  الاعتمادات
-                </Link>
-              </div>
+              <ul className="pr-4 mt-2 space-y-2">
+                <li>
+                  <Link
+                    href={`/${currentLang}/our-professional-approach`}
+                    className={`block py-1 hover:text-white transition-colors ${
+                      pathname === `/${currentLang}/our-professional-approach` && 'text-white'
+                    }`}
+                    onClick={onClose}
+                  >
+                    {t("advantages.professionalApproach")}
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href={`/${currentLang}/accreditations`}
+                    className={`block py-1 hover:text-white transition-colors ${
+                      pathname === `/${currentLang}/accreditations` && 'text-white'
+                    }`}
+                    onClick={onClose}
+                  >
+                    {t("advantages.accreditations")}
+                  </Link>
+                </li>
+              </ul>
             )}
           </div>
 
           <Link
-            href="/services"
-            className={`hover:text-white transition-colors ${pathname === '/services' && 'text-white'}`}
+            href={`/${currentLang}/our-services`}
+            className={`hover:text-white transition-colors ${pathname === `/${currentLang}/our-services` && 'text-white'}`}
             onClick={onClose}
           >
-            خدماتنا
+            {t("services")}
           </Link>
 
           <Link
-            href="/legal-consultations"
-            className={`hover:text-white transition-colors ${pathname === '/legal-consultations' && 'text-white'}`}
+            href={`/${currentLang}/legal-consultations`}
+            className={`hover:text-white transition-colors ${pathname === `/${currentLang}/legal-consultations` && 'text-white'}`}
             onClick={onClose}
           >
-            الاستشارات القانونية
+            {t("legalConsultations")}
           </Link>
 
           {/* الأخبار والمقالات - قائمة منسدلة */}
@@ -165,50 +181,55 @@ export default function SideMenu({ isOpen, onClose }: SideMenuProps) {
                 pathname.startsWith('/articles-and-news') && 'text-white'
               }`}
             >
-              الأخبار والمقالات
+              {t("news.title")}
               <ChevronDownIcon
                 className={`w-4 h-4 ${openDropdown === 'news' && 'rotate-180'} transition-all duration-200`}
               />
             </button>
             {openDropdown === 'news' && (
-              <div className="pr-4 mt-2 space-y-2">
-                <Link
-                  href="/articles-and-news/news"
-                  className={`block py-1 hover:text-white transition-colors ${
-                    pathname === '/articles-and-news/news' && 'text-white'
-                  }`}
-                  onClick={onClose}
-                >
-                  الأخبار و الفعاليات
-                </Link>
-                <Link
-                  href="/articles-and-news/events"
-                  className={`block py-1 hover:text-white transition-colors ${
-                    pathname === '/articles-and-news/events' && 'text-white'
-                  }`}
-                  onClick={onClose}
-                >
-                  المقالات
-                </Link>
-              </div>
+              <ul className="pr-4 mt-2 space-y-2">
+                <li>
+                  <Link
+                    href={`/${currentLang}/news`}
+                    className={`block py-1 hover:text-white transition-colors ${
+                      pathname === `/${currentLang}/news` && 'text-white'
+                    }`}
+                    onClick={onClose}
+                  >
+                    {t("news.newsAndEvents")}
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href={`/${currentLang}/articles`}
+                    className={`block py-1 hover:text-white transition-colors ${
+                      pathname === `/${currentLang}/articles` && 'text-white'
+                    }`}
+                    onClick={onClose}
+                  >
+                    {t("news.articles")}
+                  </Link>
+                </li>
+              </ul>
             )}
           </div>
 
           <Link
-            href="/join-us"
-            className={`hover:text-white transition-colors ${pathname === '/join-us' && 'text-white'}`}
+            href={`/${currentLang}/join-us`}
+            className={`hover:text-white transition-colors ${pathname === `/${currentLang}/join-us` && 'text-white'}`}
             onClick={onClose}
           >
-            انضم إلى فريقنا
+            {t("joinUs")}
           </Link>
 
           <Link
-            href="/contact-us"
-            className={`hover:text-white transition-colors ${pathname === '/contact-us' && 'text-white'}`}
+            href={`/${currentLang}/contact-us`}
+            className={`hover:text-white transition-colors ${pathname === `/${currentLang}/contact-us` && 'text-white'}`}
             onClick={onClose}
           >
-            اتصل بنا
+            {t("contactUs")}
           </Link>
+          <LanguageButton />
         </div>
       </div>
     </>

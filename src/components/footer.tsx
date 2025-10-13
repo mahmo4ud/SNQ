@@ -1,12 +1,20 @@
-﻿import Image from "next/image";
+"use client";
+import Image from "next/image";
 import Link from "next/link";
-import LiteLogo from "@/../public/lite-logo.png";
+import LiteLogo from "@/../public/mobile-logo.png";
 import Logo from "@/../public/logo.png"
 import { EnvelopeIcon, PhoneIcon, MapPinIcon } from "@heroicons/react/24/outline";
+import { useT } from "@/app/i18n/client";
+import { usePathname } from "next/navigation";
 
 export default function Footer() {
+  const { t, i18n } = useT("footer");
+  const pathname = usePathname();
+  
+  // Extract current language from pathname
+  const currentLang = pathname.match(/^\/(en|ar)/)?.[1] || i18n.language || "ar";
   return (
-    <footer className="bg-linear-to-bl from-primary to-[#394C31] text-nav-text relative overflow-hidden">
+    <footer className="bg-linear-to-bl from-primary to-[#394C31] text-lite-primary relative overflow-hidden">
       <div className="w-11/12 mx-auto py-12 flex flex-col gap-12" dir="rtl">
         {/* Logo */}
         <div>
@@ -20,36 +28,31 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
           {/* Quick Links - Right Column */}
           <div>
-            <h3 className="text-white text-lg font-semibold mb-4">روابط سريعة</h3>
+            <h3 className="text-white text-lg font-semibold mb-4">{t("quickLinks.title")}</h3>
             <ul className="space-y-2">
               <li>
-                <Link href="/about-us" className="hover:text-white transition-colors">
-                  من نحن
+                <Link href={`/${currentLang}/news`} className="hover:text-white transition-colors">
+                  {t("quickLinks.news")}
                 </Link>
               </li>
               <li>
-                <Link href="/advantages" className="hover:text-white transition-colors">
-                  لماذا نحن مختلفون
+                <Link href={`/${currentLang}/articles`} className="hover:text-white transition-colors">
+                  {t("quickLinks.articles")}
                 </Link>
               </li>
               <li>
-                <Link href="/articles-and-news" className="hover:text-white transition-colors">
-                  المقالات و الأخبار
+                <Link href={`/${currentLang}/join-us`} className="hover:text-white transition-colors">
+                  {t("quickLinks.joinTeam")}
                 </Link>
               </li>
               <li>
-                <Link href="/join-us" className="hover:text-white transition-colors">
-                  انضم الى فريقنا
+                <Link href={`/${currentLang}/legal-consultations`} className="hover:text-white transition-colors">
+                  {t("quickLinks.startConsultations")}
                 </Link>
               </li>
               <li>
-                <Link href="/legal-consultations" className="hover:text-white transition-colors">
-                  ابدأ استشاراتك القانونية
-                </Link>
-              </li>
-              <li>
-                <Link href="/contact-us" className="hover:text-white transition-colors">
-                  اتصل بنا
+                <Link href={`/${currentLang}/contact-us`} className="hover:text-white transition-colors">
+                  {t("quickLinks.contactUs")}
                 </Link>
               </li>
             </ul>
@@ -57,36 +60,36 @@ export default function Footer() {
 
           {/* About - Middle Column */}
           <div>
-            <h3 className="text-white text-lg font-semibold mb-4">عن سعيد بن ناصر بن فراد</h3>
+            <h3 className="text-white text-lg font-semibold mb-4">{t("about.title")}</h3>
             <ul className="space-y-2">
               <li>
-                <Link href="/services" className="hover:text-white transition-colors">
-                  الخدمات
+                <Link href={`/${currentLang}/our-services`} className="hover:text-white transition-colors">
+                  {t("about.services")}
                 </Link>
               </li>
               <li>
-                <Link href="/advantages/accreditations" className="hover:text-white transition-colors">
-                  الاعتمادات
+                <Link href={`/${currentLang}/accreditations`} className="hover:text-white transition-colors">
+                  {t("about.accreditations")}
                 </Link>
               </li>
               <li>
-                <Link href="/advantages/professional-approach" className="hover:text-white transition-colors">
-                  منهجنا المهني
+                <Link href={`/${currentLang}/our-professional-approach`} className="hover:text-white transition-colors">
+                  {t("about.professionalApproach")}
                 </Link>
               </li>
               <li>
-                <Link href="/about-us/our-message" className="hover:text-white transition-colors">
-                  رسالتنا
+                <Link href={`/${currentLang}/our-message`} className="hover:text-white transition-colors">
+                  {t("about.ourMessage")}
                 </Link>
               </li>
               <li>
-                <Link href="/about-us/our-vision" className="hover:text-white transition-colors">
-                  رؤيتنا
+                <Link href={`/${currentLang}/our-vision`} className="hover:text-white transition-colors">
+                  {t("about.ourVision")}
                 </Link>
               </li>
               <li>
-                <Link href="/about-us/our-values" className="hover:text-white transition-colors">
-                  قيمنا
+                <Link href={`/${currentLang}/our-values`} className="hover:text-white transition-colors">
+                  {t("about.ourValues")}
                 </Link>
               </li>
             </ul>
@@ -94,7 +97,7 @@ export default function Footer() {
 
           {/* Contact Info - Left Column */}
           <div>
-            <h3 className="text-white text-lg font-semibold mb-4">معلومات الاتصال</h3>
+            <h3 className="text-white text-lg font-semibold mb-4">{t("contact.title")}</h3>
             <ul className="space-y-3">
               <li>
                 <a href="mailto:info@snqsa.com" className="hover:text-white transition-colors flex items-center gap-2">
@@ -105,18 +108,18 @@ export default function Footer() {
               <li>
                 <a href="tel:+9665706600930" className="hover:text-white transition-colors flex items-center gap-2">
                   <PhoneIcon className="w-5 h-5" />
-                  (+966) 5706600930
+                  <span dir="ltr">(+966) 5706600930</span>
                 </a>
               </li>
               <li className="flex items-start gap-2">
                 <MapPinIcon className="w-5 h-5 mt-1" />
-                <span>المملكة العربية السعودية الرياض</span>
+                <span>{t("contact.location")}</span>
               </li>
             </ul>
             
             {/* Social Media Icons */}
             <div className="flex gap-3 mt-4">
-              <a href="https://wa.me/9665706600930" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
+              <a href="https://wa.me/966570680090" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
                 <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" />
                 </svg>
@@ -133,23 +136,23 @@ export default function Footer() {
 
       {/* Bottom Bar */}
       <div className="border-t border-nav-text/30">
-        <div className="w-11/12 mx-auto py-4" dir="rtl">
+        <div className="w-11/12 mx-auto py-4">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm">
             <div className="flex gap-4">
-              <Link href="/privacy-policy" className="hover:text-white transition-colors">
-                سياسة الخصوصية
-              </Link>
+              <div>
+                {t("bottomBar.tradeMarkPolicy")}
+              </div>
               <span>|</span>
-              <Link href="/terms" className="hover:text-white transition-colors">
-                الشروط والأحكام
-              </Link>
+              <div>
+                {t("bottomBar.terms")}
+              </div>
               <span>|</span>
-              <Link href="/refund-policy" className="hover:text-white transition-colors">
-                سياسة القابلة للاسترداد
-              </Link>
+              <div>
+                {t("bottomBar.privacyPolicy")}
+              </div>
             </div>
             <div>
-              2025 سعيد بن فراد. جميع الحقوق محفوظة
+              {t("bottomBar.copyright")}
             </div>
           </div>
         </div>
