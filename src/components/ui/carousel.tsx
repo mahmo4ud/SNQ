@@ -171,7 +171,7 @@ function CarouselPrevious({
   size = "icon",
   ...props
 }: React.ComponentProps<typeof Button>) {
-  const { orientation, scrollPrev, canScrollPrev } = useCarousel()
+  const { orientation, scrollPrev, scrollNext, canScrollPrev } = useCarousel()
   const { i18n } = useT();
 
   return (
@@ -187,7 +187,7 @@ function CarouselPrevious({
         className
       )}
       disabled={!canScrollPrev}
-      onClick={scrollPrev}
+      onClick= {i18n.language === 'ar' ? scrollNext : scrollPrev}
       {...props}
     >
       <ArrowLeft />
@@ -202,7 +202,8 @@ function CarouselNext({
   size = "icon",
   ...props
 }: React.ComponentProps<typeof Button>) {
-  const { orientation, scrollNext, canScrollNext } = useCarousel()
+  const { orientation, scrollNext, canScrollNext, scrollPrev } = useCarousel()
+  const { i18n } = useT();
 
   return (
     <Button
@@ -217,7 +218,7 @@ function CarouselNext({
         className
       )}
       disabled={!canScrollNext}
-      onClick={scrollNext}
+      onClick={i18n.language === 'ar' ? scrollPrev : scrollNext}
       {...props}
     >
       <ArrowRight />

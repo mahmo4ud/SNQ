@@ -65,7 +65,7 @@ export default function HeroCarousel() {
                           />
                         </div>
                       )}
-                      <div className="flex-1 text-center md:text-right z-10 bg-transparent">
+                      <div className={`flex-1 text-center ${i18n.language === 'ar' ? 'md:text-right' : 'md:text-left'} z-10 bg-transparent`}>
                         <h1 className={`text-2xl md:text-3xl lg:text-4xl font-bold md:mb-4 text-primary`}>
                           {t(`carousel.slide${slide.id}.title`)}
                         </h1>
