@@ -63,16 +63,16 @@ export default function Navbar() {
                     <ChevronDownIcon className={`w-4 h-4 ${openDropdown === 'about' && 'rotate-180'} transition-all duration-200`} />
                     </button>
                   </PopoverTrigger>
-                  <PopoverContent align="start" className={`bg-primary border-none rounded-xl font-medium shadow-lg py-2 px-0 w-fit ${direction === "rtl" ? "pl-15" : "pr-15"} text-nowrap mt-6`} dir={direction}>
+                  <PopoverContent align="start" className={`bg-primary border-none rounded-xl font-medium shadow-lg py-2 px-0 w-[calc(100%+80px)] text-nowrap mt-6 overflow-hidden`} dir={direction}>
                     <div className="flex flex-col">
-                      <Link href={`/${currentLang}/our-message`} className={`block px-4 py-2 text-lite-primary hover:text-white transition-colors ${pathname === `/${currentLang}/our-message` && 'text-white'}`}>
-                        {t("aboutUs.ourMessage")}
+                      <Link href={`/${currentLang}/our-message`} className={`w-full block px-4 py-2 text-lite-primary group hover:text-white hover:bg-lite-primary/20 transition-all${pathname === `/${currentLang}/our-message` && 'text-white'}`}>
+                        <span className="inline-block w-full text-nowrap group-hover:translate-x-[-5px] transition-all">{t("aboutUs.ourMessage")}</span>
                       </Link>
-                      <Link href={`/${currentLang}/our-vision`} className={`block px-4 py-2 text-lite-primary hover:text-white transition-colors ${pathname === `/${currentLang}/our-vision` && 'text-white'}`}>
-                        {t("aboutUs.ourVision")}
+                      <Link href={`/${currentLang}/our-vision`} className={`w-full block px-4 py-2 text-lite-primary group hover:text-white hover:bg-lite-primary/20 transition-all ${pathname === `/${currentLang}/our-vision` && 'text-white'}`}>
+                        <span className="inline-block w-full text-nowrap group-hover:translate-x-[-5px] transition-all">{t("aboutUs.ourVision")}</span>
                       </Link>
-                      <Link href={`/${currentLang}/our-values`} className={`block px-4 py-2 text-lite-primary hover:text-white transition-colors ${pathname === `/${currentLang}/our-values` && 'text-white'}`}>
-                        {t("aboutUs.ourValues")}
+                      <Link href={`/${currentLang}/our-values`} className={`w-full block px-4 py-2 text-lite-primary group hover:text-white hover:bg-lite-primary/20 transition-all ${pathname === `/${currentLang}/our-values` && 'text-white'}`}>
+                        <span className="inline-block w-full text-nowrap group-hover:translate-x-[-5px] transition-all">{t("aboutUs.ourValues")}</span>
                       </Link>
                     </div>
                   </PopoverContent>
@@ -87,20 +87,37 @@ export default function Navbar() {
                     <ChevronDownIcon className={`w-4 h-4 ${openDropdown === 'our-advantages' && 'rotate-180'} transition-all duration-200`} />
                     </button>
                   </PopoverTrigger>
-                  <PopoverContent align="start" className={`bg-primary border-none rounded-xl font-medium shadow-lg py-2 px-0 w-fit text-nowrap ${direction === "rtl" ? "pl-15" : "pr-15"} mt-6`} dir={direction}>
+                  <PopoverContent align="start" className={`bg-primary border-none rounded-xl font-medium shadow-lg py-2 px-0 w-[calc(100%+80px)] text-nowrap mt-6 overflow-hidden`} dir={direction}>
                     <div className="flex flex-col">
-                      <Link href={`/${currentLang}/our-professional-approach`} className={`block px-4 py-2 text-lite-primary hover:text-white transition-colors ${pathname === `/${currentLang}/our-professional-approach` && 'text-white'}`}>
-                        {t("advantages.professionalApproach")}
+                      <Link href={`/${currentLang}/our-professional-approach`} className={`block px-4 py-2 text-lite-primary group hover:text-white hover:bg-lite-primary/20 transition-all ${pathname === `/${currentLang}/our-professional-approach` && 'text-white'}`}>
+                        <span className="inline-block w-full text-nowrap group-hover:translate-x-[-5px] transition-all">{t("advantages.professionalApproach")}</span>
                       </Link>
-                      <Link href={`/${currentLang}/accreditations`} className={`block px-4 py-2 text-lite-primary hover:text-white transition-colors ${pathname === `/${currentLang}/accreditations` && 'text-white'}`}>
-                        {t("advantages.accreditations")}
+                      <Link href={`/${currentLang}/accreditations`} className={`block px-4 py-2 text-lite-primary group hover:text-white hover:bg-lite-primary/20 transition-all ${pathname === `/${currentLang}/accreditations` && 'text-white'}`}>
+                        <span className="inline-block w-full text-nowrap group-hover:translate-x-[-5px] transition-all">{t("advantages.accreditations")}</span>
                       </Link>
                     </div>
                   </PopoverContent>
                 </div>
               </Popover>
               <Link href={`/${currentLang}/our-services`} className={`hover:text-white transition-colors w-fit text-nowrap ${pathname === `/${currentLang}/our-services` && 'text-white'}`}>{t("services")}</Link>
-              <Link href={`/${currentLang}/legal-consultations`} className={`hover:text-white transition-colors w-fit text-nowrap ${pathname === `/${currentLang}/legal-consultations` && 'text-white'}`}>{t("legalConsultations")}</Link>
+              {/* الإستشارات القانونية - قائمة منسدلة */}
+              <Popover open={openDropdown === 'legal-consultations'} onOpenChange={(open) => !open && handleMouseLeave()}>
+                <div onMouseEnter={() => handleMouseEnter('legal-consultations')} onMouseLeave={handleMouseLeave}>
+                  <PopoverTrigger asChild>
+                    <button className={`hover:text-white transition-colors cursor-pointer flex items-center gap-1 ${pathname.startsWith('/legal-consultations') && 'text-white'}`}>
+                      <span className="w-fit text-nowrap">{t("legalConsultations.title")}</span>
+                    <ChevronDownIcon className={`w-4 h-4 ${openDropdown === 'legal-consultations' && 'rotate-180'} transition-all duration-200`} />
+                    </button>
+                  </PopoverTrigger>
+                  <PopoverContent align="start" className={`bg-primary border-none rounded-xl font-medium shadow-lg py-2 px-0 w-[calc(100%+80px)] text-nowrap mt-6 overflow-hidden`} dir={direction}>
+                    <div className="flex flex-col">
+                      <Link href={`/${currentLang}/legal-consultations`} className={`block px-4 py-2 text-lite-primary group hover:text-white hover:bg-lite-primary/20 transition-all ${pathname === `/${currentLang}/legal-consultations` && 'text-white'}`}>
+                        <span className="inline-block w-full text-nowrap group-hover:translate-x-[-5px] transition-all">{t("legalConsultations.startConsultation")}</span>
+                      </Link>
+                    </div>
+                  </PopoverContent>
+                </div>
+              </Popover>
               {/* الأخبار والفعاليات - قائمة منسدلة */}
               <Popover open={openDropdown === 'news-and-articles'} onOpenChange={(open) => !open && handleMouseLeave()}>
                 <div onMouseEnter={() => handleMouseEnter('news-and-articles')} onMouseLeave={handleMouseLeave}>
@@ -110,19 +127,39 @@ export default function Navbar() {
                     <ChevronDownIcon className={`w-4 h-4 ${openDropdown === 'news-and-articles' && 'rotate-180'} transition-all duration-200`} />
                     </button>
                   </PopoverTrigger>
-                  <PopoverContent align="start" className={`bg-primary border-none rounded-xl font-medium shadow-lg py-2 px-0 w-fit text-nowrap ${direction === "rtl" ? "pl-15" : "pr-15"} mt-6`} dir={direction}>
+                  <PopoverContent align="start" className={`bg-primary border-none rounded-xl font-medium shadow-lg py-2 px-0 w-[calc(100%+80px)] text-nowrap mt-6 overflow-hidden`} dir={direction}>
                     <div className="flex flex-col">
-                      <Link href={`/${currentLang}/news`} className={`block px-4 py-2 text-lite-primary hover:text-white transition-colors ${pathname === `/${currentLang}/news` && 'text-white'}`}>
-                        {t("news.newsAndEvents")}
+                      <Link href={`/${currentLang}/articles`} className={`block px-4 py-2 text-lite-primary group hover:text-white hover:bg-lite-primary/20 transition-all ${pathname === `/${currentLang}/articles` && 'text-white'}`}>
+                        <span className="inline-block w-full text-nowrap group-hover:translate-x-[-5px] transition-all">{t("news.articles")}</span>
                       </Link>
-                      <Link href={`/${currentLang}/articles`} className={`block px-4 py-2 text-lite-primary hover:text-white transition-colors ${pathname === `/${currentLang}/articles` && 'text-white'}`}>
-                        {t("news.articles")}
+                      <Link href={`/${currentLang}/news`} className={`block px-4 py-2 text-lite-primary group hover:text-white hover:bg-lite-primary/20 transition-all ${pathname === `/${currentLang}/news` && 'text-white'}`}>
+                        <span className="inline-block w-full text-nowrap group-hover:translate-x-[-5px] transition-all">{t("news.newsAndEvents")}</span>
                       </Link>
                     </div>
                   </PopoverContent>
                 </div>
               </Popover>
-              <Link href={`/${currentLang}/join-us`} className={`hover:text-white transition-colors w-fit text-nowrap ${pathname === `/${currentLang}/join-us` && 'text-white'}`}>{t("joinUs")}</Link>
+              {/* انضم إلى فريقنا - قائمة منسدلة */}
+              <Popover open={openDropdown === 'join-us'} onOpenChange={(open) => !open && handleMouseLeave()}>
+                <div onMouseEnter={() => handleMouseEnter('join-us')} onMouseLeave={handleMouseLeave}>
+                  <PopoverTrigger asChild>
+                    <button className={`hover:text-white transition-colors cursor-pointer flex items-center gap-1 ${pathname.startsWith(`/${currentLang}/join-us`) && 'text-white'}`}>
+                      <span className="w-fit text-nowrap">{t("joinUs.title")}</span>
+                    <ChevronDownIcon className={`w-4 h-4 ${openDropdown === 'join-us' && 'rotate-180'} transition-all duration-200`} />
+                    </button>
+                  </PopoverTrigger>
+                  <PopoverContent align="start" className={`bg-primary border-none rounded-xl font-medium shadow-lg py-2 px-0 w-[calc(100%+80px)] text-nowrap mt-6 overflow-hidden`} dir={direction}>
+                    <div className="flex flex-col">
+                      <Link href={`/${currentLang}/join-us`} className={`block px-4 py-2 text-lite-primary group hover:text-white hover:bg-lite-primary/20 transition-all ${pathname === `/${currentLang}/join-us/training` && 'text-white'}`}>
+                        <span className="inline-block w-full text-nowrap group-hover:translate-x-[-5px] transition-all">{t("joinUs.training")}</span>
+                      </Link>
+                      <Link href={`/${currentLang}/join-us`} className={`block px-4 py-2 text-lite-primary group hover:text-white hover:bg-lite-primary/20 transition-all ${pathname === `/${currentLang}/join-us/employment` && 'text-white'}`}>
+                        <span className="inline-block w-full text-nowrap group-hover:translate-x-[-5px] transition-all">{t("joinUs.employment")}</span>
+                      </Link>
+                    </div>
+                  </PopoverContent>
+                </div>
+              </Popover>
               <Link href={`/${currentLang}/contact-us`} className={`hover:text-white transition-colors w-fit text-nowrap ${pathname === `/${currentLang}/contact-us` && 'text-white'}`}>{t("contactUs")}</Link>
               <LanguageButton />
             </div>

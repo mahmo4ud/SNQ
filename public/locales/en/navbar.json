@@ -12,12 +12,19 @@
     "accreditations": "Accreditations"
   },
   "services": "Services",
-  "legalConsultations": "Legal Consultations",
+  "legalConsultations": {
+    "title": "Legal Consultations",
+    "startConsultation": "Start Your Legal Consultations"
+  },
   "news": {
     "title": "News & Articles",
     "newsAndEvents": "News & Events",
     "articles": "Articles"
   },
-  "joinUs": "Join Us",
+  "joinUs": {
+    "title": "Join Us",
+    "training": "Training",
+    "employment": "Employment"
+  },
   "contactUs": "Contact Us"
 }

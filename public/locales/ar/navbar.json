@@ -4,7 +4,7 @@
     "title": "من نحن",
     "ourMessage": "رسالتنا",
     "ourVision": "رؤيتنا",
-    "ourValues": "قيمتنا"
+    "ourValues": "قيمنا"
   },
   "advantages": {
     "title": "ما يميزنا",
@@ -12,12 +12,19 @@
     "accreditations": "الاعتمادات"
   },
   "services": "الخدمات",
-  "legalConsultations": "الإستشارات القانونية",
+  "legalConsultations": {
+    "title": "الإستشارات القانونية",
+    "startConsultation": "ابدأ إستشارتك القانونية"
+  },
   "news": {
     "title": "الأخبار والمقالات",
     "newsAndEvents": "الأخبار و الفعاليات",
     "articles": "المقالات"
   },
-  "joinUs": "انضم إلى فريقنا",
+  "joinUs": {
+    "title": "انضم إلى فريقنا",
+    "training": "التدريب",
+    "employment": "التوظيف"
+  },
   "contactUs": "اتصل بنا"
 }

@@ -165,13 +165,35 @@ export default function SideMenu({ isOpen, onClose }: SideMenuProps) {
             {t("services")}
           </Link>
 
-          <Link
-            href={`/${currentLang}/legal-consultations`}
-            className={`hover:text-white transition-colors ${pathname === `/${currentLang}/legal-consultations` && 'text-white'}`}
-            onClick={onClose}
-          >
-            {t("legalConsultations")}
-          </Link>
+          {/* الإستشارات القانونية - قائمة منسدلة */}
+          <div>
+            <button
+              onClick={() => toggleDropdown('legal-consultations')}
+              className={`hover:text-white transition-colors cursor-pointer flex items-center justify-between w-full ${
+                pathname.startsWith('/legal-consultations') && 'text-white'
+              }`}
+            >
+              {t("legalConsultations.title")}
+              <ChevronDownIcon
+                className={`w-4 h-4 ${openDropdown === 'legal-consultations' && 'rotate-180'} transition-all duration-200`}
+              />
+            </button>
+            {openDropdown === 'legal-consultations' && (
+              <ul className="pr-4 mt-2 space-y-2">
+                <li>
+                  <Link
+                    href={`/${currentLang}/legal-consultations`}
+                    className={`block py-1 hover:text-white transition-colors ${
+                      pathname === `/${currentLang}/legal-consultations` && 'text-white'
+                    }`}
+                    onClick={onClose}
+                  >
+                    {t("legalConsultations.startConsultation")}
+                  </Link>
+                </li>
+              </ul>
+            )}
+          </div>
 
           {/* الأخبار والمقالات - قائمة منسدلة */}
           <div>
@@ -214,13 +236,46 @@ export default function SideMenu({ isOpen, onClose }: SideMenuProps) {
             )}
           </div>
 
-          <Link
-            href={`/${currentLang}/join-us`}
-            className={`hover:text-white transition-colors ${pathname === `/${currentLang}/join-us` && 'text-white'}`}
-            onClick={onClose}
-          >
-            {t("joinUs")}
-          </Link>
+          {/* انضم إلى فريقنا - قائمة منسدلة */}
+          <div>
+            <button
+              onClick={() => toggleDropdown('join-us')}
+              className={`hover:text-white transition-colors cursor-pointer flex items-center justify-between w-full ${
+                pathname.startsWith(`/${currentLang}/join-us`) && 'text-white'
+              }`}
+            >
+              {t("joinUs.title")}
+              <ChevronDownIcon
+                className={`w-4 h-4 ${openDropdown === 'join-us' && 'rotate-180'} transition-all duration-200`}
+              />
+            </button>
+            {openDropdown === 'join-us' && (
+              <ul className="pr-4 mt-2 space-y-2">
+                <li>
+                  <Link
+                    href={`/${currentLang}/join-us/training`}
+                    className={`block py-1 hover:text-white transition-colors ${
+                      pathname === `/${currentLang}/join-us/training` && 'text-white'
+                    }`}
+                    onClick={onClose}
+                  >
+                    {t("joinUs.training")}
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href={`/${currentLang}/join-us/employment`}
+                    className={`block py-1 hover:text-white transition-colors ${
+                      pathname === `/${currentLang}/join-us/employment` && 'text-white'
+                    }`}
+                    onClick={onClose}
+                  >
+                    {t("joinUs.employment")}
+                  </Link>
+                </li>
+              </ul>
+            )}
+          </div>
 
           <Link
             href={`/${currentLang}/contact-us`}
