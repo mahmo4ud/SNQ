@@ -10,22 +10,24 @@ import { usePathname } from "next/navigation";
 export default function Footer() {
   const { t, i18n } = useT("footer");
   const pathname = usePathname();
+
+  const direction = i18n.language === "ar" ? "rtl" : "ltr";
   
   // Extract current language from pathname
   const currentLang = pathname.match(/^\/(en|ar)/)?.[1] || i18n.language || "ar";
   return (
-    <footer className="bg-linear-to-bl from-primary to-[#394C31] text-lite-primary relative overflow-hidden">
+    <footer dir={direction} className={`${direction === "rtl" ? "bg-gradient-to-l" : "bg-gradient-to-r"} from-primary to-lite-primary to-1000% text-lite-primary relative overflow-hidden`}>
       <div className="w-11/12 mx-auto py-12 flex flex-col gap-12" dir="rtl">
         {/* Logo */}
         <div>
           <Image src={Logo} alt="Logo" width={300} />
         </div>
         {/* Lite Logo */}
-        <div className="absolute -bottom-10 -left-10">
+        <div className={`absolute -bottom-10 ${direction === "rtl" ? "-left-10" : "-right-10"}`}>
           <Image src={LiteLogo} alt="SQN Lawyers Logo" width={345} className="opacity-5 blur-[1.5px]" />
         </div>
         {/* Main Footer Content */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+        <div dir={direction} className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
           {/* Quick Links - Right Column */}
           <div>
             <h3 className="text-white text-lg font-semibold mb-4">{t("quickLinks.title")}</h3>
@@ -135,24 +137,22 @@ export default function Footer() {
       </div>
 
       {/* Bottom Bar */}
-      <div className="border-t border-nav-text/30">
-        <div className="w-11/12 mx-auto py-4">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm">
-            <div className="flex gap-4">
-              <div>
-                {t("bottomBar.tradeMarkPolicy")}
-              </div>
-              <span>|</span>
-              <div>
-                {t("bottomBar.terms")}
-              </div>
-              <span>|</span>
-              <div>
-                {t("bottomBar.privacyPolicy")}
-              </div>
-            </div>
+      <div className="border-t border-lite-primary/50 w-11/12 mx-auto py-4">
+        <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-xs">
+          <div>
+            {t("bottomBar.copyright")}
+          </div>
+          <div className="flex gap-3 md:gap-4 items-center justify-center text-center">
             <div>
-              {t("bottomBar.copyright")}
+              {t("bottomBar.tradeMarkPolicy")}
+            </div>
+            <span>|</span>
+            <div>
+              {t("bottomBar.terms")}
+            </div>
+            <span>|</span>
+            <div>
+              {t("bottomBar.privacyPolicy")}
             </div>
           </div>
         </div>

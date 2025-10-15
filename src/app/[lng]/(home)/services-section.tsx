@@ -23,6 +23,7 @@ import Icon12 from "@/../public/services-card-icons/12.png"
 import Icon13 from "@/../public/services-card-icons/13.png"
 import Icon14 from "@/../public/services-card-icons/14.png"
 import Icon15 from "@/../public/services-card-icons/15.png"
+import SubTitle from "@/components/sub-title"
 
 const services = [
   { id: 1, icon: Icon1, titleKey: "service1.title", descKey: "service1.description", itemsKey: "service1.items" },
@@ -47,10 +48,14 @@ export default function ServicesSection() {
   const [hoveredCard, setHoveredCard] = useState<number | null>(null)
   const direction = i18n.language === "ar" ? "rtl" : "ltr"
 
-  // Split services into three columns
-  const column1 = services.filter((_, index) => index % 3 === 0)
-  const column2 = services.filter((_, index) => index % 3 === 1)
-  const column3 = services.filter((_, index) => index % 3 === 2)
+  // Split services into two columns (for md screens)
+  const column1_md = services.filter((_, index) => index % 2 === 0)
+  const column2_md = services.filter((_, index) => index % 2 === 1)
+  
+  // Split services into three columns (for lg screens)
+  const column1_lg = services.filter((_, index) => index % 3 === 0)
+  const column2_lg = services.filter((_, index) => index % 3 === 1)
+  const column3_lg = services.filter((_, index) => index % 3 === 2)
 
   const renderServiceCard = (service: typeof services[0]) => {
     const isHovered = hoveredCard === service.id
@@ -74,18 +79,18 @@ export default function ServicesSection() {
                 alt={t(service.titleKey)}
                 width={40}
                 height={40}
-                className="w-10 h-10 object-contain"
+                className="w-6 h-6 md:w-8 md:h-8 lg:w-10 lg:h-10 object-contain"
               />
             </div>
           </div>
           
           {/* Title */}
-          <h3 className="text-lg md:text-[1.5rem] font-bold text-gold mb-3">
+          <h3 className="text-lg xl:text-[1.5rem] font-bold text-gold mb-3">
             {t(service.titleKey)}
           </h3>
           
           {/* Description */}
-          <p className={`text-gray-600 font-medium leading-relaxed text-[1.125rem] transition-all duration-500`}>
+          <p className={`text-gray-600 font-medium leading-relaxed text-base xl:text-[1.125rem] transition-all duration-500`}>
             {t(service.descKey)}
           </p>
 
@@ -107,37 +112,43 @@ export default function ServicesSection() {
   return (
     <section className="relative w-full py-16 md:py-24 bg-primary">
       <Image src={MobileLogo} alt="Mobile Logo" className="w-[35rem] absolute top-20 left-1/2 -translate-x-1/2 z-1 opacity-5" />
-      <div className="relative container mx-auto px-4 md:px-8 lg:px-16 z-10">
+      <div className="relative container mx-auto px-4 xl:px-16 z-10">
         {/* Section Header */}
         <div className="text-center mb-12 md:mb-16">
-          <div className="flex items-center justify-center gap-4 mb-8 mt-12">
-            <OpeningBracket className="w-6 h-6 md:w-8 md:h-8" />
-            <h2 className="text-3xl md:text-4xl lg:text-[2.25rem] font-bold text-white">
-              {t("title")}
-            </h2>
-            <ClosingBracket className="w-6 h-6 md:w-8 md:h-8" />
-          </div>
+          <SubTitle fontSize="text-3xl md:text-3xl lg:text-4xl" textColor="white">{t("title")}</SubTitle>
           <p className="text-lite-primary text-lg md:text-[1.38rem] max-w-3xl mx-auto leading-relaxed">
             {t("subtitle")}
           </p>
         </div>
 
-        {/* Services Flex Container with 3 Columns */}
-        <div className="flex flex-col md:flex-row gap-4">
-          {/* Column 1 */}
+        {/* Services Grid - 2 columns for md (768px-1023px), 3 columns for lg (1024px+) */}
+        
+        {/* Two Columns Layout (visible on md only) */}
+        <div className="hidden md:flex lg:hidden flex-row gap-4">
           <div className="flex-1 grid grid-cols-1 gap-4 content-start">
-            {column1.map(renderServiceCard)}
+            {column1_md.map(renderServiceCard)}
           </div>
-          
-          {/* Column 2 */}
           <div className="flex-1 grid grid-cols-1 gap-4 content-start">
-            {column2.map(renderServiceCard)}
+            {column2_md.map(renderServiceCard)}
           </div>
-          
-          {/* Column 3 */}
+        </div>
+
+        {/* Three Columns Layout (visible on lg and above) */}
+        <div className="hidden lg:flex flex-row gap-4">
           <div className="flex-1 grid grid-cols-1 gap-4 content-start">
-            {column3.map(renderServiceCard)}
+            {column1_lg.map(renderServiceCard)}
           </div>
+          <div className="flex-1 grid grid-cols-1 gap-4 content-start">
+            {column2_lg.map(renderServiceCard)}
+          </div>
+          <div className="flex-1 grid grid-cols-1 gap-4 content-start">
+            {column3_lg.map(renderServiceCard)}
+          </div>
+        </div>
+
+        {/* Single Column Layout (visible on mobile only) */}
+        <div className="flex md:hidden flex-col gap-4">
+          {services.map(renderServiceCard)}
         </div>
       </div>
     </section>

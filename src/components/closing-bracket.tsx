@@ -9,7 +9,7 @@ export default function ClosingBracket({
   className = "", 
   width = 46, 
   height = 18,
-  fill = "#C1A476" 
+  fill = "#C1A476",
 }: ClosingBracketProps) {
   return (
     <svg 

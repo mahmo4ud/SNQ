@@ -17,6 +17,8 @@ export default function Navbar() {
   const [openSideMenu, setOpenSideMenu] = useState(false);
 
   const pathname = usePathname();
+
+  const direction = i18n.language === "ar" ? "rtl" : "ltr";
   
   // Extract current language from pathname
   const currentLang = pathname.match(/^\/(en|ar)/)?.[1] || i18n.language || "ar";
@@ -61,7 +63,7 @@ export default function Navbar() {
                     <ChevronDownIcon className={`w-4 h-4 ${openDropdown === 'about' && 'rotate-180'} transition-all duration-200`} />
                     </button>
                   </PopoverTrigger>
-                  <PopoverContent align="end" className="bg-primary border-none rounded-xl font-medium shadow-lg py-2 px-0 w-fit text-nowrap text-center mt-6">
+                  <PopoverContent align="start" className={`bg-primary border-none rounded-xl font-medium shadow-lg py-2 px-0 w-fit ${direction === "rtl" ? "pl-15" : "pr-15"} text-nowrap mt-6`} dir={direction}>
                     <div className="flex flex-col">
                       <Link href={`/${currentLang}/our-message`} className={`block px-4 py-2 text-lite-primary hover:text-white transition-colors ${pathname === `/${currentLang}/our-message` && 'text-white'}`}>
                         {t("aboutUs.ourMessage")}
@@ -85,7 +87,7 @@ export default function Navbar() {
                     <ChevronDownIcon className={`w-4 h-4 ${openDropdown === 'our-advantages' && 'rotate-180'} transition-all duration-200`} />
                     </button>
                   </PopoverTrigger>
-                  <PopoverContent align="end" className="bg-primary border-none rounded-xl font-medium shadow-lg py-2 px-0 w-fit text-nowrap text-center mt-6">
+                  <PopoverContent align="start" className={`bg-primary border-none rounded-xl font-medium shadow-lg py-2 px-0 w-fit text-nowrap ${direction === "rtl" ? "pl-15" : "pr-15"} mt-6`} dir={direction}>
                     <div className="flex flex-col">
                       <Link href={`/${currentLang}/our-professional-approach`} className={`block px-4 py-2 text-lite-primary hover:text-white transition-colors ${pathname === `/${currentLang}/our-professional-approach` && 'text-white'}`}>
                         {t("advantages.professionalApproach")}
@@ -108,7 +110,7 @@ export default function Navbar() {
                     <ChevronDownIcon className={`w-4 h-4 ${openDropdown === 'news-and-articles' && 'rotate-180'} transition-all duration-200`} />
                     </button>
                   </PopoverTrigger>
-                  <PopoverContent align="end" className="bg-primary border-none rounded-xl font-medium shadow-lg py-2 px-0 w-fit text-nowrap text-center mt-6">
+                  <PopoverContent align="start" className={`bg-primary border-none rounded-xl font-medium shadow-lg py-2 px-0 w-fit text-nowrap ${direction === "rtl" ? "pl-15" : "pr-15"} mt-6`} dir={direction}>
                     <div className="flex flex-col">
                       <Link href={`/${currentLang}/news`} className={`block px-4 py-2 text-lite-primary hover:text-white transition-colors ${pathname === `/${currentLang}/news` && 'text-white'}`}>
                         {t("news.newsAndEvents")}
@@ -127,7 +129,6 @@ export default function Navbar() {
           </div>
         </div>
       </nav>
-
 
       {/* Side Menu Component */}
       <SideMenu isOpen={openSideMenu} onClose={() => setOpenSideMenu(false)} />

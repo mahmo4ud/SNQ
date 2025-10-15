@@ -1,10 +1,7 @@
 "use client"
-
 import Image from "next/image"
 import HeroCarousel from "./hero-carousel"
 import ServicesSection from "./services-section"
-import ClosingBracket from "@/components/closing-bracket"
-import OpeningBracket from "@/components/opening-bracket"
 import { useT } from "@/app/i18n/client"
 
 // Partner Logos
@@ -18,35 +15,31 @@ import AntCeilingLogo from "@/../public/partners/ant-ceiling.png"
 import AccreditationOne from "@/../public/accreditations/logo-one.svg"
 import AccreditationTwo from "@/../public/accreditations/logo-two.png"
 import AccreditationThree from "@/../public/accreditations/logo-three.svg"
-
+import SubTitle from "@/components/sub-title"
 
 export default function Page() {
   const { t } = useT("home")
   return (
     <>
       <HeroCarousel />
+
+      {/* Mission Section */}
       <section className="w-full h-screen flex justify-center items-center py-16 md:py-24 bg-transparent">
         <article className="w-5/6 flex flex-col items-center gap-16 mx-auto px-4 md:px-8 lg:px-16">
-          <div className="flex items-center justify-center gap-4 mb-6">
-            <OpeningBracket className="w-6 h-6 md:w-8 md:h-8" />
-            <h1 className="text-3xl md:text-4xl lg:text-3xl font-bold text-primary">{t("mission.title")}</h1>
-            <ClosingBracket className="w-6 h-6 md:w-8 md:h-8" />
-          </div>
+          <SubTitle fontSize="text-3xl md:text-3xl lg:text-4xl">{t("mission.title")}</SubTitle>
           <p className="w-full text-paragraph text-lg md:text-[1.5rem] leading-relaxed text-center">
             {t("mission.description")}
           </p>
         </article>
       </section>
+
+      {/* Services Section */}
       <ServicesSection />
       
       {/* Commitment Section */}
       <section className="w-full h-screen flex justify-center items-center py-16 md:py-24 bg-transparent">
         <article className="w-5/6 flex flex-col items-center gap-16 mx-auto px-4 md:px-8 lg:px-16">
-          <div className="flex items-center justify-center gap-4 mb-6 text-center">
-            <OpeningBracket className="w-6 h-6 md:w-8 md:h-8" />
-            <h2 className="text-3xl md:text-4xl lg:text-3xl font-bold text-primary">{t("commitment.title")}</h2>
-            <ClosingBracket className="w-6 h-6 md:w-8 md:h-8" />
-          </div>
+          <SubTitle fontSize="text-3xl md:text-3xl lg:text-4xl">{t("commitment.title")}</SubTitle>
           <p className="w-full text-paragraph text-lg md:text-[1.5rem] leading-relaxed text-center">
             {t("commitment.description")}
           </p>
@@ -56,12 +49,7 @@ export default function Page() {
       {/* Partners Section */}
       <section className="w-full flex justify-center items-center py-16 md:py-32 bg-transparent">
         <article className="w-5/6 flex flex-col items-center gap-16 mx-auto px-4 md:px-8 lg:px-6">
-          <div className="flex items-center justify-center gap-4 mb-6 text-center">
-            <OpeningBracket className="w-6 h-6 md:w-8 md:h-8" />
-            <h2 className="text-3xl md:text-4xl lg:text-3xl font-bold text-primary">{t("partners.title")}</h2>
-            <ClosingBracket className="w-6 h-6 md:w-8 md:h-8" />
-          </div>
-          
+          <SubTitle fontSize="text-3xl md:text-3xl lg:text-4xl">{t("partners.title")}</SubTitle>
           <div className="w-full flex flex-wrap items-center justify-center gap-8 md:gap-10 lg:gap-15">
             <div className="flex items-center justify-center w-32 h-32 mx-10 md:mx-0 md:w-40 md:h-40">
               <Image 
@@ -115,12 +103,7 @@ export default function Page() {
       {/* Accreditations Section */}
       <section className="w-full flex justify-center items-center py-16 md:py-32 bg-transparent">
         <article className="w-5/6 flex flex-col items-center gap-16 mx-auto px-4 md:px-8 lg:px-25">
-          <div className="flex items-center justify-center gap-4 mb-6">
-            <OpeningBracket className="w-6 h-6 md:w-8 md:h-8" />
-            <h2 className="text-3xl md:text-4xl lg:text-3xl font-bold text-primary">{t("accreditations.title")}</h2>
-            <ClosingBracket className="w-6 h-6 md:w-8 md:h-8" />
-          </div>
-          
+          <SubTitle fontSize="text-3xl md:text-3xl lg:text-4xl">{t("accreditations.title")}</SubTitle>
           <div className="w-full flex flex-wrap items-center justify-center gap-8 md:gap-10 lg:gap-15">
             <div className="flex items-center justify-center w-32 h-32 mx-10 md:w-40 md:h-40">
               <Image 
