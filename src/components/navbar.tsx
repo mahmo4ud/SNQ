@@ -102,6 +102,7 @@ export default function Navbar() {
                   </PopoverContent>
                 </div>
               </Popover>
+              {/* الخدمات */}
               <Link href={`/${currentLang}/services`} className={`hover:text-white transition-colors w-fit text-nowrap ${pathname === `/${currentLang}/services` && 'text-white'}`}>{t("services")}</Link>
               {/* الإستشارات القانونية - قائمة منسدلة */}
               <Popover open={openDropdown === 'legal-consultations'} onOpenChange={(open) => !open && handleMouseLeave()}>

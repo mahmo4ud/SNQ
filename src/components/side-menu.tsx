@@ -167,8 +167,8 @@ export default function SideMenu({ isOpen, onClose }: SideMenuProps) {
           </div>
 
           <Link
-            href={`/${currentLang}/our-services`}
-            className={`hover:text-white transition-colors ${pathname === `/${currentLang}/our-services` && 'text-white'}`}
+            href={`/${currentLang}/services`}
+            className={`hover:text-white transition-colors ${pathname === `/${currentLang}/services` && 'text-white'}`}
             onClick={onClose}
           >
             {t("services")}

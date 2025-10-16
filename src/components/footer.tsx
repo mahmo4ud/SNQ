@@ -65,7 +65,7 @@ export default function Footer() {
             <h3 className="text-white text-lg font-semibold mb-4">{t("about.title")}</h3>
             <ul className="space-y-2 font-medium">
               <li>
-                <Link href={`/${currentLang}/our-services`} className="hover:text-white transition-colors group">
+                <Link href={`/${currentLang}/services`} className="hover:text-white transition-colors group">
                   <span className={`inline-block w-full text-nowrap ${direction === 'rtl' ? 'group-hover:translate-x-[-5px]' : 'group-hover:translate-x-[5px]'} transition-all`}>{t("about.services")}</span>
                 </Link>
               </li>
