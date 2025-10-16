@@ -11,7 +11,7 @@ export default function HeroTitle({ children }: { children: string }) {
       <div className="w-full h-[50vh] flex items-center justify-center relative overflow-hidden">
         <Image src={SubTitleBg} alt="SubTitleBg" className="absolute top-0 left-0 w-full h-full object-cover"/>
         <div className="relative w-full">
-          <Image src={mobileLogo} alt="mobileLogo" className="absolute top-6 md:top-30 opacity-10 blur-[2px] left-1/2 -translate-x-1/2 -translate-y-1/2 w-60 md:w-110 object-cover"/>
+          <Image src={mobileLogo} alt="mobileLogo" className="absolute top-6 md:top-30 opacity-10 blur-[2px] left-1/2 -translate-x-1/2 -translate-y-1/2 w-60 md:w-100 object-cover"/>
           <SubTitle className="z-2 relative text-[2rem] md:text-[2.5rem] lg:text-[3rem]">{children}</SubTitle>
         </div>
       </div>
