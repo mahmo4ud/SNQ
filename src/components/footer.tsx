@@ -16,7 +16,7 @@ export default function Footer() {
   // Extract current language from pathname
   const currentLang = pathname.match(/^\/(en|ar)/)?.[1] || i18n.language || "ar";
   return (
-    <footer dir={direction} className={`${direction === "rtl" ? "bg-gradient-to-l" : "bg-gradient-to-r"} from-primary to-lite-primary to-1000% text-lite-primary relative overflow-hidden`}>
+    <footer dir={direction} className={`${direction === "rtl" ? "bg-gradient-to-l" : "bg-gradient-to-r"} from-[#293C21] to-[#394C31] text-lite-primary relative overflow-hidden`}>
       <div className="w-11/12 mx-auto py-12 flex flex-col gap-12" dir="rtl">
         {/* Logo */}
         <div>

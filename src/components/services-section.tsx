@@ -1,6 +1,6 @@
 "use client"
 
-import Image from "next/image"
+import Image, { StaticImageData } from "next/image"
 import { useState } from "react"
 import { useT } from "@/app/i18n/client"
 import OpeningBracket from "@/components/opening-bracket"
@@ -43,7 +43,14 @@ const services = [
   { id: 15, icon: Icon15, titleKey: "service15.title", descKey: "service15.description", itemsKey: "service15.items" },
 ]
 
-export default function ServicesSection() {
+interface ServicesSectionProps {
+  image?: string | StaticImageData,
+  bgColor?: string,
+  subTitle?: boolean,
+  paragraph?: boolean,
+}
+
+export default function ServicesSection({ image, bgColor = "bg-primary", subTitle = false, paragraph = false }: ServicesSectionProps) {
   const { t, i18n } = useT("services")
   const [hoveredCard, setHoveredCard] = useState<number | null>(null)
   const direction = i18n.language === "ar" ? "rtl" : "ltr"
@@ -110,16 +117,19 @@ export default function ServicesSection() {
   }
 
   return (
-    <section className="relative w-full py-16 md:py-24 bg-primary">
-      <Image src={MobileLogo} alt="Mobile Logo" className="w-[35rem] absolute top-20 left-1/2 -translate-x-1/2 z-1 opacity-5" />
+    <section className={`relative w-full py-16 md:py-24 ${bgColor}`}>
+      {image && (
+        <Image src={image} alt="Mobile Logo" className="w-[35rem] absolute top-20 left-1/2 -translate-x-1/2 z-1 opacity-5" />
+      )}
       <div className="relative container mx-auto px-4 xl:px-16 z-10">
-        {/* Section Header */}
-        <div className="text-center mb-12 md:mb-16">
-          <SubTitle fontSize="text-3xl md:text-3xl lg:text-4xl" textColor="white">{t("title")}</SubTitle>
-          <p className="text-lite-primary text-lg md:text-[1.38rem] max-w-3xl mx-auto leading-relaxed">
-            {t("subtitle")}
-          </p>
-        </div>
+        {subTitle && (
+          <div className="text-center mb-12 md:mb-16">
+            <SubTitle fontSize="text-3xl md:text-3xl lg:text-4xl" textColor="white">{t("subTitle")}</SubTitle>
+            <p className="text-lite-primary text-lg md:text-[1.38rem] max-w-3xl mx-auto leading-relaxed">
+              {t("paragraph")}
+            </p>
+          </div>
+        )}
 
         {/* Services Grid - 2 columns for md (768px-1023px), 3 columns for lg (1024px+) */}
         

@@ -99,7 +99,7 @@ export default function Navbar() {
                   </PopoverContent>
                 </div>
               </Popover>
-              <Link href={`/${currentLang}/our-services`} className={`hover:text-white transition-colors w-fit text-nowrap ${pathname === `/${currentLang}/our-services` && 'text-white'}`}>{t("services")}</Link>
+              <Link href={`/${currentLang}/services`} className={`hover:text-white transition-colors w-fit text-nowrap ${pathname === `/${currentLang}/our-services` && 'text-white'}`}>{t("services")}</Link>
               {/* الإستشارات القانونية - قائمة منسدلة */}
               <Popover open={openDropdown === 'legal-consultations'} onOpenChange={(open) => !open && handleMouseLeave()}>
                 <div onMouseEnter={() => handleMouseEnter('legal-consultations')} onMouseLeave={handleMouseLeave}>
