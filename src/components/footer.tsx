@@ -34,27 +34,27 @@ export default function Footer() {
             <ul className="space-y-2 font-medium">
               <li>
                 <Link href={`/${currentLang}/news`} className="hover:text-white transition-colors group">
-                  <span className="inline-block w-full text-nowrap group-hover:translate-x-[-5px] transition-all">{t("quickLinks.news")}</span>
+                  <span className={`inline-block w-full text-nowrap ${direction === 'rtl' ? 'group-hover:translate-x-[-5px]' : 'group-hover:translate-x-[5px]'} transition-all`}>{t("quickLinks.news")}</span>
                 </Link>
               </li>
               <li>
                 <Link href={`/${currentLang}/articles`} className="hover:text-white transition-colors group">
-                  <span className="inline-block w-full text-nowrap group-hover:translate-x-[-5px] transition-all">{t("quickLinks.articles")}</span>
+                  <span className={`inline-block w-full text-nowrap ${direction === 'rtl' ? 'group-hover:translate-x-[-5px]' : 'group-hover:translate-x-[5px]'} transition-all`}>{t("quickLinks.articles")}</span>
                 </Link>
               </li>
               <li>
                 <Link href={`/${currentLang}/join-us`} className="hover:text-white transition-colors group">
-                  <span className="inline-block w-full text-nowrap group-hover:translate-x-[-5px] transition-all">{t("quickLinks.joinTeam")}</span>
+                  <span className={`inline-block w-full text-nowrap ${direction === 'rtl' ? 'group-hover:translate-x-[-5px]' : 'group-hover:translate-x-[5px]'} transition-all`}>{t("quickLinks.joinTeam")}</span>
                 </Link>
               </li>
               <li>
                 <Link href={`/${currentLang}/legal-consultations`} className="hover:text-white transition-colors group">
-                  <span className="inline-block w-full text-nowrap group-hover:translate-x-[-5px] transition-all">{t("quickLinks.startConsultations")}</span>
+                  <span className={`inline-block w-full text-nowrap ${direction === 'rtl' ? 'group-hover:translate-x-[-5px]' : 'group-hover:translate-x-[5px]'} transition-all`}>{t("quickLinks.startConsultations")}</span>
                 </Link>
               </li>
               <li>
                 <Link href={`/${currentLang}/contact-us`} className="hover:text-white transition-colors group">
-                  <span className="inline-block w-full text-nowrap group-hover:translate-x-[-5px] transition-all">{t("quickLinks.contactUs")}</span>
+                  <span className={`inline-block w-full text-nowrap ${direction === 'rtl' ? 'group-hover:translate-x-[-5px]' : 'group-hover:translate-x-[5px]'} transition-all`}>{t("quickLinks.contactUs")}</span>
                 </Link>
               </li>
             </ul>
@@ -66,32 +66,32 @@ export default function Footer() {
             <ul className="space-y-2 font-medium">
               <li>
                 <Link href={`/${currentLang}/our-services`} className="hover:text-white transition-colors group">
-                  <span className="inline-block w-full text-nowrap group-hover:translate-x-[-5px] transition-all">{t("about.services")}</span>
+                  <span className={`inline-block w-full text-nowrap ${direction === 'rtl' ? 'group-hover:translate-x-[-5px]' : 'group-hover:translate-x-[5px]'} transition-all`}>{t("about.services")}</span>
                 </Link>
               </li>
               <li>
                 <Link href={`/${currentLang}/accreditations`} className="hover:text-white transition-colors group">
-                  <span className="inline-block w-full text-nowrap group-hover:translate-x-[-5px] transition-all">{t("about.accreditations")}</span>
+                  <span className={`inline-block w-full text-nowrap ${direction === 'rtl' ? 'group-hover:translate-x-[-5px]' : 'group-hover:translate-x-[5px]'} transition-all`}>{t("about.accreditations")}</span>
                 </Link>
               </li>
               <li>
                 <Link href={`/${currentLang}/our-professional-approach`} className="hover:text-white transition-colors group">
-                  <span className="inline-block w-full text-nowrap group-hover:translate-x-[-5px] transition-all">{t("about.professionalApproach")}</span>
+                  <span className={`inline-block w-full text-nowrap ${direction === 'rtl' ? 'group-hover:translate-x-[-5px]' : 'group-hover:translate-x-[5px]'} transition-all`}>{t("about.professionalApproach")}</span>
                 </Link>
               </li>
               <li>
                 <Link href={`/${currentLang}/our-message`} className="hover:text-white transition-colors group">
-                  <span className="inline-block w-full text-nowrap group-hover:translate-x-[-5px] transition-all">{t("about.ourMessage")}</span>
+                  <span className={`inline-block w-full text-nowrap ${direction === 'rtl' ? 'group-hover:translate-x-[-5px]' : 'group-hover:translate-x-[5px]'} transition-all`}>{t("about.ourMessage")}</span>
                 </Link>
               </li>
               <li>
                 <Link href={`/${currentLang}/our-vision`} className="hover:text-white transition-colors group">
-                  <span className="inline-block w-full text-nowrap group-hover:translate-x-[-5px] transition-all">{t("about.ourVision")}</span>
+                  <span className={`inline-block w-full text-nowrap ${direction === 'rtl' ? 'group-hover:translate-x-[-5px]' : 'group-hover:translate-x-[5px]'} transition-all`}>{t("about.ourVision")}</span>
                 </Link>
               </li>
               <li>
                 <Link href={`/${currentLang}/our-values`} className="hover:text-white transition-colors group">
-                  <span className="inline-block w-full text-nowrap group-hover:translate-x-[-5px] transition-all">{t("about.ourValues")}</span>
+                  <span className={`inline-block w-full text-nowrap ${direction === 'rtl' ? 'group-hover:translate-x-[-5px]' : 'group-hover:translate-x-[5px]'} transition-all`}>{t("about.ourValues")}</span>
                 </Link>
               </li>
             </ul>
@@ -103,7 +103,7 @@ export default function Footer() {
             <ul className="space-y-3 font-medium">
               <li>
                 <Link href="mailto:info@snqsa.com" className="hover:text-white transition-colors flex items-center gap-2 group">
-                  <span className="flex items-center gap-2 w-full text-nowrap group-hover:translate-x-[-5px] transition-all">
+                  <span className={`flex items-center gap-2 w-full text-nowrap ${direction === 'rtl' ? 'group-hover:translate-x-[-5px]' : 'group-hover:translate-x-[5px]'} transition-all`}>
                     <EnvelopeIcon className="w-5 h-5"/>
                     info@snqsa.com
                   </span>
@@ -111,7 +111,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link href="tel:+9665706600930" className="hover:text-white transition-colors flex items-center gap-2 group">
-                  <span className="flex items-center gap-2 w-full text-nowrap group-hover:translate-x-[-5px] transition-all">
+                  <span className={`flex items-center gap-2 w-full text-nowrap ${direction === 'rtl' ? 'group-hover:translate-x-[-5px]' : 'group-hover:translate-x-[5px]'} transition-all`}>
                     <PhoneIcon className="w-5 h-5" />
                     <span dir="ltr">(+966) 5706600930</span>
                   </span>

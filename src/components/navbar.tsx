@@ -33,7 +33,7 @@ export default function Navbar() {
 
   return (
     <>
-      <nav className="flex items-center bg-primary h-[70px] sticky top-0 z-50" dir="rtl">
+      <nav className="flex items-center bg-primary h-[70px] sticky top-0 z-50 select-none" dir="rtl">
         <div className="flex items-center gap-3 xl:gap-6 w-11/12 h-full mx-auto">
           <div className="flex justify-between items-center h-full w-full gap-4">
             <div>
@@ -66,13 +66,13 @@ export default function Navbar() {
                   <PopoverContent align="start" className={`bg-primary border-none rounded-xl font-medium shadow-lg py-2 px-0 w-[calc(100%+80px)] text-nowrap mt-6 overflow-hidden`} dir={direction}>
                     <div className="flex flex-col">
                       <Link href={`/${currentLang}/our-message`} className={`w-full block px-4 py-2 text-lite-primary group hover:text-white hover:bg-lite-primary/20 transition-all${pathname === `/${currentLang}/our-message` && 'text-white'}`}>
-                        <span className="inline-block w-full text-nowrap group-hover:translate-x-[-5px] transition-all">{t("aboutUs.ourMessage")}</span>
+                        <span className={`inline-block w-full text-nowrap ${direction === 'rtl' ? 'group-hover:translate-x-[-5px]' : 'group-hover:translate-x-[5px]'} transition-all`}>{t("aboutUs.ourMessage")}</span>
                       </Link>
                       <Link href={`/${currentLang}/our-vision`} className={`w-full block px-4 py-2 text-lite-primary group hover:text-white hover:bg-lite-primary/20 transition-all ${pathname === `/${currentLang}/our-vision` && 'text-white'}`}>
-                        <span className="inline-block w-full text-nowrap group-hover:translate-x-[-5px] transition-all">{t("aboutUs.ourVision")}</span>
+                        <span className={`inline-block w-full text-nowrap ${direction === 'rtl' ? 'group-hover:translate-x-[-5px]' : 'group-hover:translate-x-[5px]'} transition-all`}>{t("aboutUs.ourVision")}</span>
                       </Link>
                       <Link href={`/${currentLang}/our-values`} className={`w-full block px-4 py-2 text-lite-primary group hover:text-white hover:bg-lite-primary/20 transition-all ${pathname === `/${currentLang}/our-values` && 'text-white'}`}>
-                        <span className="inline-block w-full text-nowrap group-hover:translate-x-[-5px] transition-all">{t("aboutUs.ourValues")}</span>
+                        <span className={`inline-block w-full text-nowrap ${direction === 'rtl' ? 'group-hover:translate-x-[-5px]' : 'group-hover:translate-x-[5px]'} transition-all`}>{t("aboutUs.ourValues")}</span>
                       </Link>
                     </div>
                   </PopoverContent>
@@ -89,11 +89,14 @@ export default function Navbar() {
                   </PopoverTrigger>
                   <PopoverContent align="start" className={`bg-primary border-none rounded-xl font-medium shadow-lg py-2 px-0 w-[calc(100%+80px)] text-nowrap mt-6 overflow-hidden`} dir={direction}>
                     <div className="flex flex-col">
+                      <Link href={`/${currentLang}/#commitment-to-clients`} className={`block px-4 py-2 text-lite-primary group hover:text-white hover:bg-lite-primary/20 transition-all`}>
+                        <span className={`inline-block w-full text-nowrap ${direction === 'rtl' ? 'group-hover:translate-x-[-5px]' : 'group-hover:translate-x-[5px]'} transition-all`}>{t("advantages.commitmentToClients")}</span>
+                      </Link>
                       <Link href={`/${currentLang}/our-professional-approach`} className={`block px-4 py-2 text-lite-primary group hover:text-white hover:bg-lite-primary/20 transition-all ${pathname === `/${currentLang}/our-professional-approach` && 'text-white'}`}>
-                        <span className="inline-block w-full text-nowrap group-hover:translate-x-[-5px] transition-all">{t("advantages.professionalApproach")}</span>
+                        <span className={`inline-block w-full text-nowrap ${direction === 'rtl' ? 'group-hover:translate-x-[-5px]' : 'group-hover:translate-x-[5px]'} transition-all`}>{t("advantages.professionalApproach")}</span>
                       </Link>
                       <Link href={`/${currentLang}/accreditations`} className={`block px-4 py-2 text-lite-primary group hover:text-white hover:bg-lite-primary/20 transition-all ${pathname === `/${currentLang}/accreditations` && 'text-white'}`}>
-                        <span className="inline-block w-full text-nowrap group-hover:translate-x-[-5px] transition-all">{t("advantages.accreditations")}</span>
+                        <span className={`inline-block w-full text-nowrap ${direction === 'rtl' ? 'group-hover:translate-x-[-5px]' : 'group-hover:translate-x-[5px]'} transition-all`}>{t("advantages.accreditations")}</span>
                       </Link>
                     </div>
                   </PopoverContent>
@@ -112,7 +115,7 @@ export default function Navbar() {
                   <PopoverContent align="start" className={`bg-primary border-none rounded-xl font-medium shadow-lg py-2 px-0 w-[calc(100%+80px)] text-nowrap mt-6 overflow-hidden`} dir={direction}>
                     <div className="flex flex-col">
                       <Link href={`/${currentLang}/legal-consultations`} className={`block px-4 py-2 text-lite-primary group hover:text-white hover:bg-lite-primary/20 transition-all ${pathname === `/${currentLang}/legal-consultations` && 'text-white'}`}>
-                        <span className="inline-block w-full text-nowrap group-hover:translate-x-[-5px] transition-all">{t("legalConsultations.startConsultation")}</span>
+                        <span className={`inline-block w-full text-nowrap ${direction === 'rtl' ? 'group-hover:translate-x-[-5px]' : 'group-hover:translate-x-[5px]'} transition-all`}>{t("legalConsultations.startConsultation")}</span>
                       </Link>
                     </div>
                   </PopoverContent>
@@ -130,10 +133,10 @@ export default function Navbar() {
                   <PopoverContent align="start" className={`bg-primary border-none rounded-xl font-medium shadow-lg py-2 px-0 w-[calc(100%+80px)] text-nowrap mt-6 overflow-hidden`} dir={direction}>
                     <div className="flex flex-col">
                       <Link href={`/${currentLang}/articles`} className={`block px-4 py-2 text-lite-primary group hover:text-white hover:bg-lite-primary/20 transition-all ${pathname === `/${currentLang}/articles` && 'text-white'}`}>
-                        <span className="inline-block w-full text-nowrap group-hover:translate-x-[-5px] transition-all">{t("news.articles")}</span>
+                        <span className={`inline-block w-full text-nowrap ${direction === 'rtl' ? 'group-hover:translate-x-[-5px]' : 'group-hover:translate-x-[5px]'} transition-all`}>{t("news.articles")}</span>
                       </Link>
                       <Link href={`/${currentLang}/news`} className={`block px-4 py-2 text-lite-primary group hover:text-white hover:bg-lite-primary/20 transition-all ${pathname === `/${currentLang}/news` && 'text-white'}`}>
-                        <span className="inline-block w-full text-nowrap group-hover:translate-x-[-5px] transition-all">{t("news.newsAndEvents")}</span>
+                        <span className={`inline-block w-full text-nowrap ${direction === 'rtl' ? 'group-hover:translate-x-[-5px]' : 'group-hover:translate-x-[5px]'} transition-all`}>{t("news.newsAndEvents")}</span>
                       </Link>
                     </div>
                   </PopoverContent>
@@ -151,10 +154,10 @@ export default function Navbar() {
                   <PopoverContent align="start" className={`bg-primary border-none rounded-xl font-medium shadow-lg py-2 px-0 w-[calc(100%+80px)] text-nowrap mt-6 overflow-hidden`} dir={direction}>
                     <div className="flex flex-col">
                       <Link href={`/${currentLang}/join-us`} className={`block px-4 py-2 text-lite-primary group hover:text-white hover:bg-lite-primary/20 transition-all ${pathname === `/${currentLang}/join-us/training` && 'text-white'}`}>
-                        <span className="inline-block w-full text-nowrap group-hover:translate-x-[-5px] transition-all">{t("joinUs.training")}</span>
+                        <span className={`inline-block w-full text-nowrap ${direction === 'rtl' ? 'group-hover:translate-x-[-5px]' : 'group-hover:translate-x-[5px]'} transition-all`}>{t("joinUs.training")}</span>
                       </Link>
                       <Link href={`/${currentLang}/join-us`} className={`block px-4 py-2 text-lite-primary group hover:text-white hover:bg-lite-primary/20 transition-all ${pathname === `/${currentLang}/join-us/employment` && 'text-white'}`}>
-                        <span className="inline-block w-full text-nowrap group-hover:translate-x-[-5px] transition-all">{t("joinUs.employment")}</span>
+                        <span className={`inline-block w-full text-nowrap ${direction === 'rtl' ? 'group-hover:translate-x-[-5px]' : 'group-hover:translate-x-[5px]'} transition-all`}>{t("joinUs.employment")}</span>
                       </Link>
                     </div>
                   </PopoverContent>

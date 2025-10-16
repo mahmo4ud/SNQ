@@ -10,6 +10,10 @@
   --color-paragraph: #181818B2;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: var(--font-ibm-plex-sans-arabic);
 }

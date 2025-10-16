@@ -40,7 +40,7 @@ export default function Page() {
       <ServicesSection subTitle={true} paragraph={true} image={MobileLogo} bgColor="bg-primary" />
       
       {/* Commitment Section */}
-      <section className="w-full h-screen flex justify-center items-center py-16 md:py-24 bg-transparent">
+      <section id="commitment-to-clients" className="w-full h-screen flex justify-center items-center py-16 md:py-24 bg-transparent scroll-mt-[70px]">
         <article className="w-5/6 flex flex-col items-center gap-16 mx-auto px-4 md:px-8 lg:px-16">
           <SubTitle fontSize="text-3xl md:text-3xl lg:text-4xl">{t("commitment.title")}</SubTitle>
           <p className="w-full text-paragraph text-lg md:text-[1.5rem] leading-relaxed text-center">

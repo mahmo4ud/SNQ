@@ -153,6 +153,15 @@ export default function SideMenu({ isOpen, onClose }: SideMenuProps) {
                     {t("advantages.accreditations")}
                   </Link>
                 </li>
+                <li>
+                  <Link
+                    href={`/${currentLang}/#commitment-to-clients`}
+                    className={`block py-1 hover:text-white transition-colors`}
+                    onClick={onClose}
+                  >
+                    {t("advantages.commitmentToClients")}
+                  </Link>
+                </li>
               </ul>
             )}
           </div>

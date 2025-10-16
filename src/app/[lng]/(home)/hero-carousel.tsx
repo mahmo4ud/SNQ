@@ -35,7 +35,7 @@ export default function HeroCarousel() {
   ]
 
   return (
-    <section className="w-full">
+    <section className="w-full select-none">
       <Carousel opts={{ align: "start", loop: true, direction: direction }} autoplay={true} autoplayDelay={5000} className="w-full h-full">
         <CarouselContent className="h-[calc(100vh-70px)] relative z-2 ml-0">
           {slides.map((slide) => (
@@ -93,14 +93,6 @@ export default function HeroCarousel() {
             </CarouselItem>
           ))}
         </CarouselContent>
-        
-        {/* Navigation Buttons */}
-        <CarouselPrevious 
-          className="hidden md:flex w-12 h-12 left-4 text-lite-primary md:left-8 bg-[#181818]/5 hover:bg-white border-none shadow-lg z-2"
-        />
-        <CarouselNext 
-          className="hidden md:flex w-12 h-12 right-4 text-lite-primary md:right-8 bg-[#181818]/5 hover:bg-white border-none shadow-lg z-2"
-        />
         
         {/* Pagination Dots */}
         <CarouselDots />
