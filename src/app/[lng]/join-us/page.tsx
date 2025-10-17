@@ -14,28 +14,32 @@ import {
   FormMessage,
 } from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
+import { Button } from "@/components/ui/button"
+import { Label } from "@/components/ui/label"
+import { Textarea } from "@/components/ui/textarea"
 
 export default function Page() {
   const { t, i18n } = useT("joinUs")
   const direction = i18n.language === 'ar' ? 'rtl' : 'ltr'
   const [selectedFile, setSelectedFile] = useState<File | null>(null)
+  const [cvError, setCvError] = useState<string>("")
   
   // Form validation schema
   const formSchema = z.object({
     name: z.string().min(2, {
-      message: direction === 'rtl' ? 'الاسم يجب أن يحتوي على 2 أحرف على الأقل *' : 'Name must be at least 2 characters.',
+      message: direction === 'rtl' ? 'الاسم يجب أن يحتوي على 2 أحرف على الأقل *' : 'Name must be at least 2 characters. *',
     }),
     email: z.string().email({
-      message: direction === 'rtl' ? 'البريد الإلكتروني يجب أن يكون صحيحًا *' : 'Please enter a valid email address.',
+      message: direction === 'rtl' ? 'البريد الإلكتروني يجب أن يكون صحيحًا *' : 'Email must be a valid email address. *',
     }),
     phone: z.string().min(10, {
-      message: direction === 'rtl' ? 'رقم الهاتف يجب أن يحتوي على 10 أحرف على الأقل *' : 'Phone number must be at least 10 characters.',
+      message: direction === 'rtl' ? 'رقم الهاتف يجب أن يحتوي على 10 أحرف على الأقل *' : 'Phone number must be at least 10 characters. *',
     }),
     jobTitle: z.string().min(2, {
-      message: direction === 'rtl' ? 'المسمى الوظيفي يجب أن يحتوي على 2 أحرف على الأقل *' : 'Job title is required.',
+      message: direction === 'rtl' ? 'المسمى الوظيفي يجب أن يحتوي على 2 أحرف على الأقل *' : 'Job title must be at least 2 characters. *',
     }),
     message: z.string().min(10, {
-      message: direction === 'rtl' ? 'الرسالة يجب أن تحتوي على 10 أحرف على الأقل *' : 'Message must be at least 10 characters.',
+      message: direction === 'rtl' ? 'الرسالة يجب أن تحتوي على 10 أحرف على الأقل *' : 'Message must be at least 10 characters. *',
     }),
   })
 
@@ -55,6 +59,7 @@ export default function Page() {
       const file = e.target.files[0]
       if (file.type === 'application/pdf') {
         setSelectedFile(file)
+        setCvError("") // Clear error when valid file is selected
       } else {
         alert(t("form.pdfOnly") || "Please upload PDF files only")
       }
@@ -62,11 +67,18 @@ export default function Page() {
   }
 
   function onSubmit(values: z.infer<typeof formSchema>) {
+    // Validate CV file upload
+    if (!selectedFile) {
+      setCvError(direction === 'rtl' ? 'الرجاء تحميل السيرة الذاتية (PDF) *' : 'Please upload your CV (PDF) *')
+      return
+    }
+
     console.log(values)
     console.log('CV File:', selectedFile)
     alert(t("form.successMessage") || "Application submitted successfully!")
     form.reset()
     setSelectedFile(null)
+    setCvError("")
   }
 
   return (
@@ -89,9 +101,9 @@ export default function Page() {
                     name="name"
                     render={({ field }) => (
                       <FormItem>
-                        <label className={`block font-medium text-gray-500 ${direction === 'rtl' ? 'text-right' : 'text-left'}`}>
+                        <Label className={`font-medium text-gray-500 ${direction === 'rtl' ? 'text-right' : 'text-left'}`}>
                           {t("form.nameLabel")}
-                        </label>
+                        </Label>
                         <FormControl>
                           <Input 
                             placeholder={t("form.namePlaceholder")} 
@@ -110,9 +122,9 @@ export default function Page() {
                     name="jobTitle"
                     render={({ field }) => (
                       <FormItem>
-                        <label className={`block font-medium text-gray-500 ${direction === 'rtl' ? 'text-right' : 'text-left'}`}>
+                        <Label className={`font-medium text-gray-500 ${direction === 'rtl' ? 'text-right' : 'text-left'}`}>
                           {t("form.jobTitleLabel")}
-                        </label>
+                        </Label>
                         <FormControl>
                           <Input 
                             placeholder={t("form.jobTitlePlaceholder")} 
@@ -134,9 +146,9 @@ export default function Page() {
                     name="email"
                     render={({ field }) => (
                       <FormItem>
-                        <label className={`block font-medium text-gray-500 ${direction === 'rtl' ? 'text-right' : 'text-left'}`}>
+                        <Label className={`font-medium text-gray-500 ${direction === 'rtl' ? 'text-right' : 'text-left'}`}>
                           {t("form.emailLabel")}
-                        </label>
+                        </Label>
                         <FormControl>
                           <Input 
                             type="email"
@@ -156,9 +168,9 @@ export default function Page() {
                     name="phone"
                     render={({ field }) => (
                       <FormItem>
-                        <label className={`block font-medium text-gray-500 ${direction === 'rtl' ? 'text-right' : 'text-left'}`}>
+                        <Label className={`font-medium text-gray-500 ${direction === 'rtl' ? 'text-right' : 'text-left'}`}>
                           {t("form.phoneLabel")}
-                        </label>
+                        </Label>
                         <FormControl>
                           <Input 
                             type="tel"
@@ -173,36 +185,63 @@ export default function Page() {
                   />
                 </div>
 
-                {/* Row 3: CV Upload */}
+                {/* Row 3: Message */}
+                <FormField
+                  control={form.control}
+                  name="message"
+                  render={({ field }) => (
+                    <FormItem>
+                      <Label className={`font-medium text-gray-500 ${direction === 'rtl' ? 'text-right' : 'text-left'}`}>
+                        {t("form.messageLabel")}
+                      </Label>
+                      <FormControl>
+                        <Textarea 
+                          placeholder={t("form.messagePlaceholder")} 
+                          {...field}
+                          className={`min-h-[120px] ${direction === 'rtl' ? 'text-right' : 'text-left'}`}
+                        />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+
+                {/* Row 4: CV Upload */}
                 <div>
-                  <label className={`block font-medium text-gray-500 mb-2 ${direction === 'rtl' ? 'text-right' : 'text-left'}`}>
+                  <Label className={`font-medium text-gray-500 mb-2 ${direction === 'rtl' ? 'text-right' : 'text-left'}`}>
                     {t("form.cvLabel")}
-                  </label>
-                  <div className="relative">
+                  </Label>
+                  <div className="space-y-2">
                     <input
                       id="cv-upload"
                       type="file"
                       accept=".pdf"
                       onChange={handleFileChange}
                       className="hidden"
-                      required
                     />
-                    <label
+                    <Label
                       htmlFor="cv-upload"
-                      className={`flex h-12 w-full cursor-pointer items-center rounded-lg border border-gray-300 bg-white px-4 py-3 text-sm text-gray-400 hover:border-primary hover:border-3 hover:bg-gray-50 transition-colors justify-center`}
+                      className={`flex h-12 w-full cursor-pointer items-center rounded-lg border ${
+                        cvError ? 'border-red-500' : 'border-gray-300'
+                      } bg-white px-4 py-3 text-sm text-gray-400 hover:border-primary hover:border-3 hover:bg-gray-50 transition-colors justify-center`}
                     >
                       {selectedFile ? selectedFile.name : t("form.uploadPlaceholder")}
-                    </label>
+                    </Label>
+                    {cvError && (
+                      <p className={`text-sm font-medium text-destructive ${direction === 'rtl' ? 'text-right' : 'text-left'}`}>
+                        {cvError}
+                      </p>
+                    )}
                   </div>
                 </div>
 
                 {/* Submit Button */}
-                <button
+                <Button
                   type="submit"
-                  className="w-full cursor-pointer bg-primary text-white py-3 rounded-lg hover:bg-primary/90 transition-colors font-semibold text-base"
+                  className="w-full cursor-pointer bg-primary text-white py-3 rounded-lg hover:bg-primary/90 transition-colors font-semibold text-base h-12"
                 >
                   {t("form.submit")}
-                </button>
+                </Button>
               </form>
             </Form>
           </div>

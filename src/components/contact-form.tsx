@@ -13,22 +13,22 @@ import {
 } from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
 
-// Form validation schema
-const formSchema = z.object({
-  name: z.string().min(2, {
-    message: "Name must be at least 2 characters.",
-  }),
-  phone: z.string().min(10, {
-    message: "Phone number must be at least 10 characters.",
-  }),
-  email: z.string().email({
-    message: "Please enter a valid email address.",
-  }),
-})
-
 export default function ContactForm() {
   const { t, i18n } = useT("contactUs")
   const direction = i18n.language === 'ar' ? 'rtl' : 'ltr'
+  
+  // Form validation schema
+  const formSchema = z.object({
+    name: z.string().min(2, {
+      message: direction === 'rtl' ? "الاسم يجب أن يكون على الأقل 2 أحرف. *" : "Name must be at least 2 characters. *",
+    }),
+    phone: z.string().min(10, {
+      message: direction === 'rtl' ? "رقم الهاتف يجب أن يكون على الأقل 10 أحرف. *" : "Phone number must be at least 10 characters. *",
+    }),
+    email: z.string().email({
+      message: direction === 'rtl' ? "البريد الالكتروني يجب أن يكون صحيح. *" : "Please enter a valid email address. *",
+    }),
+  })
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
