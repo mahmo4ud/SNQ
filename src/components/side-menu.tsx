@@ -262,9 +262,9 @@ export default function SideMenu({ isOpen, onClose }: SideMenuProps) {
               <ul className="pr-4 mt-2 space-y-2">
                 <li>
                   <Link
-                    href={`/${currentLang}/join-us/training`}
+                    href={`/${currentLang}/join-us`}
                     className={`block py-1 hover:text-white transition-colors ${
-                      pathname === `/${currentLang}/join-us/training` && 'text-white'
+                      pathname === `/${currentLang}/join-us` && 'text-white'
                     }`}
                     onClick={onClose}
                   >
@@ -273,9 +273,9 @@ export default function SideMenu({ isOpen, onClose }: SideMenuProps) {
                 </li>
                 <li>
                   <Link
-                    href={`/${currentLang}/join-us/employment`}
+                    href={`/${currentLang}/join-us`}
                     className={`block py-1 hover:text-white transition-colors ${
-                      pathname === `/${currentLang}/join-us/employment` && 'text-white'
+                      pathname === `/${currentLang}/join-us` && 'text-white'
                     }`}
                     onClick={onClose}
                   >
