@@ -1,6 +1,6 @@
 "use client"
 
-import { Carousel, CarouselPrevious, CarouselNext, CarouselContent, CarouselItem, CarouselDots } from "@/components/ui/carousel"
+import { Carousel, CarouselContent, CarouselItem, CarouselDots } from "@/components/ui/carousel"
 import SlideOneBg from "../../../../public/slide-1-bg.png"
 import SlideTwoBg from "../../../../public/slide-2-bg.png"
 import HeroImage from "../../../../public/hero-image.png"

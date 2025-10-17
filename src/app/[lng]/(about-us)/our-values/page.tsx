@@ -1,7 +1,5 @@
 "use client"
 
-import Image from "next/image"
-import mobileLogo from "../../../../../public/mobile-logo.png"
 import { useT } from "@/app/i18n/client"
 import HeroTitle from "../../../../components/hero-title"
 

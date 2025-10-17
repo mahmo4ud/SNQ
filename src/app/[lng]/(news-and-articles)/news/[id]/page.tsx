@@ -7,6 +7,14 @@ import NewsCard from '@/components/news-card'
 import ContactForm from '@/components/contact-form'
 import CardBg from '@/../public/news-card-bg.png'
 
+type NewsItem = {
+  id: number
+  title: string
+  description: string
+  date: string
+  readMore: string
+}
+
 type NewsDetailPageProps = {
   params: Promise<{
     id: string
@@ -21,7 +29,7 @@ export default function NewsDetailPage({ params }: NewsDetailPageProps) {
   const { id } = React.use(params)
 
   // Get all news items and find the current one
-  const newsItems = t("newsItems", { returnObjects: true }) as any[]
+  const newsItems = t("newsItems", { returnObjects: true }) as NewsItem[]
   const currentNews = newsItems.find(item => item.id === parseInt(id)) || newsItems[0]
   
   // Get other news items (excluding current)
@@ -90,7 +98,6 @@ export default function NewsDetailPage({ params }: NewsDetailPageProps) {
                   description={item.description}
                   date={item.date}
                   readMore={item.readMore}
-                  image={item.image}
                 />
               ))}
             </div>

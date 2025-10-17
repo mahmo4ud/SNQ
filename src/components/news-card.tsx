@@ -9,12 +9,11 @@ type Props = {
   description: string
   date: string
   readMore: string
-  image: string
 }
 
-export default function NewsCard({ id, title, description, date, readMore, image }: Props) {
+export default function NewsCard({ id, title, description, date, readMore }: Props) {
 
-  const { i18n, t } = useT()
+  const { i18n } = useT()
   const direction = i18n.language === 'ar' ? 'rtl' : 'ltr'
   const lng = i18n.language
 

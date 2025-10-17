@@ -1,7 +1,5 @@
 import React from 'react'
-import Image from 'next/image'
 import Link from 'next/link'
-import CardBg from '@/../public/news-card-bg.png'
 import { useT } from '@/app/i18n/client'
 
 type Props = {
@@ -10,10 +8,9 @@ type Props = {
   description: string
   date: string
   readMore: string
-  image: string
 }
 
-export default function ArticleCard({ id, title, description, date, readMore, image }: Props) {
+export default function ArticleCard({ id, title, description, date, readMore }: Props) {
   const { i18n } = useT()
   const direction = i18n.language === 'ar' ? 'rtl' : 'ltr'
   const lng = i18n.language

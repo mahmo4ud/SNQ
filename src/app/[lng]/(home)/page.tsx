@@ -37,7 +37,7 @@ export default function Page() {
       </section>
 
       {/* Services Section */}
-      <ServicesSection subTitle={true} paragraph={true} image={MobileLogo} bgColor="bg-primary" />
+      <ServicesSection subTitle={true} image={MobileLogo} bgColor="bg-primary" />
       
       {/* Commitment Section */}
       <section id="commitment-to-clients" className="w-full h-screen flex justify-center items-center py-16 md:py-24 bg-transparent scroll-mt-[70px]">

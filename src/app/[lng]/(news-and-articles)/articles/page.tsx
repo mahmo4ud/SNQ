@@ -10,7 +10,6 @@ type ArticleItem = {
   description: string
   date: string
   readMore: string
-  image: string
 }
 
 export default function Page() {
@@ -34,7 +33,6 @@ export default function Page() {
                 description={item.description}
                 date={item.date}
                 readMore={item.readMore}
-                image={item.image}
               />
             ))}
           </div>

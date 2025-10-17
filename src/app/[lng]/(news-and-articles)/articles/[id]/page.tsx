@@ -1,11 +1,17 @@
 "use client"
 import React from 'react'
-import Image from 'next/image'
 import { useT } from '@/app/i18n/client'
 import HeroTitle from '@/components/hero-title'
 import ArticleCard from '@/components/article-card'
 import ContactForm from '@/components/contact-form'
-import CardBg from '@/../public/news-card-bg.png'
+
+type ArticleItem = {
+  id: number
+  title: string
+  description: string
+  date: string
+  readMore: string
+}
 
 type ArticleDetailPageProps = {
   params: Promise<{
@@ -21,7 +27,7 @@ export default function ArticleDetailPage({ params }: ArticleDetailPageProps) {
   const { id } = React.use(params)
 
   // Get all article items and find the current one
-  const articleItems = t("articleItems", { returnObjects: true }) as any[]
+  const articleItems = t("articleItems", { returnObjects: true }) as ArticleItem[]
   const currentArticle = articleItems.find(item => item.id === parseInt(id)) || articleItems[0]
   
   // Get other article items (excluding current)
@@ -78,7 +84,6 @@ export default function ArticleDetailPage({ params }: ArticleDetailPageProps) {
                   description={item.description}
                   date={item.date}
                   readMore={item.readMore}
-                  image={item.image}
                 />
               ))}
             </div>

@@ -3,9 +3,6 @@
 import Image, { StaticImageData } from "next/image"
 import { useState } from "react"
 import { useT } from "@/app/i18n/client"
-import OpeningBracket from "@/components/opening-bracket"
-import ClosingBracket from "@/components/closing-bracket"
-import MobileLogo from "@/../public/mobile-logo.png"
 
 // Import service card icons
 import Icon1 from "@/../public/services-card-icons/1.png"
@@ -47,10 +44,9 @@ interface ServicesSectionProps {
   image?: string | StaticImageData,
   bgColor?: string,
   subTitle?: boolean,
-  paragraph?: boolean,
 }
 
-export default function ServicesSection({ image, bgColor = "bg-primary", subTitle = false, paragraph = false }: ServicesSectionProps) {
+export default function ServicesSection({ image, bgColor = "bg-primary", subTitle = false }: ServicesSectionProps) {
   const { t, i18n } = useT("services")
   const [hoveredCard, setHoveredCard] = useState<number | null>(null)
   const direction = i18n.language === "ar" ? "rtl" : "ltr"
