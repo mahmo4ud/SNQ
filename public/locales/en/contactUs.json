@@ -1,0 +1,13 @@
+{
+  "title": "Contact Us",
+  "sectionTitle": "For Complaints, Suggestions, and Inquiries",
+  "sectionSubtitle": "Don't hesitate, we're happy to hear from you",
+  "form": {
+    "namePlaceholder": "Name",
+    "phonePlaceholder": "Phone Number",
+    "emailPlaceholder": "Email",
+    "messagePlaceholder": "Message",
+    "submit": "Send",
+    "successMessage": "Your message has been sent successfully!"
+  }
+}

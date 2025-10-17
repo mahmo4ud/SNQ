@@ -1,0 +1,13 @@
+{
+  "title": "إتصل بنا",
+  "sectionTitle": "للشكاوى والإقتراحات والإستفسارات",
+  "sectionSubtitle": "لا تتردد، نسعد بتواصلك معنا",
+  "form": {
+    "namePlaceholder": "الإسم",
+    "phonePlaceholder": "رقم الهاتف",
+    "emailPlaceholder": "البريد الإلكتروني",
+    "messagePlaceholder": "الرسالة",
+    "submit": "إرسال",
+    "successMessage": "تم إرسال رسالتك بنجاح!"
+  }
+}

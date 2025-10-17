@@ -1,0 +1,19 @@
+{
+  "title": "Employment & Training",
+  "form": {
+    "nameLabel": "Name",
+    "namePlaceholder": "Write your full name here",
+    "emailLabel": "Email",
+    "emailPlaceholder": "Email",
+    "phoneLabel": "Phone Number",
+    "phonePlaceholder": "Write your contact number here",
+    "jobTitleLabel": "Job Title",
+    "jobTitlePlaceholder": "Job Title",
+    "messagePlaceholder": "Write what you want to communicate about here",
+    "cvLabel": "Resume / CV",
+    "uploadPlaceholder": "Upload files (PDF)",
+    "submit": "Send",
+    "pdfOnly": "Please upload PDF files only",
+    "successMessage": "Your application has been submitted successfully!"
+  }
+}

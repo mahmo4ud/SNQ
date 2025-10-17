@@ -53,7 +53,7 @@ export default function Page() {
       <section className="w-full flex justify-center items-center py-16 md:py-32 bg-transparent">
         <article className="w-5/6 flex flex-col items-center gap-16 mx-auto px-4 md:px-8 lg:px-6">
           <SubTitle fontSize="text-3xl md:text-3xl lg:text-4xl">{t("partners.title")}</SubTitle>
-          <div className="w-full flex flex-wrap items-center justify-center gap-8 md:gap-10 lg:gap-15">
+          <div className="w-full flex flex-wrap items-center justify-center gap-8 md:gap-10 lg:gap-10">
             <div className="flex items-center justify-center w-32 h-32 mx-10 md:mx-0 md:w-40 md:h-40">
               <Image 
                 src={AntCeilingLogo} 
@@ -107,7 +107,7 @@ export default function Page() {
       <section className="w-full flex justify-center items-center py-16 md:py-32 bg-transparent">
         <article className="w-5/6 flex flex-col items-center gap-16 mx-auto px-4 md:px-8 lg:px-25">
           <SubTitle fontSize="text-3xl md:text-3xl lg:text-4xl">{t("accreditations.title")}</SubTitle>
-          <div className="w-full flex flex-wrap items-center justify-center gap-8 md:gap-10 lg:gap-15">
+          <div className="w-full flex flex-wrap items-center justify-center gap-8 md:gap-10 lg:gap-10">
             <div className="flex items-center justify-center w-32 h-32 mx-10 md:w-40 md:h-40">
               <Image 
                 src={AccreditationThree} 

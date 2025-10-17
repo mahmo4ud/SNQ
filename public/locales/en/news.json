@@ -1,0 +1,53 @@
+{
+  "breadcrumb": {
+    "home": "Home",
+    "posts": "Posts",
+    "news": "News and Activities"
+  },
+  "title": "News and Activities",
+  "categories": {
+    "news": "News and Activities"
+  },
+  "articleContent": {
+    "paragraph1": "Happy Saudi Foundation Day 2024 to all who cherish security and prosperity. The Kingdom of Saudi Arabia celebrates this precious national occasion that reflects our rich history and glorious civilization. Foundation Day is an occasion we all cherish, as it represents the beginning of an exceptional success story of an ambitious and prosperous nation.",
+    "paragraph2": "On this glorious day, we remember the efforts of the founder King Abdulaziz bin Abdulrahman Al Saud - may God rest his soul - who united this pure land under one banner and laid the foundations of the modern state that we are proud of today. We also recall the great sacrifices and strong determination that led to the establishment of this great nation.",
+    "paragraph3": "We at Sultan Qareen Law Firm for Law and Legal Consultations are proud to be part of this generous nation, and we affirm our continued commitment to serving the Saudi community and providing the best legal services. Happy new year to you and the Kingdom with goodness and prosperity, and happy new year to our wise leadership and our generous people with a thousand blessings."
+  },
+  "relatedNews": {
+    "title": "Other News and Activities"
+  },
+  "commentForm": {
+    "title": "Feel Free to Contact Us",
+    "namePlaceholder": "Name",
+    "phonePlaceholder": "Phone Number",
+    "emailPlaceholder": "Email",
+    "messagePlaceholder": "Your Message",
+    "submit": "Send"
+  },
+  "newsItems": [
+    {
+      "id": 1,
+      "title": "Saudi Foundation Day 2024",
+      "description": "Happy Saudi Foundation Day 2024 to all who cherish security and prosperity...",
+      "date": "March 5, 2024",
+      "readMore": "Read More",
+      "image": "/hero-image.png"
+    },
+    {
+      "id": 2,
+      "title": "Saudi Foundation Day 2024",
+      "description": "Happy Saudi Foundation Day 2024 to all who cherish security and prosperity...",
+      "date": "March 5, 2024",
+      "readMore": "Read More",
+      "image": "/hero-image.png"
+    },
+    {
+      "id": 3,
+      "title": "Saudi Foundation Day 2024",
+      "description": "Happy Saudi Foundation Day 2024 to all who cherish security and prosperity...",
+      "date": "January 9, 2024",
+      "readMore": "Read More",
+      "image": "/hero-image.png"
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "title": "توظيف و تدريب",
+  "form": {
+    "nameLabel": "الإسم",
+    "namePlaceholder": "اكتب إسمك الكامل هنا",
+    "emailLabel": "البريد الإلكتروني",
+    "emailPlaceholder": "البريد الإلكتروني",
+    "phoneLabel": "رقم الهاتف",
+    "phonePlaceholder": "اكتب رقم التواصل الخاص بك هنا",
+    "jobTitleLabel": "المسمى الوظيفي",
+    "jobTitlePlaceholder": "المسمى الوظيفي",
+    "messagePlaceholder": "اكتب ما ترغب التواصل بخصوص به هنا",
+    "cvLabel": "السيرة الذاتية",
+    "uploadPlaceholder": "تحميل ملفات (PDF)",
+    "submit": "إرسال",
+    "pdfOnly": "يرجى تحميل ملفات PDF فقط",
+    "successMessage": "تم إرسال طلبك بنجاح!"
+  }
+}
