@@ -3,7 +3,7 @@ import React from 'react'
 import { useT } from '@/app/i18n/client'
 import HeroTitle from '@/components/hero-title'
 import ArticleCard from '@/components/article-card'
-import ContactForm from '@/components/contact-form'
+// import ContactForm from '@/components/contact-form'
 
 type ArticleItem = {
   id: number
@@ -39,8 +39,8 @@ export default function ArticleDetailPage({ params }: ArticleDetailPageProps) {
       <HeroTitle pageTitle={currentArticle.title}>{t("title")}</HeroTitle>
 
       {/* Main Content */}
-      <section className="w-full py-12 md:py-16 bg-white">
-        <div className="w-5/6 md:w-4/5 lg:w-3/4 mx-auto md:px-4">
+      <section className="w-11/12 mx-auto flex flex-col md:flex-row gap-6 py-12 md:py-16 bg-white">
+        <div className="md:w-4/5 mx-auto md:px-4">
         
           {/* Article Title and Meta */}
           <div className="mb-8" dir={direction}>
@@ -69,28 +69,25 @@ export default function ArticleDetailPage({ params }: ArticleDetailPageProps) {
               {t("articleContent.paragraph3")}
             </p>
           </div>
+        </div>
 
-          {/* Related Articles Section */}
-          <div className="mb-12">
-            <h2 className="text-2xl md:text-3xl font-bold text-primary mb-8" dir={direction}>
-              {t("relatedArticles.title")}
-            </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-              {relatedArticles.map((item) => (
-                <ArticleCard
-                  key={item.id}
-                  id={item.id}
-                  title={item.title}
-                  description={item.description}
-                  date={item.date}
-                  readMore={item.readMore}
-                />
-              ))}
-            </div>
+        {/* Related Articles Section */}
+        <div className="mb-12 ">
+          <h2 className="text-2xl font-bold text-gold mb-8" dir={direction}>
+            {t("relatedArticles.title")}
+          </h2>
+          <div className="grid grid-cols-1 gap-4">
+            {relatedArticles.map((item) => (
+              <ArticleCard
+                key={item.id}
+                id={item.id}
+                title={item.title}
+                description={item.description}
+                date={item.date}
+                readMore={item.readMore}
+              />
+            ))}
           </div>
-
-          {/* Contact Form Section */}
-          <ContactForm />
         </div>
       </section>
     </>

@@ -84,7 +84,7 @@ export default function Page() {
                       <FormItem>
                         <FormControl>
                           <Input 
-                            placeholder={t("form.namePlaceholder")} 
+                            placeholder={`${t("form.namePlaceholder")}*`} 
                             {...field}
                             className={direction === 'rtl' ? 'text-right' : 'text-left'}
                           />
@@ -103,7 +103,7 @@ export default function Page() {
                         <FormControl>
                           <Input 
                             type="tel"
-                            placeholder={t("form.phonePlaceholder")} 
+                            placeholder={`*${t("form.phonePlaceholder")}`} 
                             {...field}
                             className={direction === 'rtl' ? 'text-right' : 'text-left'}
                           />

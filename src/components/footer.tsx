@@ -110,10 +110,10 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="tel:+9665706600930" className="hover:text-white transition-colors flex items-center gap-2 group">
+                <Link href="tel:+966570680090" className="hover:text-white transition-colors flex items-center gap-2 group">
                   <span className={`flex items-center gap-2 w-full text-nowrap ${direction === 'rtl' ? 'group-hover:translate-x-[-5px]' : 'group-hover:translate-x-[5px]'} transition-all`}>
                     <PhoneIcon className="w-5 h-5" />
-                    <span dir="ltr">(+966) 5706600930</span>
+                    <span dir="ltr">(+966) 570680090</span>
                   </span>
                 </Link>
               </li>

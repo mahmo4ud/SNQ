@@ -4,7 +4,7 @@ import Image from 'next/image'
 import { useT } from '@/app/i18n/client'
 import HeroTitle from '@/components/hero-title'
 import NewsCard from '@/components/news-card'
-import ContactForm from '@/components/contact-form'
+// import ContactForm from '@/components/contact-form'
 import CardBg from '@/../public/news-card-bg.png'
 
 type NewsItem = {
@@ -41,8 +41,8 @@ export default function NewsDetailPage({ params }: NewsDetailPageProps) {
       <HeroTitle pageTitle={currentNews.title}>{t("title")}</HeroTitle>
 
       {/* Main Content */}
-      <section className="w-full py-12 md:py-16 bg-white">
-        <div className="w-5/6 md:w-4/5 lg:w-3/4 mx-auto md:px-4">
+      <section className="w-11/12 mx-auto flex gap-6 py-12 md:py-16 bg-white">
+        <div className="md:w-4/5 mx-auto md:px-4">
           
           {/* Article Banner */}
           <div className="mb-8">
@@ -83,28 +83,25 @@ export default function NewsDetailPage({ params }: NewsDetailPageProps) {
               {t("articleContent.paragraph3")}
             </p>
           </div>
-
-          {/* Related News Section */}
-          <div className="mb-12">
-            <h2 className="text-2xl md:text-3xl font-bold text-primary mb-8" dir={direction}>
-              {t("relatedNews.title")}
-            </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-              {relatedNews.map((item) => (
-                <NewsCard
-                  key={item.id}
-                  id={item.id}
-                  title={item.title}
-                  description={item.description}
-                  date={item.date}
-                  readMore={item.readMore}
-                />
-              ))}
-            </div>
+        </div>
+        
+        {/* Related News Section */}
+        <div className="mb-12">
+          <h2 className="text-2xl font-bold text-gold mb-8" dir={direction}>
+            {t("relatedNews.title")}
+          </h2>
+          <div className="grid grid-cols-1 gap-4">
+            {relatedNews.map((item) => (
+              <NewsCard
+                key={item.id}
+                id={item.id}
+                title={item.title}
+                description={item.description}
+                date={item.date}
+                readMore={item.readMore}
+              />
+            ))}
           </div>
-
-          {/* Contact Form Section */}
-          <ContactForm />
         </div>
       </section>
     </>
