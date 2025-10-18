@@ -102,7 +102,7 @@ export default function Page() {
                     render={({ field }) => (
                       <FormItem>
                         <Label className={`font-medium text-gray-500 ${direction === 'rtl' ? 'text-right' : 'text-left'}`}>
-                          {t("form.nameLabel")}
+                          {t("form.nameLabel")}<span className="text-red-500">*</span>
                         </Label>
                         <FormControl>
                           <Input 
@@ -147,7 +147,7 @@ export default function Page() {
                     render={({ field }) => (
                       <FormItem>
                         <Label className={`font-medium text-gray-500 ${direction === 'rtl' ? 'text-right' : 'text-left'}`}>
-                          {t("form.emailLabel")}
+                          {t("form.emailLabel")}<span className="text-red-500">*</span>
                         </Label>
                         <FormControl>
                           <Input 
@@ -169,7 +169,7 @@ export default function Page() {
                     render={({ field }) => (
                       <FormItem>
                         <Label className={`font-medium text-gray-500 ${direction === 'rtl' ? 'text-right' : 'text-left'}`}>
-                          {t("form.phoneLabel")}
+                          {t("form.phoneLabel")}<span className="text-red-500">*</span>
                         </Label>
                         <FormControl>
                           <Input 
@@ -185,31 +185,10 @@ export default function Page() {
                   />
                 </div>
 
-                {/* Row 3: Message */}
-                <FormField
-                  control={form.control}
-                  name="message"
-                  render={({ field }) => (
-                    <FormItem>
-                      <Label className={`font-medium text-gray-500 ${direction === 'rtl' ? 'text-right' : 'text-left'}`}>
-                        {t("form.messageLabel")}
-                      </Label>
-                      <FormControl>
-                        <Textarea 
-                          placeholder={t("form.messagePlaceholder")} 
-                          {...field}
-                          className={`min-h-[120px] ${direction === 'rtl' ? 'text-right' : 'text-left'}`}
-                        />
-                      </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
-
                 {/* Row 4: CV Upload */}
                 <div>
                   <Label className={`font-medium text-gray-500 mb-2 ${direction === 'rtl' ? 'text-right' : 'text-left'}`}>
-                    {t("form.cvLabel")}
+                    {t("form.cvLabel")}<span className="text-red-500">*</span>
                   </Label>
                   <div className="space-y-2">
                     <input

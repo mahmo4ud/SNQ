@@ -4,20 +4,20 @@
     "news": "الأخبار",
     "articles": "المقالات",
     "joinTeam": "انضم إلينا",
-    "startConsultations": "ابدأ استشاراتك القانونية",
-    "contactUs": "اتصل بنا"
+    "startConsultations": "ابدأ إستشاراتك القانونية",
+    "contactUs": "إتصل بنا"
   },
   "about": {
     "title": "عن سعيد بن ناصر بن قراد",
     "services": "الخدمات",
-    "accreditations": "الاعتمادات",
+    "accreditations": "الإعتمادات",
     "professionalApproach": "منهجنا المهني",
     "ourMessage": "رسالتنا",
     "ourVision": "رؤيتنا",
     "ourValues": "قيمنا"
   },
   "contact": {
-    "title": "معلومات الاتصال",
+    "title": "معلومات الإتصال",
     "location": "المملكة العربية السعودية، الرياض"
   },
   "bottomBar": {

@@ -1,0 +1,37 @@
+{
+  "contact": {
+    "phone": {
+      "label": "Phone",
+      "value": "(+966) 570680090"
+    },
+    "location": {
+      "label": "Kingdom of Saudi Arabia",
+      "value": "Riyadh"
+    },
+    "email": {
+      "label": "Email",
+      "value": "info@sqsqa.com"
+    },
+    "hours": {
+      "label": "Sunday - Thursday",
+      "value": "9 AM - 5 PM"
+    }
+  },
+  "booking": {
+    "title": "Book Your Free Consultation",
+    "description": "Start your project with a free consultation to get you started on the right foot. Use the Google Meet link provided with your booking to join the meeting at the time of your appointment.",
+    "placeholder": {
+      "title": "Ready to Serve You",
+      "description": "For booking or inquiries, please contact us via phone or email",
+      "callButton": "Call Us Now",
+      "emailButton": "Email Us"
+    }
+  },
+  "info": {
+    "title": "What to Expect",
+    "point1": "Session Duration: 30 minutes",
+    "point2": "Via Google Meet (link sent after booking)",
+    "point3": "Free legal consultation with our experts",
+    "point4": "Immediate answers to your legal inquiries"
+  }
+}

@@ -48,7 +48,7 @@ export default function ContactForm() {
   return (
     <div className="xl:w-1/2 lg:w-2/3 md:w-3/4 w-full mx-auto rounded-2xl p-6 md:p-8 border border-gray-200" style={{ backgroundColor: '#FCFCFC' }}>
       <h2 className="text-xl md:text-2xl font-bold text-gold mb-6 text-center" dir={direction}>
-        {t("title")}
+        {t("subtitle")}
       </h2>
       
       <Form {...form}>
