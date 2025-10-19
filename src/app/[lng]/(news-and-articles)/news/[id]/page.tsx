@@ -41,7 +41,7 @@ export default function NewsDetailPage({ params }: NewsDetailPageProps) {
       <HeroTitle pageTitle={currentNews.title}>{t("title")}</HeroTitle>
 
       {/* Main Content */}
-      <section className="w-11/12 mx-auto flex gap-6 py-12 md:py-16 bg-white">
+      <section className="w-11/12 mx-auto flex flex-col md:flex-row gap-6 py-12 md:py-16 bg-white">
         <div className="md:w-4/5 mx-auto md:px-4">
           
           {/* Article Banner */}

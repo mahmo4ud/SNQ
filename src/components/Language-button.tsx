@@ -36,16 +36,16 @@ export default function LanguageButton() {
   return (
     <button
       onClick={handleLanguageSwitch}
-      className="w-fit bg-primary text-nav-text text-sm xl:text-base flex gap-2 rounded-md px-2 xl:px-4 py-1 xl:py-2 cursor-pointer hover:shadow-inner/50 transition-all duration-300"
+      className="w-fit font-medium bg-primary text-lite-primary text-sm 2xl:text-base flex gap-2 rounded-md px-2 xl:px-4 py-1 xl:py-2 cursor-pointer hover:shadow-inner/50 transition-all duration-300"
       aria-label="Switch Language"
     >
-      <span className={`font-medium transition-colors duration-300 ${currentLang === "en" ? "text-white" : ""}`}>
+      <span className={`transition-colors duration-300 ${currentLang === "en" ? "text-white" : ""}`}>
         EN
       </span>
       <span>
         |
       </span> 
-      <span className={`font-medium transition-colors duration-300 ${currentLang === "ar" ? "text-white" : ""}`}>
+      <span className={`transition-colors duration-300 ${currentLang === "ar" ? "text-white" : ""}`}>
         عربى
       </span>
     </button>

@@ -1,8 +1,8 @@
 "use client"
 
 import { Carousel, CarouselContent, CarouselItem, CarouselDots } from "@/components/ui/carousel"
-import SlideOneBg from "../../../../public/slide-1-bg.png"
-import SlideTwoBg from "../../../../public/slide-2-bg.png"
+import SlideOneBg from "../../../../public/white-bg.png"
+import SlideTwoBg from "../../../../public/green-bg.png"
 import HeroImage from "../../../../public/hero-image.png"
 import MobileLogo from "../../../../public/mobile-logo.png"
 import Image, { StaticImageData } from "next/image"

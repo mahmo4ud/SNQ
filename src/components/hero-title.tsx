@@ -4,7 +4,7 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import SubTitle from './sub-title'
 import { useT } from '@/app/i18n/client'
-import SubTitleBg from '@/../public/sub-title-bg.png'
+import SubTitleBg from '@/../public/hero-title-bg.png'
 import mobileLogo from '@/../public/mobile-logo.png'
 import {
   Breadcrumb,

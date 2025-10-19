@@ -9,7 +9,7 @@
   "advantages": {
     "title": "ما يميزنا",
     "professionalApproach": "منهجنا المهني",
-    "accreditations": "الاعتمادات",
+    "accreditations": "الإعتمادات",
     "commitmentToClients": "إلتزامنا نحو عملائنا"
   },
   "services": "الخدمات",
@@ -27,5 +27,6 @@
     "training": "التدريب",
     "employment": "التوظيف"
   },
-  "contactUs": "إتصل بنا"
+  "contactUs": "إتصل بنا",
+  "managementLogin": "تسجيل دخول الإدارة"
 }
