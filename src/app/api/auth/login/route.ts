@@ -47,7 +47,7 @@ export const POST = async (request: Request) => {
       messageAr: "تم تسجيل الدخول بنجاح",
       token,
     });
-  } catch (error) {
+  } catch (_error) {
     return NextResponse.json(
       {
         code: 500,

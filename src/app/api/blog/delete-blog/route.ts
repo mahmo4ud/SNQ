@@ -31,9 +31,8 @@ export const DELETE = async (request: Request) => {
       );
     }
     const token = authHeader.split(" ")[1];
-    let payload;
     try {
-      payload = verifyAuthToken(token);
+      verifyAuthToken(token);
     } catch (err) {
       return NextResponse.json(
         {
@@ -69,7 +68,7 @@ export const DELETE = async (request: Request) => {
       messageEn: "Blog deleted successfully",
       messageAr: "تم حذف المقال بنجاح",
     });
-  } catch (error) {
+  } catch (_error) {
     return NextResponse.json(
       {
         code: 500,

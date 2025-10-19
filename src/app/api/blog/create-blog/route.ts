@@ -62,7 +62,7 @@ export const POST = async (request: Request) => {
       },
       { status: 201 }
     );
-  } catch (error) {
+  } catch (_error) {
     return NextResponse.json(
       {
         code: 500,

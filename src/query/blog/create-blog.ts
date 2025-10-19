@@ -30,9 +30,10 @@ export const createBlog = async (data: CreateBlogInput) => {
       messageEn: res?.data?.messageEn ?? "Blog created successfully",
       messageAr: res?.data?.messageAr ?? "تم إنشاء المقال بنجاح",
     };
-  } catch (err: any) {
-    const status = err?.response?.status;
-    const resp = err?.response?.data ?? {};
+  } catch (err: unknown) {
+    const error = err as { response?: { status?: number; data?: Record<string, unknown> } };
+    const status = error?.response?.status;
+    const resp = error?.response?.data ?? {};
     return {
       success: false as const,
       status,

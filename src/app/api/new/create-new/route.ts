@@ -17,9 +17,9 @@ export const POST = async (request: Request) => {
     }
 
     const token = authHeader.split(" ")[1];
-    let payload: any;
+    let payload: { userId: string };
     try {
-      payload = verifyAuthToken(token);
+      payload = verifyAuthToken(token) as { userId: string };
     } catch (err) {
       return NextResponse.json(
         {
@@ -77,7 +77,7 @@ export const POST = async (request: Request) => {
       },
       { status: 201 }
     );
-  } catch (error) {
+  } catch (_error) {
     return NextResponse.json(
       {
         code: 500,

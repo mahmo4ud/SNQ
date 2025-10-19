@@ -1,7 +1,7 @@
 import { db } from "@/config/db";
 import { NextResponse } from "next/server";
 
-export const GET = async (request: Request) => {
+export const GET = async () => {
   try {
     const items = await db.news.findMany({
       orderBy: { createdAt: "desc" },
@@ -24,7 +24,7 @@ export const GET = async (request: Request) => {
       messageAr: "تم جلب الأخبار بنجاح",
       data: items,
     });
-  } catch (error) {
+  } catch (_error) {
     return NextResponse.json(
       {
         code: 500,

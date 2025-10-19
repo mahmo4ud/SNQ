@@ -94,7 +94,7 @@ export const DELETE = async (request: Request) => {
       messageEn: "News deleted successfully",
       messageAr: "تم حذف الخبر بنجاح",
     });
-  } catch (error) {
+  } catch (_error) {
     return NextResponse.json(
       {
         code: 500,

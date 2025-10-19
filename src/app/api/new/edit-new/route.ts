@@ -131,7 +131,7 @@ export const PATCH = async (request: Request) => {
       messageEn: "News updated successfully",
       messageAr: "تم تعديل الخبر بنجاح",
     });
-  } catch (error) {
+  } catch (_error) {
     return NextResponse.json(
       {
         code: 500,

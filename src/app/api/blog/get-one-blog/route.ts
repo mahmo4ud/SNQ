@@ -49,7 +49,7 @@ export const GET = async (request: Request) => {
       messageAr: "تم جلب المقال بنجاح",
       data: blog,
     });
-  } catch (error) {
+  } catch (_error) {
     return NextResponse.json(
       {
         code: 500,

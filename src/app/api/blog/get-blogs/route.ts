@@ -12,7 +12,7 @@ export const GET = async () => {
       messageEn: "Fetched blogs successfully",
       messageAr: "تم جلب المقالات بنجاح",
     });
-  } catch (error) {
+  } catch (_error) {
     return NextResponse.json(
       {
         code: 500,

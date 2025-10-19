@@ -33,9 +33,8 @@ export const PATCH = async (request: Request) => {
       );
     }
     const token = authHeader.split(" ")[1];
-    let payload;
     try {
-      payload = verifyAuthToken(token);
+      verifyAuthToken(token);
     } catch (err) {
       return NextResponse.json(
         {
@@ -96,7 +95,7 @@ export const PATCH = async (request: Request) => {
       messageEn: "Blog updated successfully",
       messageAr: "تم تعديل المقال بنجاح",
     });
-  } catch (error) {
+  } catch (_error) {
     return NextResponse.json(
       {
         code: 500,

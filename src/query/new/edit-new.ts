@@ -31,9 +31,10 @@ export const editNew = async (id: string, data: EditNewsInput) => {
       messageEn: res?.data?.messageEn ?? "News updated successfully",
       messageAr: res?.data?.messageAr ?? "تم تعديل الخبر بنجاح",
     };
-  } catch (err: any) {
-    const status = err?.response?.status;
-    const resp = err?.response?.data ?? {};
+  } catch (err: unknown) {
+    const error = err as { response?: { status?: number; data?: Record<string, unknown> } };
+    const status = error?.response?.status;
+    const resp = error?.response?.data ?? {};
     return {
       success: false as const,
       status,
