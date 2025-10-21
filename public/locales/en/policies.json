@@ -1,0 +1,75 @@
+{
+  "closeButton": "Close",
+  "privacyPolicy": {
+    "title": "Privacy Policy",
+    "intro": "Thank you for your trust and visit to the website of Saeed Nasser bin Qarad Law Firm and Legal Consultations | SNQ Law Firm",
+    "paragraph1": "We value your privacy and confirm our commitment to protecting your personal data in accordance with the applicable laws and regulations for all necessary information collected by the website to provide services and improve experience, including but not limited to: (personal identification information, technical usage data, account information). You can browse the website and view our services without providing any data; your identity will remain anonymous throughout the browsing period unless an electronic form is submitted to request a service or an account is created within the website.",
+    "dataUsageTitle": "The data and information collected are used for the following purposes:",
+    "dataUsageItems": {
+      "item1": "Managing your account and processing your requests and legal services.",
+      "item2": "Communicating with you regarding services, inquiries, or feedback.",
+      "item3": "Developing and improving the website design and user experience.",
+      "item4": "Sending updates or legal newsletters, which you can unsubscribe from at any time.",
+      "item5": "Complying with relevant legal obligations."
+    },
+    "marketingText": "We may also send you emails about our services and legal updates, and you can unsubscribe at any time through the link in the email or by contacting us via our email, and it will be stopped.",
+    "disclosureTitle": "We disclose data in the following circumstances:",
+    "disclosureItems": {
+      "item1": "To service providers who assist us in operating the website or providing services (under confidentiality obligations).",
+      "item2": "When disclosure is required by law or by order of a judicial or regulatory authority.",
+      "item3": "In case of your explicit consent."
+    },
+    "noSellText": "Rest assured that we do not sell or rent it to any third party under any circumstances.",
+    "retentionText": "We retain your personal data only for the period necessary to achieve the purposes for which it was collected or as required by regulations. After the need or regulatory period ends, it is deleted and anonymized securely."
+  },
+  "termsAndConditions": {
+    "title": "Terms and Conditions of Use",
+    "welcome": "Welcome to the website of Saeed Nasser bin Qarad Law Firm and Legal Consultations | SNQ Law Firm",
+    "intro": "Please read these terms and conditions before using the website, as your access or use constitutes explicit agreement to abide by them.",
+    "purpose": "This website is an electronic platform aimed at displaying the legal services we provide and providing general information and professional consultations to our valued visitors. The use of the website does not in any way represent an agency relationship or legal consultation unless direct communication is made through the available means and a written service contract is concluded between the parties.",
+    "usageTermsTitle": "Terms of Use:",
+    "usageTerms": {
+      "term1": "The website user must have legal capacity and be no less than eighteen years of age.",
+      "term2": "The responsibility for using the account registered on the website lies with the client whose data appears, even if used by others, and all transactions issued from the account are enforceable against the registered data owner.",
+      "term3": "The user undertakes that all data and information provided are correct, accurate, and up-to-date, and bears any legal consequences otherwise.",
+      "term4": "The request for \"Legal Consultations\" service is not confirmed until the specified fees are paid via an official bank transfer to the office's account.",
+      "term5": "The office reserves the right to refuse, cancel, or postpone any request containing inaccurate data or incorrect information. It also has the right to refuse or postpone without stating reasons. If rejection occurs after bank payment, the office is obligated to return the full amount paid to the client. The office may postpone the service for a period not exceeding (10) business days."
+    },
+    "commitment": "At Saeed Nasser bin Qarad Law Firm and Legal Consultations | SNQ Law Firm, we strive to provide a distinguished experience for our clients and always seek their satisfaction. If you encounter any problem or have any inquiry, please contact us through the official communication channels listed on the website, and we will be happy to serve you.",
+    "intellectualPropertyTitle": "Intellectual Property and Copyrights of the Website:",
+    "intellectualProperty": "We inform our valued visitors that all contents of this website, including trademarks, designs, texts, and articles, are the exclusive property of Saeed Nasser bin Qarad Law Firm and Legal Consultations | SNQ Law Firm.",
+    "intellectualPropertyUsage": "None of these materials may be used, republished, or quoted without prior written consent from the office management. In case of republishing any legal material through the website, the source must be clearly indicated to preserve intellectual and moral rights.",
+    "acceptance": "Your access to our website means your full review of these terms and conditions and your agreement to them."
+  },
+  "trademarkPolicy": {
+    "title": "Trademark Policy",
+    "firmName": "Saeed Nasser bin Qarad Law Firm and Legal Consultations",
+    "introTitle": "Introduction",
+    "intro": "The trademarks of Saeed Nasser bin Qarad Law Firm and Legal Consultations represent intangible assets of great importance, reflecting the professional reputation and credibility that the firm has built over the years. From our commitment to protecting and enhancing this reputation, we establish this policy to define the controls and guarantees related to the use of our trademark.",
+    "ownershipTitle": "Ownership and Rights",
+    "ownership": "All trademarks, names, and logos of Saeed Nasser bin Qarad Law Firm and Legal Consultations, whether registered or unregistered, are the exclusive property of the firm, and may not be used, reproduced, modified, or exploited in any way without obtaining prior written permission from the authorized entity within the firm.",
+    "includesTitle": "Our trademarks include, but are not limited to:",
+    "includes": {
+      "tradeName": "Trade Name: Saeed Nasser bin Qarad Law Firm and Legal Consultations",
+      "officialSlogan": "Official Slogan: Your Trusted Legal Destination",
+      "abbreviation": "Abbreviated or Symbolic Name: SNQ",
+      "otherDesigns": "Any other approved design or visual identity indicating the firm"
+    },
+    "usageTermsTitle": "Terms and Conditions of Use",
+    "usageTermsIntro": "The use of the company's trademarks is permitted only in the presence of an official and written authorization, and according to the following controls:",
+    "usageTerms": {
+      "term1": "Full compliance with the approved form, spelling, and style of the trademark without modification or alteration.",
+      "term2": "Not abbreviating the mark or using it as a verb or independent noun.",
+      "term3": "Combining the \"Damana\" mark with any other mark or trade name without prior written consent is prohibited.",
+      "term4": "The trademark may not be used in a way that suggests affiliation, endorsement, or sponsorship by Damana company unless expressly authorized.",
+      "term5": "It is prohibited to display the trademark in any offensive, misleading context, or one that violates public order or public taste or may harm the company's reputation in any way.",
+      "term6": "Registration of any trade name, domain name, or social media account that includes the trademark or any similar version is not permitted.",
+      "term7": "It is not permissible to seek to register any mark or logo similar in form, sound, or meaning to the \"Damana\" mark."
+    },
+    "legalCommitmentTitle": "Legal Commitment",
+    "legalCommitment": "Saeed Nasser bin Qarad Law Firm and Legal Consultations reserves its right to take all necessary legal measures to protect its trademarks in case of any violation or misuse.",
+    "contactPointTitle": "Contact Point",
+    "contactPoint": "For inquiries or requests for authorization to use the trademark, please contact the trademark team via the following email:",
+    "email": "info@snqsa.com"
+  }
+}

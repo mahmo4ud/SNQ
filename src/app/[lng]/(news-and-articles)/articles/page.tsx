@@ -2,7 +2,7 @@
 import React from 'react'
 import { useT } from '@/app/i18n/client'
 import HeroTitle from '@/components/hero-title'
-import ArticleCard from '@/components/article-card'
+import ArticleCard from '@/app/[lng]/(news-and-articles)/articles/components/article-card'
 import { getAllBlogs, type BlogListItem } from '@/query/blog/get-all-blogs'
 
 export default function Page() {

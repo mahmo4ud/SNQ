@@ -1,7 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
 import { useRouter, usePathname } from "next/navigation";
-import AdminSidebar from "@/components/admin-sidebar";
+import AdminSidebar from "@/app/[lng]/admin/admin-sidebar";
 import { Bars3Icon } from "@heroicons/react/24/outline";
 import Image from "next/image";
 import MobileLogo from "@/../public/mobile-logo.png";

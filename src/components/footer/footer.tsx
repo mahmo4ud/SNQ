@@ -1,4 +1,5 @@
 "use client";
+import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import LiteLogo from "@/../public/mobile-logo.png";
@@ -6,10 +7,15 @@ import Logo from "@/../public/logo.png"
 import { EnvelopeIcon, PhoneIcon, MapPinIcon } from "@heroicons/react/24/outline";
 import { useT } from "@/app/i18n/client";
 import { usePathname } from "next/navigation";
+import PolicyModal from "./components/PolicyModal";
+import TradeMarkPolicy from "./components/TradeMarkPolicy";
+import TermsAndConditions from "./components/TermsAndConditions";
+import PrivacyPolicy from "./components/PrivacyPolicy";
 
 export default function Footer() {
   const { t, i18n } = useT("footer");
   const pathname = usePathname();
+  const [activeModal, setActiveModal] = useState<'trademark' | 'terms' | 'privacy' | null>(null);
 
   const direction = i18n.language === "ar" ? "rtl" : "ltr";
   
@@ -156,26 +162,60 @@ export default function Footer() {
       </div>
 
       {/* Bottom Bar */}
-      <div className="border-t border-lite-primary/50 w-11/12 mx-auto py-4">
+      <div className="border-t border-lite-primary/50 w-11/12 mx-auto py-4 relative z-30">
         <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-xs">
           <div>
             {t("bottomBar.copyright")}
           </div>
           <div className="flex gap-3 md:gap-4 items-center justify-center text-center">
-            <div>
+            <button
+              onClick={() => setActiveModal('trademark')}
+              className="hover:text-white hover:underline transition-colors cursor-pointer"
+            >
               {t("bottomBar.tradeMarkPolicy")}
-            </div>
+            </button>
             <span>|</span>
-            <div>
+            <button
+              onClick={() => setActiveModal('terms')}
+              className="hover:text-white hover:underline transition-colors cursor-pointer"
+            >
               {t("bottomBar.terms")}
-            </div>
+            </button>
             <span>|</span>
-            <div>
+            <button
+              onClick={() => setActiveModal('privacy')}
+              className="hover:text-white hover:underline transition-colors cursor-pointer"
+            >
               {t("bottomBar.privacyPolicy")}
-            </div>
+            </button>
           </div>
         </div>
       </div>
+
+      {/* Modals */}
+      <PolicyModal
+        isOpen={activeModal === 'trademark'}
+        onClose={() => setActiveModal(null)}
+        title={t("bottomBar.tradeMarkPolicy")}
+      >
+        <TradeMarkPolicy />
+      </PolicyModal>
+
+      <PolicyModal
+        isOpen={activeModal === 'terms'}
+        onClose={() => setActiveModal(null)}
+        title={t("bottomBar.terms")}
+      >
+        <TermsAndConditions />
+      </PolicyModal>
+
+      <PolicyModal
+        isOpen={activeModal === 'privacy'}
+        onClose={() => setActiveModal(null)}
+        title={t("bottomBar.privacyPolicy")}
+      >
+        <PrivacyPolicy />
+      </PolicyModal>
     </footer>
   )
 }

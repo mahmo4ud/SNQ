@@ -1,5 +1,5 @@
-import OpeningBracket from './opening-bracket';
-import ClosingBracket from './closing-bracket';
+import OpeningBracket from '../../public/opening-bracket';
+import ClosingBracket from '../../public/closing-bracket';
 
 type Props = {
   children: string;

@@ -2,7 +2,7 @@
 import React from 'react'
 import { useT } from '@/app/i18n/client'
 import HeroTitle from '@/components/hero-title'
-import NewsCard from '@/components/news-card'
+import NewsCard from '@/app/[lng]/(news-and-articles)/news/components/news-card'
 import { getAllNews, type NewsListItem } from '@/query/new/get-all-new'
 
 export default function Page() {

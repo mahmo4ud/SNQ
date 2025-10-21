@@ -7,7 +7,7 @@ import { getAllNews } from "@/query/new/get-all-new";
 import { editNew } from "@/query/new/edit-new";
 import { createNew } from "@/query/new/create-new";
 import { deleteNew } from "@/query/new/delete-new";
-import AdminFormModal from "@/components/admin-form-modal";
+import AdminFormModal from "@/app/[lng]/admin/admin-form-modal";
 import { uploadImage } from "@/query/upload";
 
 interface News {

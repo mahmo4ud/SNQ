@@ -9,7 +9,7 @@ import {
   ArrowRightOnRectangleIcon,
   XMarkIcon
 } from "@heroicons/react/24/outline";
-import LanguageButton from "./Language-button";
+import LanguageButton from "../../../components/Language-button";
 import Logo from "@/../public/logo-dark.png";
 
 interface AdminSidebarProps {

@@ -1,4 +1,4 @@
-import Footer from "@/components/footer";
+import Footer from "@/components/footer/footer";
 import Navbar from "@/components/navbar";
 import { ReactNode } from "react";
 import { getT } from "../i18n";

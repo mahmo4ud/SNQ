@@ -6,7 +6,7 @@ import { getAllBlogs } from "@/query/blog/get-all-blogs";
 import { editBlog } from "@/query/blog/edit-blog";
 import { createBlog } from "@/query/blog/create-blog";
 import { deleteBlog } from "@/query/blog/delete-blog";
-import AdminFormModal from "@/components/admin-form-modal";
+import AdminFormModal from "@/app/[lng]/admin/admin-form-modal";
 
 interface Article {
   id: string;
