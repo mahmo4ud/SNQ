@@ -63,8 +63,8 @@ export default function ArticleDetailPage({ params }: ArticleDetailPageProps) {
       <HeroTitle pageTitle={blog ? (i18n.language === 'ar' ? blog.titleAr : blog.titleEn) : ''}>{t("title")}</HeroTitle>
 
       {/* Main Content */}
-      <section className="w-11/12 mx-auto flex flex-col lg:flex-row gap-6 py-12 md:py-16 bg-white">
-        <div className="md:w-6/8 md:px-4">
+      <section className="w-11/12 md:w-10/12 xl:w-9/12 mx-auto flex flex-col lg:flex-row gap-6 py-12 md:py-16 bg-white">
+        <div className=" lg:w-6/8 lg:px-4">
         
           {/* Article Title and Meta */}
           <div className="mb-8" dir={direction}>
@@ -80,14 +80,14 @@ export default function ArticleDetailPage({ params }: ArticleDetailPageProps) {
 
           {/* Article Content */}
           <div className="prose prose-lg max-w-none mb-12" dir={direction}>
-            <p className="text-gray-700 leading-relaxed mb-4">
+            <p className="text-gray-700 text-xl leading-relaxed mb-4">
               {blog ? (i18n.language === 'ar' ? blog.contentAr : blog.contentEn) : ''}
             </p>
           </div>
         </div>
 
         {/* Related Articles Section */}
-        <div className="mb-12 w-full lg:w-2/8">
+        <div className="lg:w-1/3 mb-12">
           <h2 className="text-2xl font-bold text-gold mb-8" dir={direction}>
             {t("relatedArticles.title")}
           </h2>

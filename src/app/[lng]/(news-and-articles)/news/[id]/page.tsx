@@ -59,15 +59,13 @@ export default function NewsDetailPage({ params }: NewsDetailPageProps) {
     }
   }
 
-  console.log(news?.imageUrl)
-
   return (
     <>
       {/* Hero Section with Dynamic Breadcrumb */}
       <HeroTitle pageTitle={news ? (i18n.language === 'ar' ? news.titleAr : news.titleEn) : ''}>{t("title")}</HeroTitle>
 
       {/* Main Content */}
-      <section className="w-11/12 mx-auto flex flex-col md:flex-row gap-6 py-12 md:py-16 bg-white">
+      <section className="w-11/12 md:w-10/12 xl:w-9/12 mx-auto flex flex-col lg:flex-row gap-6 py-12 md:py-16 bg-white">
         <div className="w-full md:w-4/5 mx-auto md:px-4">
           
           {/* News Banner */}
@@ -98,19 +96,19 @@ export default function NewsDetailPage({ params }: NewsDetailPageProps) {
           </div>
 
           {/* News Content */}
-          <div className="prose prose-lg max-w-none mb-12" dir={direction}>
-            <p className="text-gray-700 leading-relaxed mb-4">
+          <div className="prose prose-lg w-full mb-12" dir={direction}>
+            <p className="text-gray-700 text-xl leading-relaxed mb-4 break-words">
               {news ? (i18n.language === 'ar' ? news.contentAr : news.contentEn) : ''}
             </p>
           </div>
         </div>
         
         {/* Related News Section */}
-        <div className="mb-12">
+        <div className="mb-12 w-full lg:w-1/3">
           <h2 className="text-2xl font-bold text-gold mb-8" dir={direction}>
             {t("relatedNews.title")}
           </h2>
-          <div className="grid grid-cols-1 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-1 gap-4">
             {related.map((item) => (
               <NewsCard
                 key={item.id}

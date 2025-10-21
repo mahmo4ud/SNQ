@@ -104,11 +104,10 @@ export default function AdminFormModal({
 
   return (
     <div 
-      className="fixed inset-0 bg-black/40 bg-opacity-50 flex items-center justify-center z-80 p-4"
-      onClick={onClose}
+      className="fixed inset-0 bg-black/40 backdrop-blur-xs bg-opacity-50 flex items-center justify-center z-80 p-4"
     >
       <div 
-        className="bg-white border-5 border-gold rounded-2xl w-full max-w-3xl max-h-[90vh] overflow-y-auto"
+        className="bg-white rounded-2xl w-full max-w-3xl max-h-[90vh] overflow-y-auto"
         onClick={(e) => e.stopPropagation()}
       >
         <div className="p-6">
