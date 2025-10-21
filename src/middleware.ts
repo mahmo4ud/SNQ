@@ -12,12 +12,20 @@ acceptLanguage.languages(languages);
 export const config = {
   // Avoid matching for static files, API routes, etc.
   matcher: [
-    "/((?!api|_next/static|_next/image|assets|favicon.ico|sw.js|site.webmanifest).*)",
+    "/((?!api|_next/static|_next/image|assets|favicon.ico|sw.js|site.webmanifest|uploads).*)",
   ],
 };
 
 export function middleware(req: NextRequest) {
   if (req.nextUrl.pathname.startsWith("/image")) return NextResponse.next();
+
+  // Ignore uploads directory and static files
+  if (req.nextUrl.pathname.startsWith("/uploads/")) return NextResponse.next();
+
+  // Ignore static file extensions
+  if (req.nextUrl.pathname.match(/\.(png|jpg|jpeg|gif|svg|ico|webp|css|js)$/)) {
+    return NextResponse.next();
+  }
 
   // Ignore paths with "icon" or "chrome"
   if (
@@ -37,7 +45,7 @@ export function middleware(req: NextRequest) {
 
   // Check if the language is already in the path
   const lngInPath = languages.find((loc) =>
-    req.nextUrl.pathname.startsWith(`/${loc}`),
+    req.nextUrl.pathname.startsWith(`/${loc}`)
   );
   const headers = new Headers(req.headers);
   headers.set(headerName, lngInPath || lng);
@@ -46,7 +54,7 @@ export function middleware(req: NextRequest) {
   // If the language is not in the path, redirect to include it
   if (!lngInPath && !req.nextUrl.pathname.startsWith("/_next")) {
     return NextResponse.redirect(
-      new URL(`/${lng}${req.nextUrl.pathname}${req.nextUrl.search}`, req.url),
+      new URL(`/${lng}${req.nextUrl.pathname}${req.nextUrl.search}`, req.url)
     );
   }
 
@@ -54,7 +62,7 @@ export function middleware(req: NextRequest) {
   if (req.headers.has("referer")) {
     const refererUrl = new URL(req.headers.get("referer")!);
     const lngInReferer = languages.find((l) =>
-      refererUrl.pathname.startsWith(`/${l}`),
+      refererUrl.pathname.startsWith(`/${l}`)
     );
     const response = NextResponse.next({ headers });
     if (lngInReferer) response.cookies.set(cookieName, lngInReferer);

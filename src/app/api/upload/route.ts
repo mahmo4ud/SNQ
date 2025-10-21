@@ -5,6 +5,15 @@ import path from "path";
 export const runtime = "nodejs";
 
 export async function POST(request: Request) {
+  // Check content type
+  const contentType = request.headers.get("content-type");
+  if (!contentType || !contentType.includes("multipart/form-data")) {
+    return NextResponse.json(
+      { error: "Content-Type must be multipart/form-data" },
+      { status: 400 }
+    );
+  }
+
   const formData = await request.formData();
   const image = formData.get("image") as File;
 

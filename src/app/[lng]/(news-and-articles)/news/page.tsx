@@ -1,37 +1,43 @@
-"use client"
-import React from 'react'
-import { useT } from '@/app/i18n/client'
-import HeroTitle from '@/components/hero-title'
-import NewsCard from '@/app/[lng]/(news-and-articles)/news/components/news-card'
-import { getAllNews, type NewsListItem } from '@/query/new/get-all-new'
+"use client";
+import React from "react";
+import { useT } from "@/app/i18n/client";
+import HeroTitle from "@/components/hero-title";
+import NewsCard from "@/app/[lng]/(news-and-articles)/news/components/news-card";
+import { getAllNews, type NewsListItem } from "@/query/new/get-all-new";
 
 export default function Page() {
-  const { t, i18n } = useT("news")
-  const [news, setNews] = React.useState<NewsListItem[]>([])
+  const { t, i18n } = useT("news");
+  const [news, setNews] = React.useState<NewsListItem[]>([]);
 
   React.useEffect(() => {
-    let mounted = true
-    ;(async () => {
-      const res = await getAllNews()
-      if (mounted && res.success) setNews(res.data)
-    })()
-    return () => { mounted = false }
-  }, [])
+    let mounted = true;
+    (async () => {
+      const res = await getAllNews();
+      if (mounted && res.success) setNews(res.data);
+    })();
+    return () => {
+      mounted = false;
+    };
+  }, []);
 
   const formatDate = (iso: string) => {
     try {
-      const locale = i18n.language === 'ar' ? 'ar-EG' : 'en-US'
-      return new Date(iso).toLocaleDateString(locale, { year: 'numeric', month: 'short', day: 'numeric' })
+      const locale = i18n.language === "ar" ? "ar-EG" : "en-US";
+      return new Date(iso).toLocaleDateString(locale, {
+        year: "numeric",
+        month: "short",
+        day: "numeric",
+      });
     } catch {
-      return iso
+      return iso;
     }
-  }
+  };
 
   return (
     <>
       {/* Hero Section */}
       <HeroTitle>{t("title")}</HeroTitle>
-      
+
       {/* News Grid Section */}
       <section className="w-full py-16 md:py-24 bg-white">
         <div className="w-5/6 mx-auto">
@@ -40,15 +46,18 @@ export default function Page() {
               <NewsCard
                 key={item.id}
                 id={item.id}
-                title={i18n.language === 'ar' ? item.titleAr : item.titleEn}
-                description={i18n.language === 'ar' ? item.contentAr : item.contentEn}
+                title={i18n.language === "ar" ? item.titleAr : item.titleEn}
+                description={
+                  i18n.language === "ar" ? item.contentAr : item.contentEn
+                }
                 date={formatDate(item.createdAt)}
-                readMore={t('readMore')}
+                readMore={t("readMore")}
+                imageUrl={item.imageUrl}
               />
             ))}
           </div>
         </div>
       </section>
     </>
-  )
+  );
 }

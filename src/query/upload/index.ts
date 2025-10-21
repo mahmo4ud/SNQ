@@ -5,7 +5,11 @@ export const uploadImage = async (file: File) => {
     const form = new FormData();
     form.append("image", file);
 
-    const res = await api.post("upload", form);
+    const res = await api.post("upload", form, {
+      headers: {
+        "Content-Type": "multipart/form-data",
+      },
+    });
 
     const url: string | undefined = res?.data?.url;
     return {
@@ -13,7 +17,9 @@ export const uploadImage = async (file: File) => {
       url,
     };
   } catch (err: unknown) {
-    const error = err as { response?: { status?: number; data?: Record<string, unknown> } };
+    const error = err as {
+      response?: { status?: number; data?: Record<string, unknown> };
+    };
     const status = error?.response?.status;
     const resp = error?.response?.data ?? {};
     return {
