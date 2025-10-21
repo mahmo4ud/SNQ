@@ -14,7 +14,7 @@ export type NewsListItem = {
 
 export const getAllNews = async () => {
   try {
-    const res = await api.get("/new/get-news");
+    const res = await api.get("new/get-news");
     return {
       success: true as const,
       data: (res?.data?.data ?? []) as NewsListItem[],

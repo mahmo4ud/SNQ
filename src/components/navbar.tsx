@@ -53,7 +53,6 @@ export default function Navbar() {
 
             {/* Desktop Menu - Hidden on small screens */}
             <div className="hidden lg:flex justify-center items-center gap-3 xl:gap-4 text-sm 2xl:text-base text-lite-primary font-medium leading-4 text-center">
-              <Link href={`/${currentLang}/management-login`} className={`hover:text-white transition-colors ${pathname === `/${currentLang}/management-login` && 'text-white'}`}>{t("managementLogin")}</Link>
               <Link href={`/${currentLang}`} className={`hover:text-white transition-colors ${pathname === `/${currentLang}` && 'text-white'}`}>{t("home")}</Link>
               {/* من نحن - قائمة منسدلة */}
               <Popover open={openDropdown === 'about'} onOpenChange={(open) => !open && handleMouseLeave()}>
@@ -90,7 +89,7 @@ export default function Navbar() {
                   </PopoverTrigger>
                   <PopoverContent align="start" className={`bg-primary border-none rounded-xl font-medium shadow-lg py-2 px-0 w-[calc(100%+80px)] text-nowrap mt-6 overflow-hidden`} dir={direction}>
                     <div className="flex flex-col text-sm 2xl:text-base">
-                      <Link href={`/${currentLang}/#commitment-to-clients`} className={`block px-4 py-2 text-lite-primary group hover:text-white hover:bg-lite-primary/20 transition-all`}>
+                      <Link href={`/${currentLang}/#commitment-to-clients`} className={`block px-4 py-2 text-lite-primary group hover:text-white hover:bg-lite-primary/20 transition-all ${pathname === `/${currentLang}/#commitment-to-clients` && 'text-white'}`}>
                         <span className={`inline-block w-full text-nowrap ${direction === 'rtl' ? 'group-hover:translate-x-[-5px]' : 'group-hover:translate-x-[5px]'} transition-all`}>{t("advantages.commitmentToClients")}</span>
                       </Link>
                       <Link href={`/${currentLang}/our-professional-approach`} className={`block px-4 py-2 text-lite-primary group hover:text-white hover:bg-lite-primary/20 transition-all ${pathname === `/${currentLang}/our-professional-approach` && 'text-white'}`}>
@@ -104,7 +103,7 @@ export default function Navbar() {
                 </div>
               </Popover>
               {/* الخدمات */}
-              <Link href={`/${currentLang}/services`} className={`hover:text-white transition-colors w-fit text-nowrap ${pathname === `/${currentLang}/services` && 'text-white'}`}>{t("services")}</Link>
+              <Link href={`/${currentLang}/#services`} className={`hover:text-white transition-colors w-fit text-nowrap ${pathname === `/${currentLang}/#services` && 'text-white'}`}>{t("services")}</Link>
               {/* الإستشارات القانونية - قائمة منسدلة */}
               <Popover open={openDropdown === 'legal-consultations'} onOpenChange={(open) => !open && handleMouseLeave()}>
                 <div onMouseEnter={() => handleMouseEnter('legal-consultations')} onMouseLeave={handleMouseLeave}>
@@ -166,7 +165,7 @@ export default function Navbar() {
                 </div>
               </Popover>
               <Link href={`/${currentLang}/contact-us`} className={`hover:text-white transition-colors w-fit text-nowrap ${pathname === `/${currentLang}/contact-us` && 'text-white'}`}>{t("contactUs")}</Link>
-              <LanguageButton />
+              <LanguageButton backGroundColor="bg-primary" textColor="text-lite-primary" activeColor="text-white" />
             </div>
           </div>
         </div>

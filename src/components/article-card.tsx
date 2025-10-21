@@ -3,7 +3,7 @@ import Link from 'next/link'
 import { useT } from '@/app/i18n/client'
 
 type Props = {
-  id: number
+  id: string
   title: string
   description: string
   date: string

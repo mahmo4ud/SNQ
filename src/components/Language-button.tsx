@@ -3,7 +3,13 @@ import { useT } from "@/app/i18n/client";
 import { usePathname, useRouter } from "next/navigation";
 import { useState, useEffect } from "react";
 
-export default function LanguageButton() {
+interface LanguageButtonProps {
+  backGroundColor: string;
+  textColor: string;
+  activeColor: string;
+}
+
+export default function LanguageButton({ backGroundColor, textColor, activeColor }: LanguageButtonProps) {
   const { i18n } = useT();
   const pathname = usePathname();
   const router = useRouter();
@@ -36,16 +42,16 @@ export default function LanguageButton() {
   return (
     <button
       onClick={handleLanguageSwitch}
-      className="w-fit font-medium bg-primary text-lite-primary text-sm 2xl:text-base flex gap-2 rounded-md px-2 xl:px-4 py-1 xl:py-2 cursor-pointer hover:shadow-inner/50 transition-all duration-300"
+      className={`w-fit font-medium ${backGroundColor} ${textColor} text-sm xl:text-base flex gap-2 rounded-md px-2 xl:px-4 py-1 xl:py-2 cursor-pointer hover:shadow-inner/50 transition-all duration-300`}
       aria-label="Switch Language"
     >
-      <span className={`transition-colors duration-300 ${currentLang === "en" ? "text-white" : ""}`}>
+      <span className={`transition-colors duration-300 ${currentLang === "en" && activeColor}`}>
         EN
       </span>
       <span>
         |
       </span> 
-      <span className={`transition-colors duration-300 ${currentLang === "ar" ? "text-white" : ""}`}>
+      <span className={`transition-colors duration-300 ${currentLang === "ar" && activeColor }`}>
         عربى
       </span>
     </button>

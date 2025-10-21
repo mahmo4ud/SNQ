@@ -1,7 +1,7 @@
 "use client"
 import Image from "next/image"
 import HeroCarousel from "./hero-carousel"
-import ServicesSection from "../../../components/services-section"
+import ServicesSection from "./services-section"
 import { useT } from "@/app/i18n/client"
 
 // Mobile Logo
@@ -37,7 +37,7 @@ export default function Page() {
       </section>
 
       {/* Services Section */}
-      <ServicesSection subTitle={true} image={MobileLogo} bgColor="bg-primary" />
+      <ServicesSection id="services" subTitle={true} image={MobileLogo} bgColor="bg-primary" />
       
       {/* Commitment Section */}
       <section id="commitment-to-clients" className="w-full h-screen flex justify-center items-center py-16 md:py-24 bg-transparent scroll-mt-[70px]">

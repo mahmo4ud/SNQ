@@ -24,30 +24,5 @@
     "messagePlaceholder": "Your Message",
     "submit": "Send"
   },
-  "newsItems": [
-    {
-      "id": 1,
-      "title": "Saudi Foundation Day 2024",
-      "description": "Happy Saudi Foundation Day 2024 to all who cherish security and prosperity...",
-      "date": "March 5, 2024",
-      "readMore": "Read More",
-      "image": "/hero-image.png"
-    },
-    {
-      "id": 2,
-      "title": "Saudi Foundation Day 2024",
-      "description": "Happy Saudi Foundation Day 2024 to all who cherish security and prosperity...",
-      "date": "March 5, 2024",
-      "readMore": "Read More",
-      "image": "/hero-image.png"
-    },
-    {
-      "id": 3,
-      "title": "Saudi Foundation Day 2024",
-      "description": "Happy Saudi Foundation Day 2024 to all who cherish security and prosperity...",
-      "date": "January 9, 2024",
-      "readMore": "Read More",
-      "image": "/hero-image.png"
-    }
-  ]
+  "readMore": "Read more"
 }

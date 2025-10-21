@@ -1,0 +1,22 @@
+{
+  "title": "News and Events Management",
+  "addNew": "Add New News",
+  "publishedNews": "Published News and Events",
+  "edit": "Edit Content",
+  "delete": "Delete News",
+  "titleAr": "Title in Arabic",
+  "titleEn": "Title in English",
+  "contentAr": "Content in Arabic",
+  "contentEn": "Content in English",
+  "imageUrl": "Image URL",
+  "cancel": "Cancel",
+  "save": "Save",
+  "create": "Create",
+  "confirmDelete": "Are you sure you want to delete this news?",
+  "deleteSuccess": "News deleted successfully",
+  "createSuccess": "News created successfully",
+  "updateSuccess": "News updated successfully",
+  "error": "An error occurred",
+  "loading": "Loading...",
+  "noNews": "No news published"
+}

@@ -11,7 +11,7 @@ export const editBlog = async (id: string, data: EditBlogInput) => {
   try {
     let headers: Record<string, string> = {};
     if (typeof window !== "undefined") {
-      const token = localStorage.getItem("token");
+      const token = localStorage.getItem("adminToken");
       if (!token) {
         return {
           success: false as const,
@@ -23,7 +23,7 @@ export const editBlog = async (id: string, data: EditBlogInput) => {
       headers = { Authorization: `Bearer ${token}` };
     }
 
-    const res = await api.patch("/blog/edit-blog", data, {
+    const res = await api.patch("blog/edit-blog", data, {
       params: { id },
       headers,
     });

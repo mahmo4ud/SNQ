@@ -6,7 +6,7 @@ export const login = async (email: string, password: string) => {
     const token: string | undefined = res?.data?.token;
 
     if (typeof window !== "undefined" && token) {
-      localStorage.setItem("token", token);
+      localStorage.setItem("adminToken", token);
       api.defaults.headers.common["Authorization"] = `Bearer ${token}`;
     }
 
@@ -23,10 +23,10 @@ export const login = async (email: string, password: string) => {
       success: false as const,
       status,
       messageEn:
-        data?.messageEn ??
+        (data?.messageEn as string) ??
         (status === 401 ? "Invalid credentials" : "Login failed"),
       messageAr:
-        data?.messageAr ??
+        (data?.messageAr as string) ??
         (status === 401 ? "البيانات المدخلة غير صحيحة" : "فشل تسجيل الدخول"),
     };
   }

@@ -4,14 +4,15 @@ import Link from 'next/link'
 import CardBg from '@/../public/news-card-bg.png'
 import { useT } from '@/app/i18n/client'
 type Props = {
-  id: number
+  id: string
   title: string
   description: string
   date: string
   readMore: string
+  hideImage?: boolean
 }
 
-export default function NewsCard({ id, title, description, date, readMore }: Props) {
+export default function NewsCard({ id, title, description, date, readMore, hideImage = false }: Props) {
 
   const { i18n } = useT()
   const direction = i18n.language === 'ar' ? 'rtl' : 'ltr'
@@ -21,14 +22,16 @@ export default function NewsCard({ id, title, description, date, readMore }: Pro
     <Link href={`/${lng}/news/${id}`}>
       <article className="flex flex-col rounded-xl overflow-hidden bg-[#F3F6F2] cursor-pointer">
         {/* Image Section with brown textured background */}
-        <div className="h-[13rem] relative overflow-hidden m-3 rounded-lg">
-          <Image 
-            src={CardBg}
-            alt="Card Background"
-            fill
-            className="object-cover"
-          />
-        </div>
+        {!hideImage && (
+          <div className="h-[13rem] relative overflow-hidden m-3 rounded-lg">
+            <Image 
+              src={CardBg}
+              alt="Card Background"
+              fill
+              className="object-cover"
+            />
+          </div>
+        )}
 
         {/* Content Section */}
         <div className="flex flex-col gap-3 p-4" dir={direction}>

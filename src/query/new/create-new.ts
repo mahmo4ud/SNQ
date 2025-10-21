@@ -12,7 +12,7 @@ export const createNew = async (data: CreateNewsInput) => {
   try {
     let headers: Record<string, string> = {};
     if (typeof window !== "undefined") {
-      const token = localStorage.getItem("token");
+      const token = localStorage.getItem("adminToken");
       if (!token) {
         return {
           success: false as const,
@@ -24,7 +24,7 @@ export const createNew = async (data: CreateNewsInput) => {
       headers = { Authorization: `Bearer ${token}` };
     }
 
-    const res = await api.post("/new/create-new", data, { headers });
+    const res = await api.post("new/create-new", data, { headers });
 
     return {
       success: true as const,

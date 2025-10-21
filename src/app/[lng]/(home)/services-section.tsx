@@ -44,9 +44,10 @@ interface ServicesSectionProps {
   image?: string | StaticImageData,
   bgColor?: string,
   subTitle?: boolean,
+  id?: string,
 }
 
-export default function ServicesSection({ image, bgColor = "bg-primary", subTitle = false }: ServicesSectionProps) {
+export default function ServicesSection({ image, bgColor = "bg-primary", subTitle = false, id }: ServicesSectionProps) {
   const { t, i18n } = useT("services")
   const [hoveredCard, setHoveredCard] = useState<number | null>(null)
   const direction = i18n.language === "ar" ? "rtl" : "ltr"
@@ -113,7 +114,7 @@ export default function ServicesSection({ image, bgColor = "bg-primary", subTitl
   }
 
   return (
-    <section className={`relative w-full py-16 md:py-24 ${bgColor}`}>
+    <section id={id} className={`relative w-full py-16 md:py-24 ${bgColor}`}>
       {image && (
         <Image src={image} alt="Mobile Logo" className="w-[35rem] absolute top-20 left-1/2 -translate-x-1/2 z-1 opacity-5" />
       )}

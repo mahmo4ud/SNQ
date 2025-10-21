@@ -41,6 +41,7 @@ export function middleware(req: NextRequest) {
   );
   const headers = new Headers(req.headers);
   headers.set(headerName, lngInPath || lng);
+  headers.set("x-pathname", req.nextUrl.pathname);
 
   // If the language is not in the path, redirect to include it
   if (!lngInPath && !req.nextUrl.pathname.startsWith("/_next")) {

@@ -13,7 +13,7 @@ export type BlogListItem = {
 
 export const getAllBlogs = async () => {
   try {
-    const res = await api.get("/blog/get-blogs");
+    const res = await api.get("blog/get-blogs");
     return {
       success: true as const,
       data: (res?.data?.data ?? []) as BlogListItem[],

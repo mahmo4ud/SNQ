@@ -293,7 +293,7 @@ export default function SideMenu({ isOpen, onClose }: SideMenuProps) {
           >
             {t("contactUs")}
           </Link>
-          <LanguageButton />
+          <LanguageButton backGroundColor="bg-primary" textColor="text-lite-primary" activeColor="text-white" />
         </div>
       </div>
     </>

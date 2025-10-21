@@ -17,3 +17,32 @@ html {
 body {
   font-family: var(--font-ibm-plex-sans-arabic);
 }
+
+/* Custom Scrollbar Styles */
+/* Scrollbar follows content direction automatically */
+.overflow-y-auto::-webkit-scrollbar {
+  width: 8px;
+}
+
+.overflow-y-auto::-webkit-scrollbar-track {
+  background: rgba(57, 76, 49, 0.1); /* primary/10 */
+  border-radius: 4px;
+}
+
+.overflow-y-auto::-webkit-scrollbar-thumb {
+  background: var(--color-primary); /* primary color */
+  border-radius: 4px;
+}
+
+.overflow-y-auto::-webkit-scrollbar-thumb:hover {
+  background: var(--color-lite-primary); /* darker primary */
+}
+
+/* Ensure scrollbar position follows direction */
+[dir="rtl"] .overflow-y-auto {
+  direction: ltr; /* Scrollbar on the left */
+}
+
+[dir="ltr"] .overflow-y-auto {
+  direction: rtl; /* Scrollbar on the right */
+}

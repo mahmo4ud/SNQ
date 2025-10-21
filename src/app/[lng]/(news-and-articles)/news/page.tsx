@@ -3,18 +3,29 @@ import React from 'react'
 import { useT } from '@/app/i18n/client'
 import HeroTitle from '@/components/hero-title'
 import NewsCard from '@/components/news-card'
-
-type NewsItem = {
-  id: number
-  title: string
-  description: string
-  date: string
-  readMore: string
-}
+import { getAllNews, type NewsListItem } from '@/query/new/get-all-new'
 
 export default function Page() {
-  const { t } = useT("news")
-  const newsItems = t("newsItems", { returnObjects: true }) as NewsItem[]
+  const { t, i18n } = useT("news")
+  const [news, setNews] = React.useState<NewsListItem[]>([])
+
+  React.useEffect(() => {
+    let mounted = true
+    ;(async () => {
+      const res = await getAllNews()
+      if (mounted && res.success) setNews(res.data)
+    })()
+    return () => { mounted = false }
+  }, [])
+
+  const formatDate = (iso: string) => {
+    try {
+      const locale = i18n.language === 'ar' ? 'ar-EG' : 'en-US'
+      return new Date(iso).toLocaleDateString(locale, { year: 'numeric', month: 'short', day: 'numeric' })
+    } catch {
+      return iso
+    }
+  }
 
   return (
     <>
@@ -25,14 +36,14 @@ export default function Page() {
       <section className="w-full py-16 md:py-24 bg-white">
         <div className="w-5/6 mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-            {newsItems.map((item) => (
+            {news.map((item) => (
               <NewsCard
                 key={item.id}
                 id={item.id}
-                title={item.title}
-                description={item.description}
-                date={item.date}
-                readMore={item.readMore}
+                title={i18n.language === 'ar' ? item.titleAr : item.titleEn}
+                description={i18n.language === 'ar' ? item.contentAr : item.contentEn}
+                date={formatDate(item.createdAt)}
+                readMore={t('readMore')}
               />
             ))}
           </div>

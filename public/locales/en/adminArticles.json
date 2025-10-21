@@ -1,0 +1,21 @@
+{
+  "title": "Articles Management",
+  "addNew": "Add New Article",
+  "publishedArticles": "Published Articles",
+  "edit": "Edit Content",
+  "delete": "Delete Article",
+  "titleAr": "Title in Arabic",
+  "titleEn": "Title in English",
+  "contentAr": "Content in Arabic",
+  "contentEn": "Content in English",
+  "cancel": "Cancel",
+  "save": "Save",
+  "create": "Create",
+  "confirmDelete": "Are you sure you want to delete this article?",
+  "deleteSuccess": "Article deleted successfully",
+  "createSuccess": "Article created successfully",
+  "updateSuccess": "Article updated successfully",
+  "error": "An error occurred",
+  "loading": "Loading...",
+  "noArticles": "No articles published"
+}

@@ -11,7 +11,7 @@ export const createBlog = async (data: CreateBlogInput) => {
   try {
     let headers: Record<string, string> = {};
     if (typeof window !== "undefined") {
-      const token = localStorage.getItem("token");
+      const token = localStorage.getItem("adminToken");
       if (!token) {
         return {
           success: false as const,
@@ -23,7 +23,7 @@ export const createBlog = async (data: CreateBlogInput) => {
       headers = { Authorization: `Bearer ${token}` };
     }
 
-    const res = await api.post("/blog/create-blog", data, { headers });
+    const res = await api.post("blog/create-blog", data, { headers });
 
     return {
       success: true as const,

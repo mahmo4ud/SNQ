@@ -12,7 +12,7 @@ export const editNew = async (id: string, data: EditNewsInput) => {
   try {
     let headers: Record<string, string> = {};
     if (typeof window !== "undefined") {
-      const token = localStorage.getItem("token");
+      const token = localStorage.getItem("adminToken");
       if (!token) {
         return {
           success: false as const,
@@ -24,7 +24,7 @@ export const editNew = async (id: string, data: EditNewsInput) => {
       headers = { Authorization: `Bearer ${token}` };
     }
 
-    const res = await api.patch("/new/edit-new", data, { params: { id }, headers });
+    const res = await api.patch("new/edit-new", data, { params: { id }, headers });
 
     return {
       success: true as const,

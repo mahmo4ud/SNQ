@@ -14,7 +14,7 @@ export type NewsDetail = {
 
 export const getOneNew = async (id: string) => {
   try {
-    const res = await api.get("/new/get-one-new", { params: { id } });
+    const res = await api.get("new/get-one-new", { params: { id } });
     return {
       success: true as const,
       data: (res?.data?.data ?? null) as NewsDetail | null,

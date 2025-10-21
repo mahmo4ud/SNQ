@@ -4,7 +4,7 @@ export const deleteBlog = async (id: string) => {
   try {
     let headers: Record<string, string> = {};
     if (typeof window !== "undefined") {
-      const token = localStorage.getItem("token");
+      const token = localStorage.getItem("adminToken");
       if (!token) {
         return {
           success: false as const,
@@ -16,7 +16,7 @@ export const deleteBlog = async (id: string) => {
       headers = { Authorization: `Bearer ${token}` };
     }
 
-    const res = await api.delete("/blog/delete-blog", {
+    const res = await api.delete("blog/delete-blog", {
       params: { id },
       headers,
     });

@@ -13,7 +13,7 @@ export type BlogDetail = {
 
 export const getOneBlog = async (id: string) => {
   try {
-    const res = await api.get("/blog/get-one-blog", { params: { id } });
+    const res = await api.get("blog/get-one-blog", { params: { id } });
     return {
       success: true as const,
       data: (res?.data?.data ?? null) as BlogDetail | null,
