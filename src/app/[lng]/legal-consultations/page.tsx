@@ -12,26 +12,20 @@ export default function Page() {
   const contactInfo = [
     {
       icon: ClockIcon,  
-      title: t("contact.hours.label"),
-      value: t("contact.hours.value"),
-      href: null
+      value: t("contact.hours"),
     },
     {
       icon: EnvelopeIcon,
-      title: t("contact.email.label"),
-      value: t("contact.email.value"),
+      value: t("contact.email"),
       href: "mailto:info@sqsqa.com"
     },
     {
       icon: MapPinIcon,
-      title: t("contact.location.label"),
-      value: t("contact.location.value"),
-      href: null
+      value: t("contact.location"),
     },
     {
       icon: PhoneIcon,
-      title: t("contact.phone.label"),
-      value: t("contact.phone.value"),
+      value: t("contact.phone"),
       href: "tel:+966570868090"
     },
   ]
@@ -52,7 +46,7 @@ export default function Page() {
               const content = (
                 <div className="flex flex-col items-center justify-center p-6">
                   <IconComponent className="w-10 h-10 text-gold mb-4" strokeWidth={1.5} />
-                  <h3 className="font-medium text-gray-500" dir={direction}>
+                  <h3 className="font-medium text-gray-500 whitespace-pre-line text-center" dir={direction}>
                     {info.value}
                   </h3>
                 </div>

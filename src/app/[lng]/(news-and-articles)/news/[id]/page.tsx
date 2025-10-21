@@ -73,19 +73,12 @@ export default function NewsDetailPage({ params }: NewsDetailPageProps) {
           {/* News Banner */}
           <div className="mb-8">
             <div className="relative h-64 md:h-80 lg:h-130 overflow-hidden rounded-2xl bg-gray-50">
-              {news?.imageUrl ? (
+              {news?.imageUrl && (
                 <Image
                   src={`${news.imageUrl}`}
                   alt={i18n.language === 'ar' ? news.titleAr : news.titleEn}
                   fill
                   unoptimized
-                  className="object-cover"
-                />
-              ) : (
-                <Image 
-                  src={CardBg}
-                  alt={(i18n.language === 'ar' ? news?.titleAr : news?.titleEn) || 'News'}
-                  fill
                   className="object-cover"
                 />
               )}

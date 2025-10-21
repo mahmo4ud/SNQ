@@ -1,21 +1,9 @@
 {
   "contact": {
-    "phone": {
-      "label": "Phone",
-      "value": "(+966) 570680090"
-    },
-    "location": {
-      "label": "Kingdom of Saudi Arabia",
-      "value": "Riyadh"
-    },
-    "email": {
-      "label": "Email",
-      "value": "info@sqsqa.com"
-    },
-    "hours": {
-      "label": "Sunday - Thursday",
-      "value": "9 AM - 5 PM"
-    }
+    "phone": "(+966) 570680090",
+    "location": "Kingdom of Saudi Arabia\nRiyadh",
+    "email": "info@sqsqa.com",
+    "hours": "Sunday - Thursday\n8 AM - 6 PM"
   },
   "booking": {
     "title": "Book Your Free Consultation",

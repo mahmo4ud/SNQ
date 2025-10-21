@@ -27,7 +27,7 @@ export default function FloatingContacts() {
         target="_blank"
         rel="noopener noreferrer"
         aria-label="WhatsApp"
-        className="md:w-12 md:h-12 w-10 h-10 rounded-full bg-green-500 text-white shadow-lg flex items-center justify-center hover:scale-110 active:scale-95 transition-transform"
+        className="md:w-12 md:h-12 w-10 h-10 rounded-full bg-primary text-white shadow-lg flex items-center justify-center hover:scale-110 active:scale-95 transition-transform"
       >
         {/* WhatsApp Icon (same path used in footer) */}
         <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
