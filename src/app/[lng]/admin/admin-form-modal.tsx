@@ -136,7 +136,7 @@ export default function AdminFormModal({
                     onChange={(e) => field.onChange(e.target.value)}
                     required={field.required ?? true}
                     rows={6}
-                    className="w-full px-4 py-2 bg-gray-50 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary resize-none"
+                    className="w-full px-4 py-2 bg-gray-50 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary resize-none whitespace-pre-wrap"
                     dir={field.direction}
                   />
                 ) : field.type === "file" ? (

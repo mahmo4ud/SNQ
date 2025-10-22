@@ -3,17 +3,23 @@ import React from "react";
 import { useT } from "@/app/i18n/client";
 import HeroTitle from "@/components/hero-title";
 import NewsCard from "@/app/[lng]/(news-and-articles)/news/components/news-card";
+import { PageLoader } from "@/components/spinner";
 import { getAllNews, type NewsListItem } from "@/query/new/get-all-new";
 
 export default function Page() {
   const { t, i18n } = useT("news");
   const [news, setNews] = React.useState<NewsListItem[]>([]);
+  const [loading, setLoading] = React.useState(true);
 
   React.useEffect(() => {
     let mounted = true;
     (async () => {
-      const res = await getAllNews();
-      if (mounted && res.success) setNews(res.data);
+      try {
+        const res = await getAllNews();
+        if (mounted && res.success) setNews(res.data);
+      } finally {
+        if (mounted) setLoading(false);
+      }
     })();
     return () => {
       mounted = false;
@@ -33,6 +39,10 @@ export default function Page() {
     }
   };
 
+  if (loading) {
+    return <PageLoader />;
+  }
+
   return (
     <>
       {/* Hero Section */}
@@ -41,21 +51,27 @@ export default function Page() {
       {/* News Grid Section */}
       <section className="w-full py-16 md:py-24 bg-white">
         <div className="w-5/6 mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-            {news.map((item) => (
-              <NewsCard
-                key={item.id}
-                id={item.id}
-                title={i18n.language === "ar" ? item.titleAr : item.titleEn}
-                description={
-                  i18n.language === "ar" ? item.contentAr : item.contentEn
-                }
-                date={formatDate(item.createdAt)}
-                readMore={t("readMore")}
-                imageUrl={item.imageUrl}
-              />
-            ))}
-          </div>
+          {news.length === 0 ? (
+            <div className="py-20 text-center text-gold text-lg font-medium">
+              {t('empty')}
+            </div>
+          ) : (
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+              {news.map((item) => (
+                <NewsCard
+                  key={item.id}
+                  id={item.id}
+                  title={i18n.language === "ar" ? item.titleAr : item.titleEn}
+                  description={
+                    i18n.language === "ar" ? item.contentAr : item.contentEn
+                  }
+                  date={formatDate(item.createdAt)}
+                  readMore={t("readMore")}
+                  imageUrl={item.imageUrl}
+                />
+              ))}
+            </div>
+          )}
         </div>
       </section>
     </>

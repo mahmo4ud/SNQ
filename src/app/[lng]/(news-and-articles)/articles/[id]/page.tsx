@@ -3,6 +3,7 @@ import React from 'react'
 import { useT } from '@/app/i18n/client'
 import HeroTitle from '@/components/hero-title'
 import ArticleCard from '@/app/[lng]/(news-and-articles)/articles/components/article-card'
+import { PageLoader } from '@/components/spinner'
 import { getOneBlog, type BlogDetail } from '@/query/blog/get-one-blog'
 import { getAllBlogs, type BlogListItem } from '@/query/blog/get-all-blogs'
 // import ContactForm from '@/components/contact-form'
@@ -39,7 +40,7 @@ export default function ArticleDetailPage({ params }: ArticleDetailPageProps) {
         const [oneRes, allRes] = await Promise.all([getOneBlog(id), getAllBlogs()])
         if (mounted) {
           if (oneRes.success) setBlog(oneRes.data)
-          if (allRes.success) setRelatedBlogs(allRes.data.filter(b => b.id !== id).slice(0, 3))
+          if (allRes.success) setRelatedBlogs(allRes.data.filter(b => b.id !== id).slice(0, 4))
         }
       } finally {
         if (mounted) setLoading(false)
@@ -55,6 +56,10 @@ export default function ArticleDetailPage({ params }: ArticleDetailPageProps) {
     } catch {
       return iso
     }
+  }
+
+  if (loading) {
+    return <PageLoader />
   }
 
   return (
@@ -80,14 +85,14 @@ export default function ArticleDetailPage({ params }: ArticleDetailPageProps) {
 
           {/* Article Content */}
           <div className="prose prose-lg max-w-none mb-12" dir={direction}>
-            <p className="text-gray-700 text-xl leading-relaxed mb-4">
+            <p className="text-gray-700 text-xl leading-relaxed break-words whitespace-pre-wrap">
               {blog ? (i18n.language === 'ar' ? blog.contentAr : blog.contentEn) : ''}
             </p>
           </div>
         </div>
 
         {/* Related Articles Section */}
-        <div className="lg:w-1/3 mb-12">
+        <div className="lg:w-1/3 mb-12 lg:mb-0">
           <h2 className="text-2xl font-bold text-gold mb-8" dir={direction}>
             {t("relatedArticles.title")}
           </h2>

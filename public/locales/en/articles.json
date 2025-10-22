@@ -19,5 +19,6 @@
     "messagePlaceholder": "Write your message here",
     "submit": "Submit"
   },
-  "readMore": "Read more"
+  "readMore": "Read more",
+  "empty": "No Articles yet"
 }

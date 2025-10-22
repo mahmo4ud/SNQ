@@ -25,4 +25,6 @@
     "submit": "Send"
   },
   "readMore": "Read more"
+  ,
+  "empty": "No News yet"
 }

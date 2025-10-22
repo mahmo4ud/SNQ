@@ -1,6 +1,7 @@
 {
   "closeButton": "Close",
   "privacyPolicy": {
+    "pageTitle": "Privacy Policy",
     "title": "Privacy Policy",
     "intro": "Thank you for your trust and visit to the website of Saeed Nasser bin Qarad Law Firm and Legal Consultations | SNQ Law Firm",
     "paragraph1": "We value your privacy and confirm our commitment to protecting your personal data in accordance with the applicable laws and regulations for all necessary information collected by the website to provide services and improve experience, including but not limited to: (personal identification information, technical usage data, account information). You can browse the website and view our services without providing any data; your identity will remain anonymous throughout the browsing period unless an electronic form is submitted to request a service or an account is created within the website.",
@@ -23,6 +24,7 @@
     "retentionText": "We retain your personal data only for the period necessary to achieve the purposes for which it was collected or as required by regulations. After the need or regulatory period ends, it is deleted and anonymized securely."
   },
   "termsAndConditions": {
+    "pageTitle": "Terms and Conditions",
     "title": "Terms and Conditions of Use",
     "welcome": "Welcome to the website of Saeed Nasser bin Qarad Law Firm and Legal Consultations | SNQ Law Firm",
     "intro": "Please read these terms and conditions before using the website, as your access or use constitutes explicit agreement to abide by them.",
@@ -42,6 +44,7 @@
     "acceptance": "Your access to our website means your full review of these terms and conditions and your agreement to them."
   },
   "trademarkPolicy": {
+    "pageTitle": "Trademark Policy",
     "title": "Trademark Policy",
     "firmName": "Saeed Nasser bin Qarad Law Firm and Legal Consultations",
     "introTitle": "Introduction",

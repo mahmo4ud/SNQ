@@ -24,5 +24,6 @@
     "messagePlaceholder": "رسالتك",
     "submit": "إرسال"
   },
-  "readMore": "إقرأ المزيد"
+  "readMore": "إقرأ المزيد",
+  "empty": "لا يوجد أخبار حتى الأن"
 }

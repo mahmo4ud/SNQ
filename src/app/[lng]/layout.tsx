@@ -1,4 +1,4 @@
-import Footer from "@/components/footer/footer";
+import Footer from "@/components/footer";
 import Navbar from "@/components/navbar";
 import { ReactNode } from "react";
 import { getT } from "../i18n";
@@ -11,7 +11,7 @@ export default async function Layout({ children }: { children: ReactNode }){
   
   const headersList = await headers();
   const pathname = headersList.get("x-pathname") || "";
-  const isAdminRoute = pathname.includes("/sqn-admin") || pathname.includes("/admin/");
+  const isAdminRoute = pathname.includes("/snq-admin") || pathname.includes("/admin/");
 
   return (
     <>

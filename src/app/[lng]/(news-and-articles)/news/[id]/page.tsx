@@ -4,8 +4,8 @@ import Image from 'next/image'
 import { useT } from '@/app/i18n/client'
 import HeroTitle from '@/components/hero-title'
 import NewsCard from '@/app/[lng]/(news-and-articles)/news/components/news-card'
+import { PageLoader } from '@/components/spinner'
 // import ContactForm from '@/components/contact-form'
-import CardBg from '@/../public/news-card-bg.png'
 import { getOneNew, type NewsDetail } from '@/query/new/get-one-new'
 import { getAllNews, type NewsListItem } from '@/query/new/get-all-new'
 
@@ -41,7 +41,7 @@ export default function NewsDetailPage({ params }: NewsDetailPageProps) {
         const [oneRes, allRes] = await Promise.all([getOneNew(id), getAllNews()])
         if (mounted) {
           if (oneRes.success) setNews(oneRes.data)
-          if (allRes.success) setRelated(allRes.data.filter(n => n.id !== id).slice(0, 3))
+          if (allRes.success) setRelated(allRes.data.filter(n => n.id !== id).slice(0, 4))
         }
       } finally {
         if (mounted) setLoading(false)
@@ -59,6 +59,10 @@ export default function NewsDetailPage({ params }: NewsDetailPageProps) {
     }
   }
 
+  if (loading) {
+    return <PageLoader />
+  }
+
   return (
     <>
       {/* Hero Section with Dynamic Breadcrumb */}
@@ -66,11 +70,11 @@ export default function NewsDetailPage({ params }: NewsDetailPageProps) {
 
       {/* Main Content */}
       <section className="w-11/12 md:w-10/12 xl:w-9/12 mx-auto flex flex-col lg:flex-row gap-6 py-12 md:py-16 bg-white">
-        <div className="w-full md:w-4/5 mx-auto md:px-4">
+        <div className="w-full lg:w-4/5">
           
           {/* News Banner */}
           <div className="mb-8">
-            <div className="relative h-64 md:h-80 lg:h-130 overflow-hidden rounded-2xl bg-gray-50">
+            <div className="relative h-64 border border-gray-200 md:h-80 lg:h-130 overflow-hidden rounded-2xl bg-gray-50">
               {news?.imageUrl && (
                 <Image
                   src={`${news.imageUrl}`}
@@ -97,14 +101,14 @@ export default function NewsDetailPage({ params }: NewsDetailPageProps) {
 
           {/* News Content */}
           <div className="prose prose-lg w-full mb-12" dir={direction}>
-            <p className="text-gray-700 text-xl leading-relaxed mb-4 break-words">
+            <p className="text-gray-700 text-xl leading-relaxed break-words whitespace-pre-wrap">
               {news ? (i18n.language === 'ar' ? news.contentAr : news.contentEn) : ''}
             </p>
           </div>
         </div>
         
         {/* Related News Section */}
-        <div className="mb-12 w-full lg:w-1/3">
+        <div className="mb-12 lg:mb-0 w-full lg:w-1/3">
           <h2 className="text-2xl font-bold text-gold mb-8" dir={direction}>
             {t("relatedNews.title")}
           </h2>
