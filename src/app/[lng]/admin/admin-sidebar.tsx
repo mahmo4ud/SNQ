@@ -28,7 +28,7 @@ export default function AdminSidebar({ isOpen, onClose }: AdminSidebarProps) {
 
   const handleLogout = () => {
     localStorage.removeItem('adminToken');
-    router.push(`/${currentLang}/sqn-admin`);
+    router.push(`/${currentLang}/snq-admin`);
   };
 
   const menuItems = [
