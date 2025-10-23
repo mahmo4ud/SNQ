@@ -59,16 +59,15 @@ export default function NewsManagementPage() {
   const handleFileChange = async (file: File) => {
     setUploadingImage(true);
     try {
-      // ✅ رفع الصورة إلى Cloudinary عبر API upload
+      // Upload file to server and get the URL 
       const result = await uploadImage(file);
-
+      
       if (result.success && result.url) {
         setFormData({ ...formData, imageUrl: result.url });
       } else {
-        alert(
-          i18n.language === "ar"
-            ? result.messageAr ?? "فشل رفع الصورة"
-            : result.messageEn ?? "Failed to upload image"
+        alert(i18n.language === "ar" 
+          ? result.messageAr ?? "فشل رفع الصورة" 
+          : result.messageEn ?? "Failed to upload image"
         );
       }
     } catch (error) {
@@ -120,8 +119,10 @@ export default function NewsManagementPage() {
     try {
       let result;
       if (editingNews) {
+        // Update existing news
         result = await editNew(editingNews.id, formData);
       } else {
+        // Create new news
         result = await createNew(formData);
       }
 
@@ -152,6 +153,7 @@ export default function NewsManagementPage() {
 
     try {
       const result = await deleteNew(deletingNewsId);
+
       if (result.success) {
         handleCloseDeleteModal();
         fetchNews();
@@ -167,8 +169,12 @@ export default function NewsManagementPage() {
   return (
     <div className="xl:w-9/12 lg:w-10/12 md:w-11/12 w-full mx-auto px-6 py-8" dir={direction}>
       <div className="flex items-center w-full justify-between mt-10 mb-4">
-        <h1 className="text-2xl md:text-3xl font-bold text-primary text-center">{t("title")}</h1>
+        {/* Page Title */}
+        <h1 className="text-2xl md:text-3xl font-bold text-primary text-center">
+          {t("title")}
+        </h1>
 
+        {/* Add New Button */}
         <div className="flex justify-center">
           <button
             onClick={() => handleOpenModal()}
@@ -180,6 +186,7 @@ export default function NewsManagementPage() {
         </div>
       </div>
 
+      {/* News List */}
       <div className="bg-white border border-gray-200 rounded-2xl shadow-md p-4">
         <h2 className="text-xl font-semibold text-gold mb-4 pb-4 border-b border-gray-200">
           {t("publishedNews")}
@@ -236,6 +243,7 @@ export default function NewsManagementPage() {
         )}
       </div>
 
+      {/* Modal */}
       <AdminFormModal
         isOpen={showModal}
         onClose={handleCloseModal}
@@ -289,19 +297,16 @@ export default function NewsManagementPage() {
             accept: "image/png, image/jpeg, image/jpg, image/webp",
             onFileChange: handleFileChange,
             required: !editingNews,
-            uploadText: uploadingImage
-              ? i18n.language === "ar"
-                ? "جاري الرفع..."
-                : "Uploading..."
-              : i18n.language === "ar"
-              ? "انقر لتحميل الصورة"
-              : "Click to upload image",
+            uploadText: uploadingImage 
+              ? (i18n.language === "ar" ? "جاري الرفع..." : "Uploading...") 
+              : (i18n.language === "ar" ? "انقر لتحميل الصورة" : "Click to upload image"),
             uploadSubText: "PNG, JPG, JPEG, WEBP",
             uploading: uploadingImage,
           },
         ]}
       />
 
+      {/* Delete Confirmation Modal */}
       {showDeleteModal && (
         <div className="fixed inset-0 bg-black/40 bg-opacity-50 flex items-center justify-center z-80 p-6">
           <div className="bg-white rounded-2xl w-full max-w-md p-6 border-5 border-gold">

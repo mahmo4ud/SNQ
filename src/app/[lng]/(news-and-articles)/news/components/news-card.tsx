@@ -33,7 +33,7 @@ export default function NewsCard({
         {!hideImage && (
           <div className="h-[13rem] relative overflow-hidden m-3 rounded-lg">
             <Image
-              src={imageUrl || "/default-placeholder.png"}
+              src={imageUrl ?? `bg-gray-50`}
               alt="Card Background"
               fill
               className="object-cover"

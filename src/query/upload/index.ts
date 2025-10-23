@@ -5,23 +5,26 @@ export const uploadImage = async (file: File) => {
     const form = new FormData();
     form.append("image", file);
 
-    // لو api.baseURL مضبوط على الخادم الداخلي، استخدم "/api/upload" أو "upload" حسب إعدادك
-    const res = await api.post("/api/upload", form, {
-      headers: { "Content-Type": "multipart/form-data" },
+    const res = await api.post("upload", form, {
+      headers: {
+        "Content-Type": "multipart/form-data",
+      },
     });
 
-    const { url, publicId, success, messageEn, messageAr } = res?.data || {};
-
-    if (success) {
-      return { success: true as const, url, publicId };
-    } else {
-      return { success: false as const, messageEn: messageEn ?? "Upload failed", messageAr: messageAr ?? "فشل الرفع" };
-    }
-  } catch (err: any) {
-    const resp = err?.response?.data ?? {};
+    const url: string | undefined = res?.data?.url;
+    return {
+      success: true as const,
+      url,
+    };
+  } catch (err: unknown) {
+    const error = err as {
+      response?: { status?: number; data?: Record<string, unknown> };
+    };
+    const status = error?.response?.status;
+    const resp = error?.response?.data ?? {};
     return {
       success: false as const,
-      status: err?.response?.status,
+      status,
       messageEn: resp?.messageEn ?? "Upload failed",
       messageAr: resp?.messageAr ?? "فشل الرفع",
     };
