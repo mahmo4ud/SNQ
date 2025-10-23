@@ -13,16 +13,16 @@ jobs:
       - name: ⬇️ Checkout repository
         uses: actions/checkout@v4
 
-      - name: 🟢 Setup Node.js and pnpm
-        uses: pnpm/action-setup@v4
-        with:
-          version: 9 # or your preferred pnpm version
-
       - name: 🟢 Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 20
           cache: 'pnpm'
+
+      - name: 🟣 Setup pnpm
+        run: |
+          corepack enable
+          corepack prepare pnpm@9.12.0 --activate
 
       - name: 📦 Install dependencies
         run: pnpm install --frozen-lockfile
@@ -32,7 +32,7 @@ jobs:
 
       - name: 📁 Export static files
         run: pnpm export
-        # This creates the "out" directory (used for static deployment)
+        # This creates the "out" directory for static deployment
 
       - name: 🚀 Deploy to Hostinger via FTP
         uses: SamKirkland/FTP-Deploy-Action@v4.3.4
