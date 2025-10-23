@@ -3,7 +3,7 @@ name: 🚀 Build & Deploy Next.js to Hostinger
 on:
   push:
     branches:
-      - master
+      - main
 
 jobs:
   build-and-deploy:
