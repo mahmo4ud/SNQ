@@ -13,19 +13,25 @@ jobs:
       - name: ⬇️ Checkout repository
         uses: actions/checkout@v4
 
+      - name: 🟢 Setup Node.js and pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 9 # or your preferred pnpm version
+
       - name: 🟢 Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 20
+          cache: 'pnpm'
 
       - name: 📦 Install dependencies
-        run: npm ci --legacy-peer-deps
+        run: pnpm install --frozen-lockfile
 
       - name: 🛠️ Build Next.js project
-        run: npm run build
+        run: pnpm build
 
       - name: 📁 Export static files
-        run: npm run export
+        run: pnpm export
         # This creates the "out" directory (used for static deployment)
 
       - name: 🚀 Deploy to Hostinger via FTP
