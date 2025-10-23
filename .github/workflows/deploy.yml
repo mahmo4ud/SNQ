@@ -37,9 +37,9 @@ jobs:
       - name: 🚀 Deploy to Hostinger via FTP
         uses: SamKirkland/FTP-Deploy-Action@v4.3.4
         with:
-          server: ${{ ftp://82.197.80.53 }}
-          username: ${{ u844406143 }}
-          password: ${{ Snqsa@001 }}
+          server: ftp://82.197.80.53
+          username: u844406143
+          password: Snqsa@001
           protocol: ftps
           local-dir: out/
           server-dir: domains/snqsa.com/public_html/
