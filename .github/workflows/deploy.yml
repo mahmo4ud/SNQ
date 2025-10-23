@@ -42,4 +42,4 @@ jobs:
           password: ${{ Snqsa@001 }}
           protocol: ftps
           local-dir: out/
-          server-dir: domains/seven-ways.com/public_html/
+          server-dir: domains/snqsa.com/public_html/
