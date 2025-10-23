@@ -52,5 +52,5 @@ jobs:
           username: ${{ secrets.FTP_USER }}
           password: ${{ secrets.FTP_PASS }}
           protocol: ftps
-          local-dir: out/
+          local-dir: .next/
           server-dir: domains/snqsa.com/public_html/
