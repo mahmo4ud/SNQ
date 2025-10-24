@@ -249,8 +249,8 @@ export default function ArticlesManagementPage() {
 
       {/* Delete Confirmation Modal */}
       {showDeleteModal && (
-        <div className="fixed inset-0 bg-black/40 bg-opacity-50 flex items-center justify-center z-80 p-6">
-          <div className="bg-white rounded-2xl w-full max-w-md p-6 border-5 border-gold">
+        <div className="fixed inset-0 bg-black/40 bg-opacity-50 flex items-center justify-center z-80 p-6 backdrop-blur-xs">
+          <div className="bg-white rounded-2xl w-full max-w-md p-6">
             <h2 className="md:text-2xl font-medium text-primary mb-10" dir={direction}>
               {t("confirmDelete")}
             </h2>
