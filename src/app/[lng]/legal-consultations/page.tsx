@@ -17,7 +17,7 @@ export default function Page() {
     {
       icon: EnvelopeIcon,
       value: t("contact.email"),
-      href: "mailto:info@sqsqa.com"
+      href: "mailto:info@snqsa.com"
     },
     {
       icon: MapPinIcon,
@@ -67,7 +67,7 @@ export default function Page() {
           {/* Google Calendar Widget */}
           <div className="">
             <iframe 
-              src="https://calendar.google.com/calendar/appointments/schedules/AcZssZ1zyLZKN8GXz5YU--UlaLmUy-dnTnlfkYhLbXcUj6qTHKmH_GqU0_aEjfvht9dhsSlNCzx8peu0?gv=true"
+              src="https://calendar.google.com/calendar/appointments/schedules/AcZssZ1CQaASu2Kemmu8yeqCn_9APRBotGdAnkBBlYZih7w2eB3g-Zrl_YddtIcU621Mpzf-qeSLGoSd?gv=true"
               className="w-full h-[80vh] border-5 border-gold rounded-2xl"
             ></iframe>
           </div>

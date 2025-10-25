@@ -33,7 +33,7 @@ export default function Navbar() {
 
   return (
     <>
-      <nav className="flex items-center bg-red-500 h-[70px] sticky top-0 z-50 select-none" dir="rtl">
+      <nav className="flex items-center bg-primary h-[70px] sticky top-0 z-50 select-none" dir="rtl">
         <div className="flex items-center gap-3 xl:gap-6 w-17/18 h-full mx-auto">
           <div className="flex justify-between items-center h-full w-full gap-4">
             <div>

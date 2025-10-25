@@ -100,9 +100,9 @@ export default function ServicesSection({ image, bgColor = "bg-primary", subTitl
 
           
           <div className={`overflow-hidden transition-all duration-1000 ease-in-out ${isHovered ? 'max-h-[500px] opacity-100' : 'max-h-0 opacity-0'}`}>
-            <ul className="font-medium list-disc list-inside space-y-2 text-gray-400 text-sm md:text-base leading-relaxed pt-2">
+            <ul className={`font-medium list-disc list-outside space-y-4 text-gray-400 text-sm md:text-base leading-relaxed pt-2 ${direction === 'rtl' ? 'mr-5' : 'ml-5'}`}>
               {Array.isArray(items) && items.map((item, index) => (
-                <li key={index} style={{ direction: direction }}>
+                <li key={index}>
                   {item}
                 </li>
               ))}
